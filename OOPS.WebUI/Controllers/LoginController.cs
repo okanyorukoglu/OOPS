@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OOPS.DTO.ProjectBaseDTO;
+using OOPS.BLL.Abstract;
+using OOPS.DTO.ProjectBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace OOPS.WebUI.Controllers
 {
     public class LoginController : Controller
     {
+        private IUserService service;
+        public LoginController(IUserService _service)
+        {
+            service = _service;
+        }
         public ActionResult UserLogin()
         {
             return View();
@@ -19,7 +25,24 @@ namespace OOPS.WebUI.Controllers
         {
             //Kullanıcı girişi kontrolü yapılacak
             //true ise adrese gidecek.
-            return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
+            {
+                UserDTO selectedUser = service.LoginUser(userModel);
+                if (selectedUser == null)
+                {
+                    return new BadRequestObjectResult("Kullanıcı adı veya Parola doğrulanmadı");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                
+            }
+            else
+            {
+                return View("UserLogin");
+            }
+            
         }
     }
 }

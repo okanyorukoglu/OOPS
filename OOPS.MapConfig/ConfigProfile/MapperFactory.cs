@@ -10,12 +10,20 @@ namespace OOPS.MapConfig.ConfigProfile
 {
     public class MapperFactory
     {
+        private static readonly object locker = new object();
         private static IMapper _mapper;
         public static IMapper CurrentMapper
         {
             get
             {
-                return _mapper;
+                lock (locker)
+                {
+                    if (_mapper == null)
+                    {
+                        throw new Exception("Mapper Not Initialize");
+                    }
+                    return _mapper;
+                }
             }
             set
             {

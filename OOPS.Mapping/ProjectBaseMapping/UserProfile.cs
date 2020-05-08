@@ -1,4 +1,4 @@
-﻿using OOPS.DTO.ProjectBaseDTO;
+﻿using OOPS.DTO.ProjectBase;
 using OOPS.MapConfig.ConfigProfile;
 using OOPS.Model.ProjectBaseModel;
 using System;
