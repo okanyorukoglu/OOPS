@@ -9,10 +9,9 @@ namespace OOPS.Model.ProjectBaseModel
     {
         public Role()
         {
-            UserCompanies = new HashSet<UserCompany>();
+            Users = new HashSet<User>();
         }
-
         public string Name { get; set; }
-        public ICollection<UserCompany> UserCompanies { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

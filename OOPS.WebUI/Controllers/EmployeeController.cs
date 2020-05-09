@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OOPS.BLL.Abstract;
+using OOPS.DTO.ProjectBase;
 
 namespace OOPS.WebUI.Controllers
 {
@@ -15,6 +16,19 @@ namespace OOPS.WebUI.Controllers
             service = _service;
         }
         public IActionResult Index()
+        {
+            //Giriş yapan kullanıcının EMployee Id boş degılse = ? Detail sayfasını çapırmak lazım.
+            if (true)
+            {
+
+            }
+            else
+            {
+                service.getCompanyEmployees(new UserDTO());
+            }
+            return View();
+        }
+        public IActionResult List()
         {
             return View();
         }

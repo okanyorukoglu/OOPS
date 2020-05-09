@@ -12,11 +12,11 @@ namespace OOPS.Model.CompanyModels
         public Company()
         {
             Employees = new HashSet<Employee>();
-            UserCompanies = new HashSet<UserCompany>();
+            Users = new HashSet<User>();
         }
         public string CompanyName { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
-        public virtual ICollection<UserCompany> UserCompanies { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

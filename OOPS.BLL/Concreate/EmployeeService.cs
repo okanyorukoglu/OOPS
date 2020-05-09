@@ -2,6 +2,8 @@
 using OOPS.Core.Data.UnitOfWork;
 using OOPS.DTO.Employee;
 using OOPS.DTO.ProjectBase;
+using OOPS.MapConfig.ConfigProfile;
+using OOPS.Model.CompanyModels;
 using OOPS.Model.ProjectBaseModel;
 using System;
 using System.Collections.Generic;
@@ -22,13 +24,10 @@ namespace OOPS.BLL.Concreate
             throw new NotImplementedException();
         }
 
-        public List<EmployeeDTO> getCompanyEmployees(UserCompanyDTO usercompany)
+        public List<EmployeeDTO> getCompanyEmployees(UserDTO user)
         {
-            //var companyEmployee = uow.GetRepository<UserCompany>().GetAll().Where(z => z.CompanyId == usercompany.CompanyId
-            //                                                                       && z.RoleId == usercompany.RoleId
-            //                                                                       && z.UserId == usercompany.UserId).ToList();
-            //return  
-            throw new NotImplementedException();
+            var companyEmployee = uow.GetRepository<User>().Get(z => z.Company.Employees.FirstOrDefault(a => a.Company.Id == user.Company.Id));
+            return MapperFactory.CurrentMapper.Map<List<EmployeeDTO>>(companyEmployee);
         }
 
         public EmployeeDTO getEmployee(int Id)

@@ -8,9 +8,10 @@ namespace OOPS.DTO.Company
 {
     public class CompanyDTO
     {
+        public int Id { get; set; }
         public string CompanyName { get; set; }
         public virtual List<EmployeeDTO> Employees { get; set; }
-        public virtual List<UserCompanyDTO> UserCompanies { get; set; }
+        public virtual List<UserDTO> Users { get; set; }
 
     }
 }

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +15,7 @@ using OOPS.BLL.Concreate;
 using OOPS.Core.Data.UnitOfWork;
 using OOPS.DAL;
 using OOPS.MapConfig.ConfigProfile;
+using OOPS.WebUI.CustomHandler;
 
 namespace OOPS.WebUI
 {
@@ -42,6 +45,28 @@ namespace OOPS.WebUI
                 context.Database.Migrate();
             }
 
+
+            services.AddAuthentication("CookieAuthentication")
+              .AddCookie("CookieAuthentication", config =>
+              {
+                  config.Cookie.Name = "UserLoginCookie"; // Name of cookie     
+                   config.LoginPath = "/Login"; // Path for the redirect to user login page    
+                   config.AccessDeniedPath = "/AccessDenied";
+              });
+
+            services.AddAuthorization(config =>
+            {
+                config.AddPolicy("UserPolicy", policyBuilder =>
+                {
+                    policyBuilder.UserRequireCustomClaim(ClaimTypes.Email);
+                    policyBuilder.UserRequireCustomClaim(ClaimTypes.DateOfBirth);
+                });
+            });
+
+            services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
+            services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
+
+
             services.AddSingleton<IUnitofWork, UnitofWork>();
             services.AddSingleton<IUserService, UserService>();
         }
@@ -61,14 +86,37 @@ namespace OOPS.WebUI
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "Dashboard",
+                    pattern: "Dashboard",
+                    defaults: new { controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                     name: "Login",
+                     pattern: "Login",
+                     defaults: new { controller = "Login", action = "UserLogin" });
+
+                endpoints.MapControllerRoute(
+                    name: "AccessDenied",
+                    pattern: "AccessDenied",
+                    defaults: new { controller = "Login", action = "UserAccessDenied" });
+
+                endpoints.MapControllerRoute(
+                     name: "Logout",
+                     pattern: "Logout",
+                     defaults: new { controller = "Login", action = "Logout" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=UserLogin}/{id?}");
+                    pattern: "{controller=Rooms}/{action=Index}/{id?}");
             });
+
         }
     }
 }

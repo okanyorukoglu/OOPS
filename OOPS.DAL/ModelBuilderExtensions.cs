@@ -74,7 +74,8 @@ namespace OOPS.DAL
                  UserName = "hakanmert",
                  EMail = "hakanmert@gmail.com",
                  Password = "1234",
-                 EmployeeId = 5
+                 RoleId = 1,
+                 CompanyId=1
 
              },
             new User
@@ -84,24 +85,8 @@ namespace OOPS.DAL
                 UserName = "cansever",
                 EMail = "cansever@gmail.com",
                 Password = "1234",
-                EmployeeId = 2
-            }
-             );
-
-            modelBuilder.Entity<UserCompany>().HasData(
-             new UserCompany
-             {
-                 Id = 1,
-                 UserId = 3,
-                 CompanyId = 1,
-                 RoleId = 1
-             },
-            new UserCompany
-            {
-                Id = 2,
-                UserId = 2,
-                CompanyId = 2,
-                RoleId = 1
+                RoleId = 2,
+                CompanyId=2
             }
              );
 
@@ -117,6 +102,7 @@ namespace OOPS.DAL
                     Name = "Çalışan"
                 }
                 );
+
         }
     }
 }

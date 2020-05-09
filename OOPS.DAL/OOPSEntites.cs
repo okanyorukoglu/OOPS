@@ -15,11 +15,11 @@ namespace OOPS.DAL
 
         }
 
-        public DbSet<User> User { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
-        public DbSet<UserCompany> UserCompanies { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

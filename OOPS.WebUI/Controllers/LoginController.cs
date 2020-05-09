@@ -1,20 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using OOPS.BLL.Abstract;
 using OOPS.DTO.ProjectBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace OOPS.WebUI.Controllers
 {
     public class LoginController : Controller
     {
-        private IUserService service;
-        public LoginController(IUserService _service)
+        private readonly IUserService userService;
+        private readonly IRoleService roleService;
+        public LoginController(IUserService _userService, IRoleService _roleService)
         {
-            service = _service;
+            userService = _userService;
+            roleService = _roleService;
         }
+
         public ActionResult UserLogin()
         {
             return View();
@@ -23,26 +28,42 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public ActionResult UserLogin(UserDTO userModel)
         {
-            //Kullanıcı girişi kontrolü yapılacak
-            //true ise adrese gidecek.
-            if (ModelState.IsValid)
+            // username = anet  
+            var user = userService.FindwithUsernameandMail(userModel.EMail, userModel.Password);
+
+            if (user != null)
             {
-                UserDTO selectedUser = service.LoginUser(userModel);
-                if (selectedUser == null)
+                user.Role = roleService.GetById((int)user.RoleId);
+                var userClaims = new List<Claim>()
                 {
-                    return new BadRequestObjectResult("Kullanıcı adı veya Parola doğrulanmadı");
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                
+                    new Claim("UserName", user.UserName),
+                    new Claim(ClaimTypes.Name, user.FullName),
+                    new Claim(ClaimTypes.Email, user.EMail),
+                    new Claim(ClaimTypes.Role, user.Role.Name),
+                    new Claim("RoleName", user.Role.Name),
+                 };
+
+                var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
+
+                var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
+                HttpContext.SignInAsync(userPrincipal);
+
+                return RedirectToAction("Index", "Home");
             }
-            else
-            {
-                return View("UserLogin");
-            }
-            
+
+            return View(user);
+        }
+
+        [HttpGet]
+        public ActionResult UserAccessDenied()
+        {
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            HttpContext.SignOutAsync();
+            return RedirectToAction("UserLogin");
         }
     }
 }
