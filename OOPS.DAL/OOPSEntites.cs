@@ -19,7 +19,13 @@ namespace OOPS.DAL
         public DbSet<Company> Companies { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
-        public DbSet<UserCompany> userCompanies { get; set; }
+        public DbSet<UserCompany> UserCompanies { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
 
     }
 }

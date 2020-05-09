@@ -54,8 +54,8 @@ namespace OOPS.BLL.Concreate
 
         public UserDTO LoginUser(UserDTO loginUser)
         {
-            var getUser = uow.GetRepository<User>().Get(z => z.EMail == loginUser.EMail || 
-                                                        z.UserName == loginUser.UserName &&
+            var getUser = uow.GetRepository<User>().Get(z => (z.EMail == loginUser.EMail || 
+                                                        z.UserName == loginUser.UserName) &&
                                                         z.Password == loginUser.Password);
             return MapperFactory.CurrentMapper.Map<UserDTO>(getUser);
         }

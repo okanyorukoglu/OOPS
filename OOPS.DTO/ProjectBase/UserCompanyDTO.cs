@@ -7,6 +7,7 @@ namespace OOPS.DTO.ProjectBase
 {
     public class UserCompanyDTO
     {
+        public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
         public Nullable<int> RoleId { get; set; }
         public Nullable<int> CompanyId { get; set; }
