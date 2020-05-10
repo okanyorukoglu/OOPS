@@ -24,9 +24,9 @@ namespace OOPS.BLL.Concreate
             throw new NotImplementedException();
         }
 
-        public List<EmployeeDTO> getCompanyEmployees(UserDTO user)
+        public List<EmployeeDTO> getCompanyEmployees(int companyId)
         {
-            var companyEmployee = uow.GetRepository<User>().Get(z => z.Company.Employees.FirstOrDefault(a => a.Company.Id == user.Company.Id));
+            var companyEmployee = uow.GetRepository<User>().Get(z => z.Company.Employees.FirstOrDefault(a => a.Company.Id == companyId));
             return MapperFactory.CurrentMapper.Map<List<EmployeeDTO>>(companyEmployee);
         }
 

@@ -48,6 +48,13 @@ namespace OOPS.DAL
                 Name = "Hakan",
                 Surname = "Mert",
                 CompanyID = 1
+            },
+            new Employee
+            {
+                Id = 6,
+                Name = "Aslı",
+                Surname = "Koç",
+                CompanyID = 1
             }
             );
 
@@ -75,7 +82,8 @@ namespace OOPS.DAL
                  EMail = "hakanmert@gmail.com",
                  Password = "1234",
                  RoleId = 1,
-                 CompanyId=1
+                 CompanyId=1,
+                 EmployeeId=null
 
              },
             new User
@@ -86,7 +94,8 @@ namespace OOPS.DAL
                 EMail = "cansever@gmail.com",
                 Password = "1234",
                 RoleId = 2,
-                CompanyId=2
+                CompanyId=2,
+                EmployeeId=null
             }
              );
 

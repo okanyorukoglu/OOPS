@@ -70,6 +70,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IUnitofWork, UnitofWork>();
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IRoleService, RoleService>();
+            services.AddSingleton<IEmployeeService, EmployeeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

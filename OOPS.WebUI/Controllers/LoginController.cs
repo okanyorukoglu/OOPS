@@ -41,6 +41,7 @@ namespace OOPS.WebUI.Controllers
                     new Claim(ClaimTypes.Email, user.EMail),
                     new Claim(ClaimTypes.Role, user.Role.Name),
                     new Claim("RoleName", user.Role.Name),
+                    new Claim("CompanyId", user.CompanyId.ToString()),
                     new Claim("EmpId", user.EmployeeId.ToString()),
                  };
 

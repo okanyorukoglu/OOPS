@@ -18,19 +18,19 @@ namespace OOPS.WebUI.Controllers
         public IActionResult Index()
         {
             var EmpId = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "EmpId")?.Value;
-          
+            int user = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(z => z.Type == "CompanyId").Value); 
             //Giriş yapan kullanıcının EMployee Id boş degılse = ? Detail sayfasını çapırmak lazım.
-            if (true)
+            if (EmpId !=null)
             {
-
+                return View(service.getCompanyEmployees(user));
             }
             else
             {
-                service.getCompanyEmployees(new UserDTO());
+                return RedirectToAction("Detail");
             }
-            return View();
+            
         }
-        public IActionResult List()
+        public IActionResult Detail()
         {
             return View();
         }

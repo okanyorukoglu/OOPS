@@ -9,7 +9,7 @@ namespace OOPS.BLL.Abstract
 {
     public interface IEmployeeService : IServiceBase
     {
-        List<EmployeeDTO> getCompanyEmployees(UserDTO user);
+        List<EmployeeDTO> getCompanyEmployees(int companyId);
         EmployeeDTO getEmployee(int Id);
         EmployeeDTO newEmployee(EmployeeDTO employee);
         EmployeeDTO updateEmployee(EmployeeDTO employee);
