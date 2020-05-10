@@ -41,18 +41,6 @@ namespace OOPS.WebUI.Controllers
                     new Claim("UserDTO",OOPSConvert.OOPSJsonSerialize(user))
                 };
 
-                //var userClaims = new List<Claim>()
-                //{
-                //    new Claim("UserName", user.UserName),
-                //    new Claim(ClaimTypes.Name, user.FullName),
-                //    new Claim(ClaimTypes.Email, user.EMail),
-                //    new Claim(ClaimTypes.Role, user.Role.Name),
-                //    new Claim("RoleName", user.Role.Name),
-                //    new Claim("CompanyId", user.CompanyId.ToString()),
-                //    new Claim("EmpId", user.EmployeeId.ToString()),
-                // };
-
-                //var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
                 var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
 
                 var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
