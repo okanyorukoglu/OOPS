@@ -8,7 +8,7 @@ using OOPS.DTO.ProjectBase;
 
 namespace OOPS.WebUI.Controllers
 {
-    public class EmployeeController : Controller
+    public class EmployeeController : BaseController
     {
         private IEmployeeService service;
         public EmployeeController(IEmployeeService _service)
@@ -17,21 +17,27 @@ namespace OOPS.WebUI.Controllers
         }
         public IActionResult Index()
         {
-            var EmpId = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "EmpId")?.Value;
-            int user = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(z => z.Type == "CompanyId").Value); 
+            var EmpId = CurrentUser.EmployeeId;
+            int companyId = CurrentUser.CompanyId;
             //Giriş yapan kullanıcının EMployee Id boş degılse = ? Detail sayfasını çapırmak lazım.
-            if (EmpId !=null)
+            if (EmpId != null)
             {
-                return View(service.getCompanyEmployees(user));
+                return View(nameof(Detail), EmpId);
             }
             else
             {
-                return RedirectToAction("Detail");
+                return RedirectToAction(nameof(List), companyId);
             }
-            
         }
-        public IActionResult Detail()
+
+        public IActionResult List(int companyId)
         {
+            //o firmadli çalışanlar lsitelenecek
+            return View();
+        }
+        public IActionResult Detail(int id)
+        {
+            //kullanıcının detayı
             return View();
         }
     }
