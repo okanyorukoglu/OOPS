@@ -32,6 +32,14 @@ namespace OOPS.BLL.Concreate
             throw new NotImplementedException();
         }
 
+        public UserDTO FindwithUsernameandMail(UserDTO loginUser)
+        {
+            var getUser = uow.GetRepository<User>().Get(z => (z.EMail == loginUser.EMail ||
+                                            z.UserName == loginUser.UserName) &&
+                                            z.Password == loginUser.Password);
+            return MapperFactory.CurrentMapper.Map<UserDTO>(getUser);
+        }
+
         public UserDTO FindwithUsernameandMail(string mailorUserName, string password)
         {
             throw new NotImplementedException();

@@ -69,6 +69,7 @@ namespace OOPS.WebUI
 
             services.AddSingleton<IUnitofWork, UnitofWork>();
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IRoleService, RoleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -114,7 +115,7 @@ namespace OOPS.WebUI
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Rooms}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=UserLogin}/{id?}");
             });
 
         }

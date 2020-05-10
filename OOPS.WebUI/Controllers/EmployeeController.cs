@@ -17,6 +17,8 @@ namespace OOPS.WebUI.Controllers
         }
         public IActionResult Index()
         {
+            var EmpId = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "EmpId")?.Value;
+          
             //Giriş yapan kullanıcının EMployee Id boş degılse = ? Detail sayfasını çapırmak lazım.
             if (true)
             {

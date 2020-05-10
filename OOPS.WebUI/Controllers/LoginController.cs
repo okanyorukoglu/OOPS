@@ -29,7 +29,7 @@ namespace OOPS.WebUI.Controllers
         public ActionResult UserLogin(UserDTO userModel)
         {
             // username = anet  
-            var user = userService.FindwithUsernameandMail(userModel.EMail, userModel.Password);
+            var user = userService.LoginUser(userModel);
 
             if (user != null)
             {
@@ -41,6 +41,7 @@ namespace OOPS.WebUI.Controllers
                     new Claim(ClaimTypes.Email, user.EMail),
                     new Claim(ClaimTypes.Role, user.Role.Name),
                     new Claim("RoleName", user.Role.Name),
+                    new Claim("EmpId", user.EmployeeId.ToString()),
                  };
 
                 var userIdentity = new ClaimsIdentity(userClaims, "User Identity");

@@ -20,5 +20,6 @@ namespace OOPS.BLL.Abstract
         UserDTO FindwithUserName(string userName);
         UserDTO FindwithMail(string mail);
         UserDTO FindwithUsernameandMail(string mailorUserName, string password);
+        UserDTO FindwithUsernameandMail(UserDTO loginUser);
     }
 }
