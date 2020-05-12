@@ -28,7 +28,7 @@ namespace OOPS.WebUI.Controllers
             }
             else
             {
-                
+                //int empID = CurrentUser.EmployeeId;
                 return View(nameof(Detail));
             }
         }

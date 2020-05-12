@@ -1,5 +1,6 @@
 ﻿using OOPS.Core.Entities;
 using OOPS.Model.CompanyModels;
+using OOPS.Model.ProjectBaseModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,5 +17,6 @@ namespace OOPS.Model.EmployeeModel
         [ForeignKey("Company")]
         public Nullable<int> CompanyID { get; set; }
         public virtual Company Company { get; set; }
+
     }
 }

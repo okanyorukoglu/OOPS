@@ -10,11 +10,9 @@ namespace OOPS.Model.ProjectBaseModel
 {
     public class User : Entity<int>
     {
-        public string FullName { get; set; }
         public string UserName { get; set; }
         public string EMail { get; set; }
         public string Password { get; set; }
-        public Nullable<int> EmployeeId { get; set; }
 
         [ForeignKey("Role")]
         public Nullable<int> RoleId { get; set; }
