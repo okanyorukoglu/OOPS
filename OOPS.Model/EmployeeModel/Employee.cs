@@ -11,6 +11,7 @@ namespace OOPS.Model.EmployeeModel
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string Title { get; set; }
 
         [ForeignKey("Company")]
         public Nullable<int> CompanyID { get; set; }

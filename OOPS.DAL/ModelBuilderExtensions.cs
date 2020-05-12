@@ -19,42 +19,48 @@ namespace OOPS.DAL
                 Id = 1,
                 Name = "Muharrem",
                 Surname = "Kirkit",
-                CompanyID = 1
+                CompanyID = 1,
+                Title="Dotnetci"
             },
             new Employee
             {
                 Id = 2,
                 Name = "Can",
                 Surname = "Sever",
-                CompanyID = 1
+                CompanyID = 1,
+                Title="Muhasebe"
             },
             new Employee
             {
                 Id = 3,
                 Name = "Semih",
                 Surname = "Dinçay",
-                CompanyID = 2
+                CompanyID = 2,
+                Title="Yazılım Geliştirme Elemanı"
             },
             new Employee
             {
                 Id = 4,
                 Name = "Emre",
                 Surname = "Darbeci",
-                CompanyID = 2
+                CompanyID = 2,
+                Title="Mühendis"
             },
             new Employee
             {
                 Id = 5,
                 Name = "Hakan",
                 Surname = "Mert",
-                CompanyID = 1
+                CompanyID = 1,
+                Title = "Mühendis"
             },
             new Employee
             {
                 Id = 6,
                 Name = "Aslı",
                 Surname = "Koç",
-                CompanyID = 1
+                CompanyID = 1,
+                Title = "Mühendis"
             }
             );
 
@@ -108,7 +114,7 @@ namespace OOPS.DAL
                 new Role
                 {
                     Id = 2,
-                    Name = "Çalışan"
+                    Name = "Employee"
                 }
                 );
 

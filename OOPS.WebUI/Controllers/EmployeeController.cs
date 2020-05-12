@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OOPS.BLL.Abstract;
+using OOPS.DTO.Employee;
 using OOPS.DTO.ProjectBase;
 
 namespace OOPS.WebUI.Controllers
@@ -17,28 +18,40 @@ namespace OOPS.WebUI.Controllers
         }
         public IActionResult Index()
         {
-            var EmpId = CurrentUser.EmployeeId;
+            var RoleName = CurrentUser.Role.Name;
             int companyId = CurrentUser.CompanyId;
+            
             //Giriş yapan kullanıcının EMployee Id boş degılse = ? Detail sayfasını çapırmak lazım.
-            if (EmpId != null)
+            if (RoleName == "Admin")
             {
-                return View(nameof(Detail), EmpId);
+                return RedirectToAction(nameof(List)); 
             }
             else
             {
-                return RedirectToAction(nameof(List), companyId);
+                
+                return View(nameof(Detail));
             }
         }
 
-        public IActionResult List(int companyId)
+        public IActionResult List()
         {
+            int companyId = CurrentUser.CompanyId;
+            var employee = service.getCompanyEmployees(companyId);
             //o firmadli çalışanlar lsitelenecek
-            return View();
+            return View(employee);
         }
+      
         public IActionResult Detail(int id)
         {
+            var emp = service.getEmployee(id);
             //kullanıcının detayı
-            return View();
+            return View(emp);
         }
+        //[HttpPost]
+        //public IActionResult Detail(EmployeeDTO employee)
+        //{
+        //    //kullanıcının detayı
+        //    return RedirectToAction(nameof(Detail));
+        //}
     }
 }
