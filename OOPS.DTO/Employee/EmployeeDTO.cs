@@ -16,6 +16,7 @@ namespace OOPS.DTO.Employee
         public int CompanyID { get; set; }
         public virtual CompanyDTO Company { get; set; }
 
-
+        public Nullable<int> UserID { get; set; }
+        public virtual UserDTO User { get; set; }
     }
 }

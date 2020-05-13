@@ -34,10 +34,11 @@ namespace OOPS.BLL.Concreate
 
         public UserDTO FindwithUsernameandMail(UserDTO loginUser)
         {
-            var getUser = uow.GetRepository<User>().Get(z => (z.EMail == loginUser.EMail ||
-                                            z.UserName == loginUser.UserName) &&
-                                            z.Password == loginUser.Password);
-            return MapperFactory.CurrentMapper.Map<UserDTO>(getUser);
+            //var getUser = uow.GetRepository<User>().Get(z => (z.EMail == loginUser.EMail ||
+            //                                z.UserName == loginUser.UserName) &&
+            //                                z.Password == loginUser.Password);
+            //return MapperFactory.CurrentMapper.Map<UserDTO>(getUser);
+            throw new NotImplementedException();
         }
 
         public UserDTO FindwithUsernameandMail(string mailorUserName, string password)

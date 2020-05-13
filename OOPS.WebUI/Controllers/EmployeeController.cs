@@ -20,16 +20,15 @@ namespace OOPS.WebUI.Controllers
         {
             var RoleName = CurrentUser.Role.Name;
             int companyId = CurrentUser.CompanyId;
-            
+
             //Giriş yapan kullanıcının EMployee Id boş degılse = ? Detail sayfasını çapırmak lazım.
             if (RoleName == "Admin")
             {
-                return RedirectToAction(nameof(List)); 
+                return RedirectToAction(nameof(List));
             }
             else
             {
-                //int empID = CurrentUser.EmployeeId;
-                return View(nameof(Detail));
+                return RedirectToAction(nameof(DetailEmployee));
             }
         }
 
@@ -40,18 +39,19 @@ namespace OOPS.WebUI.Controllers
             //o firmadli çalışanlar lsitelenecek
             return View(employee);
         }
-      
         public IActionResult Detail(int id)
         {
             var emp = service.getEmployee(id);
             //kullanıcının detayı
             return View(emp);
         }
-        //[HttpPost]
-        //public IActionResult Detail(EmployeeDTO employee)
-        //{
-        //    //kullanıcının detayı
-        //    return RedirectToAction(nameof(Detail));
-        //}
+
+        public IActionResult DetailEmployee()
+        {
+            //Giriş yapan Employee ise 
+            int userID = CurrentUser.Id;
+            var empInfo = service.getEmployeeUser(userID);
+            return View(empInfo);
+        }
     }
 }

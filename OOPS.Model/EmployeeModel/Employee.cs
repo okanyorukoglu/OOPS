@@ -14,9 +14,12 @@ namespace OOPS.Model.EmployeeModel
         public string Surname { get; set; }
         public string Title { get; set; }
 
-        [ForeignKey("Company")]
         public Nullable<int> CompanyID { get; set; }
         public virtual Company Company { get; set; }
+
+        [ForeignKey("User")]
+        public Nullable<int> UserID { get; set; }
+        public virtual User User { get; set; }
 
     }
 }
