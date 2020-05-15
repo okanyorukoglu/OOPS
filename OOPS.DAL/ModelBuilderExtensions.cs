@@ -100,7 +100,6 @@ namespace OOPS.DAL
                  RoleId = 1,
                  CompanyId=1,
                  
-
              },
             new User
             {

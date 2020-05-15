@@ -53,5 +53,11 @@ namespace OOPS.WebUI.Controllers
             var empInfo = service.getEmployeeUser(userID);
             return View(empInfo);
         }
+
+        public IActionResult AddEmploye()
+        {
+            return View();
+        }
+
     }
 }
