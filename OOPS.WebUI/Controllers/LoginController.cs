@@ -30,7 +30,6 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public ActionResult UserLogin(UserDTO userModel)
         {
-            // username = anet  
             var user = userService.LoginUser(userModel);
 
             if (user != null)
