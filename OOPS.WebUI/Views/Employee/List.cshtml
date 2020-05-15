@@ -20,7 +20,7 @@
                     </a>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a asp-action="AddEmployee">Çalışan Ekle</a>
+                            <a asp-action="AddEmployee" >Çalışan Ekle</a>
                         </li>
                         <li class="divider"> </li>
                         <li>
@@ -56,14 +56,14 @@
                                 <p class="mt-user-title"> Lorem Ipsum is simply dummy text. </p>
                                 <div class="mt-stats">
                                     <div class="btn-group btn-group btn-group-justified">
-                                        <a asp-action="Detail" asp-route-id="@emp.Id" class="btn font-red">
+                                        <a asp-action="EditEmployee" asp-route-id="@emp.Id" class="btn font-red">
                                             <i class="icon-bubbles"></i> Detail
                                         </a>
                                         <a href="javascript:;" class="btn font-green">
-                                            <i class="icon-social-twitter"></i> 2,6k
+                                            <i class="icon-social-twitter"></i> 
                                         </a>
-                                        <a href="javascript:;" class="btn font-yellow">
-                                            <i class="icon-emoticon-smile"></i> 3,7k
+                                        <a asp-action="DeleteEmployee" asp-route-id="@emp.Id" class="btn font-yellow">
+                                            <i class="glyphicon glyphicon-trash">Sil</i> 
                                         </a>
                                     </div>
                                 </div>

@@ -35,15 +35,23 @@ namespace OOPS.WebUI.Controllers
         public IActionResult List()
         {
             int companyId = CurrentUser.CompanyId;
-            var employee = service.getCompanyEmployees(companyId);
+            List<EmployeeDTO> employee = service.getCompanyEmployees(companyId);
             //o firmadli çalışanlar lsitelenecek
             return View(employee);
         }
-        public IActionResult Detail(int id)
+        public IActionResult EditEmployee(int id)
         {
-            var emp = service.getEmployee(id);
+            EmployeeDTO emp = new EmployeeDTO();
+              emp = service.getEmployee(id); 
             //kullanıcının detayı
             return View(emp);
+        }
+
+        [HttpPost]
+        public IActionResult EditEmployee(EmployeeDTO employee)
+        {
+            var emp = service.updateEmployee(employee);
+            return View();
         }
 
         public IActionResult DetailEmployee()
@@ -54,9 +62,24 @@ namespace OOPS.WebUI.Controllers
             return View(empInfo);
         }
 
-        public IActionResult AddEmploye()
+        public IActionResult AddEmployee()
         {
-            return View();
+            EmployeeDTO emp = new EmployeeDTO();
+            return View(emp);
+        }
+
+        [HttpPost]
+        public IActionResult AddEmployee(EmployeeDTO employee)
+        {
+            employee.CompanyID = CurrentUser.CompanyId;
+            var addedEmp = service.newEmployee(employee);
+            return RedirectToAction("List");
+        }
+
+        public IActionResult DeleteEmployee(int Id)
+        {
+            service.deleteEmployee(Id);
+            return RedirectToAction("List");
         }
 
     }

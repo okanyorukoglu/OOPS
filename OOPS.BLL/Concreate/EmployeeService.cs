@@ -22,7 +22,17 @@ namespace OOPS.BLL.Concreate
         }
         public bool deleteEmployee(int employeeId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var getEmployee = uow.GetRepository<Employee>().Get(z => z.Id == employeeId);
+                uow.GetRepository<Employee>().Delete(getEmployee);
+                uow.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public List<EmployeeDTO> getCompanyEmployees(int companyId)
@@ -45,12 +55,19 @@ namespace OOPS.BLL.Concreate
 
         public EmployeeDTO newEmployee(EmployeeDTO employee)
         {
-            throw new NotImplementedException();
+            var added = MapperFactory.CurrentMapper.Map<Employee>(employee);
+            added = uow.GetRepository<Employee>().Add(added);
+            uow.SaveChanges();
+            return MapperFactory.CurrentMapper.Map<EmployeeDTO>(added);
         }
 
         public EmployeeDTO updateEmployee(EmployeeDTO employee)
         {
-            throw new NotImplementedException();
+            var selectedEmp = uow.GetRepository<Employee>().Get(z=>z.Id == employee.Id);
+            selectedEmp = MapperFactory.CurrentMapper.Map(employee,selectedEmp);
+            uow.GetRepository<Employee>().Update(selectedEmp);
+            uow.SaveChanges();
+            return MapperFactory.CurrentMapper.Map<EmployeeDTO>(selectedEmp);
         }
     }
 }
