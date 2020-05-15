@@ -2,8 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OOPS.BLL.Abstract;
+using OOPS.DTO.Company;
+using OOPS.DTO.Employee;
 using OOPS.DTO.ProjectBase;
 using OOPS.WebUI.Core;
+using OOPS.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +37,7 @@ namespace OOPS.WebUI.Controllers
 
             if (user != null)
             {
-                user.Role = roleService.GetById((int)user.RoleId);
+                user.Role = roleService.GetById((int)user.RoleID);
                 var userClaims = new List<Claim>()
                 {
                     new Claim("UserDTO",OOPSConvert.OOPSJsonSerialize(user))
@@ -61,6 +64,28 @@ namespace OOPS.WebUI.Controllers
         {
             HttpContext.SignOutAsync();
             return RedirectToAction("UserLogin");
+        }
+        public ActionResult Register()
+        {
+            RegisterViewModel user = new RegisterViewModel();
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel RegisterUser)
+        {
+            var CheckUser = userService.CheckRegistration(RegisterUser.User.UserName, RegisterUser.User.EMail);
+            if (CheckUser == null)
+            {
+                 userService.newUser(RegisterUser.User, RegisterUser.Company, RegisterUser.Employee);
+
+                 return RedirectToAction("UserLogin");  
+            }
+            else
+            {
+                throw new InvalidOperationException("Kayıtlı Kullanıcı adı veya Email");
+            }
+            
         }
     }
 }

@@ -58,78 +58,133 @@
     <!-- BEGIN LOGIN -->
     <div class="content">
         <!-- BEGIN LOGIN FORM -->
-        <form asp-action="UserLogin" asp-controller="Login" class="login-form" method="post">
-            <h3 class="form-title">OOPS Title @*@sysLanguage.LoginStrings.lbl_ContentTitle*@</h3>
-            <div class="alert alert-danger display-hide">
-                <button class="close" data-close="alert"></button>
-                <span> @*@sysLanguage.LoginStrings.plc_enteranyusernameandpassword*@ </span>
+        <form asp-action="Register" class="login-form" method="post">
+            <h3> @*@sysLanguage.LoginStrings.plc_SingUp*@ </h3>
+            <p> @*@sysLanguage.LoginStrings.plc_enterpersoneldetails*@ </p>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_FullName*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-font"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="text"
+                           asp-for="@Model.Employee.Name"
+                           placeholder="Ad" />
+                </div>
             </div>
+
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_FullName*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-font"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="text"
+                           asp-for="@Model.Employee.Surname"
+                           placeholder="Soyad" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> Telefon</label>
+                <div class="input-icon">
+                    <i class="fa fa-phone"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="tel"
+                           asp-for="@Model.Employee.PhoneBusiness"
+                           required placeholder="Telefon Girin" />
+                </div>
+            </div>
+
             <div class="form-group">
                 <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                <label class="control-label visible-ie8 visible-ie9"> E-Mail Address </label>
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_Email*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-envelope"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="text"
+                           asp-for="@Model.User.EMail"
+                           placeholder="E-Mail" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_Email*@ </label>
+                <div class="input-icon">
+                    <i class="fa fa-envelope"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="text"
+                           asp-for="@Model.Employee.Title"
+                           placeholder="Ünvan" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9"> Company Name </label>
+                <div class="input-icon">
+                    <i class="fa fa-envelope"></i>
+                    <input class="form-control placeholder-no-fix"
+                           type="text"
+                           asp-for="@Model.Company.CompanyName"
+                           placeholder="Firma Adı" />
+                </div>
+            </div>
+
+            <p> Enter your account details below: </p>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_username*@ </label>
                 <div class="input-icon">
                     <i class="fa fa-user"></i>
-                    <input class="form-control placeholder-no-fix"
-                           asp-for="@Model.User.EMail"
-                           type="text" autocomplete="off"
-                           placeholder="E-Mail Address"
-                           required
-                           name="EMail" />
+                    <input class="form-control placeholder-no-fix" type="text"
+                           autocomplete="off"
+                           placeholder="Kullanıcı Adı"
+                           asp-for="@Model.User.UserName" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label visible-ie8 visible-ie9"> Password</label>
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_password*@ </label>
                 <div class="input-icon">
                     <i class="fa fa-lock"></i>
                     <input class="form-control placeholder-no-fix"
                            asp-for="@Model.User.Password"
-                           type="password" autocomplete="off"
-                           placeholder="Password"
-                           required
-                           name="Password" />
+                           type="password" autocomplete="off"  
+                           placeholder="Şifre" />
                 </div>
             </div>
-            <div class="form-actions">
-                <label class="rememberme mt-checkbox mt-checkbox-outline">
-                    <input type="checkbox" name="remember" value="1" /> Remember?
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_retypeyourpassword*@ </label>
+                <div class="controls">
+                    <div class="input-icon">
+                        <i class="fa fa-check"></i>
+                        <input class="form-control placeholder-no-fix"
+                               type="password" autocomplete="off"
+                               @*Şifre Tekrar doğrulaması view da validation yapılacak*@
+                               placeholder="Şifreyi Tekrar Giriniz" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="mt-checkbox mt-checkbox-outline">
+                    <input type="checkbox" name="tnc" /> I agree to the
+                    <a href="javascript:;">Terms of Service </a> &
+                    <a href="javascript:;">Privacy Policy </a>
                     <span></span>
                 </label>
-                <button type="submit" class="btn green pull-right"> SignIn</button>
+                <div id="register_tnc_error"> </div>
             </div>
-            <div class="forget-password">
-                <h4> @*@sysLanguage.LoginStrings.plc_forgetPassword*@ </h4>
-                <p>
-                    @*@sysLanguage.LoginStrings.plc_noworries*@
-                    <a>şifremi unuttum @*@sysLanguage.LoginStrings.btn_here*@ </a> @*@sysLanguage.LoginStrings.plc_toresetyourpassword*@
-                </p>
+            <div class="form-actions">
+                <button id="register-back-btn" type="button" class="btn red btn-outline">Geri </button>
+                <button type="submit"
+                        id="register-submit-btn"
+                        class="btn green pull-right"
+                        asp-action="Register">
+                    Kayıt Ol !
+                </button>
             </div>
         </form>
         <!-- END LOGIN FORM -->
-        <!-- BEGIN FORGOT PASSWORD FORM -->
-        <div class="create-account">
-            <p>
-                @*@sysLanguage.LoginStrings.plc_donthaveanaccountyet*@ &nbsp;
-                <a asp-action="Register"> Hesap oluştur </a>
-            </p>
-        </div>
-
-        <form class="forget-form" method="post">
-            <h3> @*@sysLanguage.LoginStrings.plc_forgetpasswordQ*@ </h3>
-            <p> @*@sysLanguage.LoginStrings.plc_emailforresetpassword*@ </p>
-            <div class="form-group">
-                <div class="input-icon">
-                    <i class="fa fa-envelope"></i>
-                    <input class="form-control placeholder-no-fix"
-                           type="text" autocomplete="off" @*placeholder="@sysLanguage.LoginStrings.plc_Email"*@ name="email" />
-                </div>
-            </div>
-            <div class="form-actions">
-                <button type="button" id="back-btn" class="btn red btn-outline"> @*@sysLanguage.LoginStrings.btn_Back*@ </button>
-                <button type="submit" class="btn green pull-right"> @*@sysLanguage.LoginStrings.btn_Submit*@ </button>
-            </div>
-        </form>
-        <!-- END FORGOT PASSWORD FORM -->
-
+        <!-- BEGIN REGISTRATION FORM -->
+        <!-- END REGISTRATION FORM -->
     </div>
     <!-- END LOGIN -->
     <!-- BEGIN COPYRIGHT -->

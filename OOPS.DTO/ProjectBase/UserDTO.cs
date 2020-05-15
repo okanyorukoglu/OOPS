@@ -13,10 +13,10 @@ namespace OOPS.DTO.ProjectBase
         public string EMail { get; set; }
         public string Password { get; set; }
 
-        public int RoleId { get; set; }
+        public Nullable<int> RoleID { get; set; }
         public virtual RoleDTO Role { get; set; }
 
-        public int CompanyId { get; set; }
+        public Nullable<int> CompanyID { get; set; }
         public virtual CompanyDTO Company { get; set; }
 
         public virtual EmployeeDTO Employee { get; set; }

@@ -1,7 +1,11 @@
 ﻿using OOPS.BLL.Abstract;
 using OOPS.Core.Data.UnitOfWork;
+using OOPS.DTO.Company;
+using OOPS.DTO.Employee;
 using OOPS.DTO.ProjectBase;
 using OOPS.MapConfig.ConfigProfile;
+using OOPS.Model.CompanyModels;
+using OOPS.Model.EmployeeModel;
 using OOPS.Model.ProjectBaseModel;
 using System;
 using System.Collections.Generic;
@@ -15,6 +19,12 @@ namespace OOPS.BLL.Concreate
         public UserService(IUnitofWork _uow)
         {
             uow = _uow;
+        }
+
+        public UserDTO CheckRegistration(string UserName, string EMail)
+        {
+            var checkUser = uow.GetRepository<User>().Get(z => (z.EMail == EMail || z.UserName == UserName));
+            return MapperFactory.CurrentMapper.Map<UserDTO>(checkUser);
         }
 
         public bool deleteUser(int userId)
@@ -63,16 +73,30 @@ namespace OOPS.BLL.Concreate
 
         public UserDTO LoginUser(UserDTO loginUser)
         {
-            var getUser = uow.GetRepository<User>().Get(z => (z.EMail == loginUser.EMail || 
+            var getUser = uow.GetRepository<User>().Get(z => (z.EMail == loginUser.EMail ||
                                                         z.UserName == loginUser.UserName) &&
                                                         z.Password == loginUser.Password);
             return MapperFactory.CurrentMapper.Map<UserDTO>(getUser);
         }
 
-        public UserDTO newUser(UserDTO user)
+
+
+        public UserDTO newUser(UserDTO user, CompanyDTO company, EmployeeDTO employee)
         {
-            throw new NotImplementedException();
+            var addedEmployee = MapperFactory.CurrentMapper.Map<Employee>(employee);
+            addedEmployee = uow.GetRepository<Employee>().Add(addedEmployee);
+
+            var addedUser = MapperFactory.CurrentMapper.Map<User>(user);
+            addedUser = uow.GetRepository<User>().Add(addedUser);
+
+            var addedCompany = MapperFactory.CurrentMapper.Map<Company>(company);
+            addedCompany = uow.GetRepository<Company>().Add(addedCompany);
+
+            uow.SaveChanges();
+
+            return MapperFactory.CurrentMapper.Map<UserDTO>(addedUser);
         }
+
 
         public UserDTO updateUser(UserDTO user)
         {

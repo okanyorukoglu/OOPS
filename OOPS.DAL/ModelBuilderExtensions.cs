@@ -97,8 +97,8 @@ namespace OOPS.DAL
                  UserName = "hakanmert",
                  EMail = "hakanmert@gmail.com",
                  Password = "1234",
-                 RoleId = 1,
-                 CompanyId=1,
+                 RoleID = 1,
+                 CompanyID=1,
                  
              },
             new User
@@ -107,8 +107,8 @@ namespace OOPS.DAL
                 UserName = "cansever",
                 EMail = "cansever@gmail.com",
                 Password = "1234",
-                RoleId = 1,
-                CompanyId=2
+                RoleID = 1,
+                CompanyID=2
 
             },
             new User
@@ -117,8 +117,8 @@ namespace OOPS.DAL
                 UserName = "Emre",
                 EMail = "emre@gmail.com",
                 Password = "1234",
-                RoleId = 2,
-                CompanyId = 2
+                RoleID = 2,
+                CompanyID = 2
 
             }
              );

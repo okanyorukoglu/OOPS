@@ -19,7 +19,7 @@ namespace OOPS.WebUI.Controllers
         public IActionResult Index()
         {
             var RoleName = CurrentUser.Role.Name;
-            int companyId = CurrentUser.CompanyId;
+            int companyId =(int)CurrentUser.CompanyID;
 
             //Giriş yapan kullanıcının EMployee Id boş degılse = ? Detail sayfasını çapırmak lazım.
             if (RoleName == "Admin")
@@ -34,7 +34,7 @@ namespace OOPS.WebUI.Controllers
 
         public IActionResult List()
         {
-            int companyId = CurrentUser.CompanyId;
+            int companyId = (int)CurrentUser.CompanyID;
             List<EmployeeDTO> employee = service.getCompanyEmployees(companyId);
             //o firmadli çalışanlar lsitelenecek
             return View(employee);
@@ -71,7 +71,7 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public IActionResult AddEmployee(EmployeeDTO employee)
         {
-            employee.CompanyID = CurrentUser.CompanyId;
+            employee.CompanyID = (int)CurrentUser.CompanyID;
             var addedEmp = service.newEmployee(employee);
             return RedirectToAction("List");
         }

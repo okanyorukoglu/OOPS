@@ -17,11 +17,11 @@ namespace OOPS.Model.ProjectBaseModel
         public string Password { get; set; }
 
         [ForeignKey("Role")]
-        public Nullable<int> RoleId { get; set; }
+        public Nullable<int> RoleID { get; set; }
         public virtual Role Role { get; set; }
 
         [ForeignKey("Company")]
-        public Nullable<int> CompanyId { get; set; }
+        public Nullable<int> CompanyID { get; set; }
         public virtual Company Company { get; set; }
 
     }
