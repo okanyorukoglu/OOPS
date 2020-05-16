@@ -56,15 +56,15 @@
                                 <p class="mt-user-title"> Lorem Ipsum is simply dummy text. </p>
                                 <div class="mt-stats">
                                     <div class="btn-group btn-group btn-group-justified">
-                                        <a asp-action="EditEmployee" asp-route-id="@emp.Id" class="btn font-red">
-                                            <i class="icon-bubbles"></i> Detail
-                                        </a>
-                                        <a href="javascript:;" class="btn font-green">
+                                        <button asp-action="EditEmployee" asp-route-id="@emp.Id" class="btn font-red">
+                                            <i class="icon-bubbles"></i> Detay
+                                        </button>
+                                        <button href="javascript:;" class="btn font-green">
                                             <i class="icon-social-twitter"></i> 
-                                        </a>
-                                        <a asp-action="DeleteEmployee" asp-route-id="@emp.Id" class="btn font-yellow">
+                                        </button>
+                                        <button asp-action="DeleteEmployee" asp-route-id="@emp.Id" class="btn font-yellow">
                                             <i class="glyphicon glyphicon-trash">Sil</i> 
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

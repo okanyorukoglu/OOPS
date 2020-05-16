@@ -19,10 +19,12 @@ namespace OOPS.WebUI.Controllers
     {
         private readonly IUserService userService;
         private readonly IRoleService roleService;
-        public LoginController(IUserService _userService, IRoleService _roleService)
+        private readonly IEmployeeService employeeService;
+        public LoginController(IUserService _userService, IRoleService _roleService , IEmployeeService _employeeService)
         {
             userService = _userService;
             roleService = _roleService;
+            employeeService = _employeeService;
         }
 
         public ActionResult UserLogin()
@@ -83,7 +85,7 @@ namespace OOPS.WebUI.Controllers
             }
             else
             {
-                throw new InvalidOperationException("Kayıtlı Kullanıcı adı veya Email");
+                throw new InvalidOperationException(" Kullanıcı adı veya Email Kullanılmaktadır.");
             }
             
         }

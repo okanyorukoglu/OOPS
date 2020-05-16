@@ -41,9 +41,8 @@ namespace OOPS.WebUI.Controllers
         }
         public IActionResult EditEmployee(int id)
         {
-            EmployeeDTO emp = new EmployeeDTO();
-              emp = service.getEmployee(id); 
-            //kullanıcının detayı
+            EmployeeDTO emp = service.getEmployee(id);
+            //kullanıcının detayı ve update işlemi
             return View(emp);
         }
 
@@ -72,7 +71,7 @@ namespace OOPS.WebUI.Controllers
         public IActionResult AddEmployee(EmployeeDTO employee)
         {
             employee.CompanyID = (int)CurrentUser.CompanyID;
-            var addedEmp = service.newEmployee(employee);
+            service.newEmployee(employee);
             return RedirectToAction("List");
         }
 

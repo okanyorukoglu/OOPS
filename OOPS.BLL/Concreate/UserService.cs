@@ -44,10 +44,6 @@ namespace OOPS.BLL.Concreate
 
         public UserDTO FindwithUsernameandMail(UserDTO loginUser)
         {
-            //var getUser = uow.GetRepository<User>().Get(z => (z.EMail == loginUser.EMail ||
-            //                                z.UserName == loginUser.UserName) &&
-            //                                z.Password == loginUser.Password);
-            //return MapperFactory.CurrentMapper.Map<UserDTO>(getUser);
             throw new NotImplementedException();
         }
 
@@ -84,13 +80,21 @@ namespace OOPS.BLL.Concreate
         public UserDTO newUser(UserDTO user, CompanyDTO company, EmployeeDTO employee)
         {
             var addedEmployee = MapperFactory.CurrentMapper.Map<Employee>(employee);
-            addedEmployee = uow.GetRepository<Employee>().Add(addedEmployee);
-
             var addedUser = MapperFactory.CurrentMapper.Map<User>(user);
+            var addedCompany = MapperFactory.CurrentMapper.Map<Company>(company);
+
+            addedEmployee.User = addedUser;
+            addedEmployee.Company = addedCompany;
+            addedCompany.Employees.Add(addedEmployee); 
+            addedUser.Employee = addedEmployee;
+            addedUser.RoleID = 1;
+            addedUser.Company = addedCompany;
+
+            uow.GetRepository<Employee>().Add(addedEmployee);
+
             addedUser = uow.GetRepository<User>().Add(addedUser);
 
-            var addedCompany = MapperFactory.CurrentMapper.Map<Company>(company);
-            addedCompany = uow.GetRepository<Company>().Add(addedCompany);
+            uow.GetRepository<Company>().Add(addedCompany);
 
             uow.SaveChanges();
 
