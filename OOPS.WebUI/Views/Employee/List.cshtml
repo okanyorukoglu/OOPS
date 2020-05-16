@@ -20,7 +20,7 @@
                     </a>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a asp-action="AddEmployee" >Çalışan Ekle</a>
+                            <a asp-action="AddEmployee">Çalışan Ekle</a>
                         </li>
                         <li class="divider"> </li>
                         <li>
@@ -39,9 +39,9 @@
         <div class="portlet-body">
             <div class="row">
                 @foreach (var emp in Model)
-                {     
+                {
                     <div class="col-md-3">
-                        
+
                         <div class="mt-widget-1">
                             <div class="mt-icon">
                                 <a href="#">
@@ -56,15 +56,15 @@
                                 <p class="mt-user-title"> Lorem Ipsum is simply dummy text. </p>
                                 <div class="mt-stats">
                                     <div class="btn-group btn-group btn-group-justified">
-                                        <button asp-action="EditEmployee" asp-route-id="@emp.Id" class="btn font-red">
+                                        <a href="/Employee/EditEmployee?id=@emp.Id" class="btn font-red">
                                             <i class="icon-bubbles"></i> Detay
-                                        </button>
-                                        <button href="javascript:;" class="btn font-green">
-                                            <i class="icon-social-twitter"></i> 
-                                        </button>
-                                        <button asp-action="DeleteEmployee" asp-route-id="@emp.Id" class="btn font-yellow">
-                                            <i class="glyphicon glyphicon-trash">Sil</i> 
-                                        </button>
+                                        </a>
+                                        <a href="javascript:;" class="btn font-green">
+                                            <i class="icon-social-twitter"></i>
+                                        </a>
+                                        <a asp-action="DeleteEmployee" asp-route-id="@emp.Id" class="btn font-yellow">
+                                            <i class="glyphicon glyphicon-trash">Sil</i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

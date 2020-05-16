@@ -32,7 +32,7 @@ namespace OOPS.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             var optionsBuilder = new DbContextOptionsBuilder<OOPSEntites>();
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("OOPSEntites"));
             optionsBuilder.EnableSensitiveDataLogging();
@@ -50,8 +50,8 @@ namespace OOPS.WebUI
               .AddCookie("CookieAuthentication", config =>
               {
                   config.Cookie.Name = "UserLoginCookie"; // Name of cookie     
-                   config.LoginPath = "/Login"; // Path for the redirect to user login page    
-                   config.AccessDeniedPath = "/AccessDenied";
+                  config.LoginPath = "/Login"; // Path for the redirect to user login page    
+                  config.AccessDeniedPath = "/AccessDenied";
               });
 
             services.AddAuthorization(config =>
