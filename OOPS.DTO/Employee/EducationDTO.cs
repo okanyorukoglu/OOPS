@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OOPS.DTO.Employee
 {
-    public class Education
+    public class EducationDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
