@@ -4,9 +4,12 @@ using System.Text;
 
 namespace OOPS.DTO.Employee
 {
-   public class EmployeeOverTimeDTO
+    public class EmployeeOverTimeDTO
     {
-        public int Id { get; set; }
+        public int EmployeeId { get; set; }
+        public virtual EmployeeDTO Employee { get; set; }
+        public int OvertimeId { get; set; }
+        public virtual OvertimeDTO Overtime { get; set; }
 
     }
 }

@@ -10,5 +10,6 @@ namespace OOPS.DTO.Employee
         public DateTime StartDate { get; set; }
         public TimeSpan Hour { get; set; }
         public string Description { get; set; }
+        public virtual List<EmployeeOverTimeDTO> EmployeeOverTimes { get; set; }
     }
 }

@@ -8,8 +8,7 @@ namespace OOPS.DTO.Employee
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public virtual List<EducationDTO> Education { get; set; }
+        public virtual List<EducationDTO> Educations { get; set; }
 
     }
 }

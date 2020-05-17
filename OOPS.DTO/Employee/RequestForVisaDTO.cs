@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOPS.DTO.Static;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,5 +17,8 @@ namespace OOPS.DTO.Employee
         public DateTime TripEndDate { get; set; }
         public TimeSpan TripEndTime { get; set; }
         public string TripCountry { get; set; }
+        public int VisaId { get; set; }
+        public VisaTypeDTO VisaType { get; set; }
+        public virtual List<EmployeeDTO> Employees { get; set; }
     }
 }

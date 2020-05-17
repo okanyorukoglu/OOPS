@@ -6,8 +6,10 @@ namespace OOPS.DTO.Employee
 {
     public class EducationDTO
     {
-        public int Id { get; set; }
         public string Name { get; set; }
+        public int EducationsTypeID { get; set; }
+        public virtual EducationsTypeDTO EducationsType { get; set; }
         public DateTime DateCompleted { get; set; }
+        public virtual List<EmployeeDTO> Employees { get; set; }
     }
 }

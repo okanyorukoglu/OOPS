@@ -11,5 +11,6 @@ namespace OOPS.DTO.Employee
         public int Sum { get; set; }
         public DateTime Date { get; set; }
         public string Description { get; set; }
+        public virtual List<EmployeeExpenseDTO> EmployeeExpenses { get; set; }
     }
 }

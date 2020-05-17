@@ -6,6 +6,9 @@ namespace OOPS.DTO.Employee
 {
     public class EmployeePermitDTO
     {
-        public int Id { get; set; }
+        public int EmployeeId { get; set; }
+        public virtual EmployeeDTO Employee { get; set; }
+        public int PermitId { get; set; }
+        public virtual PermitDTO Permit { get; set; }
     }
 }

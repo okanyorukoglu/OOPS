@@ -8,5 +8,7 @@ namespace OOPS.DTO.Employee
     {
         public int Id { get; set; }
         public string SalaryName { get; set; }
+        public int EmployeeID { get; set; }
+        public virtual EmployeeDTO Employee { get; set; }
     }
 }
