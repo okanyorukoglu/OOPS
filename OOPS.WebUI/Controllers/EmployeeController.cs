@@ -47,12 +47,12 @@ namespace OOPS.WebUI.Controllers
             return View(emp);
         }
 
-        //[HttpPost]
-        //public IActionResult EditEmployee(EmployeeDTO employee)
-        //{
-        //    var emp = service.updateEmployee(employee);
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult EditEmployee(EmployeeDTO employee)
+        {
+            var emp = service.updateEmployee(employee);
+            return View();
+        }
 
         public IActionResult DetailEmployee()
         {
