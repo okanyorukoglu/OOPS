@@ -214,12 +214,7 @@
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Erişim Türü</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                   @await Component.InvokeAsync("AccessTypes")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">

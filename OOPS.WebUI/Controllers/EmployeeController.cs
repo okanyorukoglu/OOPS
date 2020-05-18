@@ -45,8 +45,7 @@ namespace OOPS.WebUI.Controllers
         {
             EmployeeDTO emp = service.getEmployee(id);
             //kullanıcının detayı ve update işlemi
-            //StaticTypesViewModel model = new StaticTypesViewModel();
-            //model.Employee = emp;
+
             return View(emp);
         }
 

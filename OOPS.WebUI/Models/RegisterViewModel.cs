@@ -19,10 +19,5 @@ namespace OOPS.WebUI.Models
         public string Username { get; set; }
         public string Password { get; set; }
         
-
-        //public UserDTO User { get; set; }
-        //public EmployeeDTO Employee { get; set; }
-        //public CompanyDTO Company { get; set; }
-
     }
 }
