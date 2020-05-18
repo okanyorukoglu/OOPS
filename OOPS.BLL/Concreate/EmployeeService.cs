@@ -43,8 +43,33 @@ namespace OOPS.BLL.Concreate
 
         public EmployeeDTO getEmployee(int Id)
         {
-            var emp = uow.GetRepository<Employee>().Get(z=>z.Id==Id);
-            return MapperFactory.CurrentMapper.Map<EmployeeDTO>(emp);
+            var getEmployee = uow.GetRepository<Employee>()
+        .GetIncludes(a => a.Id == Id,
+                     b => b.AccessType,
+                     c => c.EmployeeDetail,
+                     d => d.ContractType,
+                     e => e.EmployeeOtherInfo,
+                     f => f.ContractType,
+                     g => g.CompanyBranch,
+                     h =>h.Company,
+                     i => i.CompanyDepartment,
+                     j => j.CompanyBranch.Company,
+                     k => k.EmploymentType,
+                     l => l.EmployeeSalaries,
+                     m => m.EmployeeOtherInfo.District.City.Country,
+                     n => n.EmployeeBankInfos,
+                     o => o.EmployeePermits,
+                     p => p.EmployeeDebits,
+                     r => r.EmployeeDetail.MaritalStatus,
+                     s => s.EmployeeDetail.BloodGroup,
+                     ş => ş.EmployeeDetail.Gender,
+                     t => t.EmployeeDetail.EducationLevel,
+                     u => u.EmployeeDetail.EducationStatus,
+                     ü => ü.EmployeeDetail.Employee
+                     );
+            return MapperFactory.CurrentMapper.Map<EmployeeDTO>(getEmployee);
+            //var emp = uow.GetRepository<Employee>().Get(z=>z.Id==Id);
+            //return MapperFactory.CurrentMapper.Map<EmployeeDTO>(emp);
         }
 
         public EmployeeDTO getEmployeeUser(int Id)

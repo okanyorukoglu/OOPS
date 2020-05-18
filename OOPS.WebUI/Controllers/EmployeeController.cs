@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using OOPS.BLL.Abstract;
 using OOPS.DTO.Employee;
 using OOPS.DTO.ProjectBase;
+using OOPS.WebUI.Models;
 
 namespace OOPS.WebUI.Controllers
 {
@@ -44,13 +45,15 @@ namespace OOPS.WebUI.Controllers
         {
             EmployeeDTO emp = service.getEmployee(id);
             //kullanıcının detayı ve update işlemi
-            return View(emp);
+            StaticTypesViewModel model = new StaticTypesViewModel();
+            model.Employee = emp;
+            return View(model);
         }
 
         [HttpPost]
         public IActionResult EditEmployee(EmployeeDTO employee)
         {
-            var emp = service.updateEmployee(employee);
+            service.updateEmployee(employee);
             return View();
         }
 
