@@ -1,4 +1,4 @@
-﻿@model RegisterViewModel
+﻿@model UserLoginViewModel
 
 
 @{
@@ -58,7 +58,7 @@
     <!-- BEGIN LOGIN -->
     <div class="content">
         <!-- BEGIN LOGIN FORM -->
-        <form asp-action="UserLogin" asp-controller="Login" class="login-form" method="post">
+        <form asp-action="Login" asp-controller="Login" class="login-form" method="post">
             <h3 class="form-title">OOPS Title @*@sysLanguage.LoginStrings.lbl_ContentTitle*@</h3>
             <div class="alert alert-danger display-hide">
                 <button class="close" data-close="alert"></button>
@@ -70,24 +70,24 @@
                 <div class="input-icon">
                     <i class="fa fa-user"></i>
                     <input class="form-control placeholder-no-fix"
-                           asp-for="@Model.User.EMail"
+                           asp-for="@Model.Email"
                            type="text" autocomplete="off"
                            placeholder="E-Mail Address"
-                           required
                            name="EMail" />
                 </div>
+                <span asp-validation-for="@Model.Email"></span>
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9"> Password</label>
                 <div class="input-icon">
                     <i class="fa fa-lock"></i>
                     <input class="form-control placeholder-no-fix"
-                           asp-for="@Model.User.Password"
+                           asp-for="@Model.Password"
                            type="password" autocomplete="off"
                            placeholder="Password"
-                           required
                            name="Password" />
                 </div>
+                <span asp-validation-for="@Model.Password"></span>
             </div>
             <div class="form-actions">
                 <label class="rememberme mt-checkbox mt-checkbox-outline">
