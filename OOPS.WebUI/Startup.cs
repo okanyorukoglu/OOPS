@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +19,8 @@ using OOPS.Core.Data.UnitOfWork;
 using OOPS.DAL;
 using OOPS.MapConfig.ConfigProfile;
 using OOPS.WebUI.CustomHandler;
+using OOPS.WebUI.Models;
+using OOPS.WebUI.Validators;
 
 namespace OOPS.WebUI
 {
@@ -32,6 +37,7 @@ namespace OOPS.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             var optionsBuilder = new DbContextOptionsBuilder<OOPSEntites>();
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("OOPSEntites"));
@@ -71,6 +77,10 @@ namespace OOPS.WebUI
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IRoleService, RoleService>();
             services.AddSingleton<IEmployeeService, EmployeeService>();
+
+            services.AddControllersWithViews().AddFluentValidation();
+            services.AddTransient<IValidator<RegisterViewModel>, RegisterValidator>();
+            services.AddTransient<IValidator<UserLoginViewModel>, UserLoginValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
