@@ -8,5 +8,6 @@ namespace OOPS.DTO.Static
     {
         public int Id { get; set; }
         public string DisabilityName { get; set; }
+        //gsd
     }
 }
