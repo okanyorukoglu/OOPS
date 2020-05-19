@@ -17,8 +17,8 @@ namespace OOPS.DTO.Employee
         public string PhoneBusiness { get; set; }
         public string EmailBusiness { get; set; }
         public string EmailPersonal { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime ContractEndDate { get; set; }
+        //public DateTime StartDate { get; set; }
+        //public DateTime ContractEndDate { get; set; }
         public virtual EmployeeDetailDTO EmployeeDetail { get; set; }
         public virtual EmployeeOtherInfoDTO EmployeeOtherInfo { get; set; }
         public virtual EmploymentTypeDTO EmploymentType { get; set; }

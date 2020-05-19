@@ -52,8 +52,19 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public IActionResult EditEmployee(EmployeeDTO employee)
         {
-            service.updateEmployee(employee);
-            return View();
+            if (ModelState.IsValid)
+            {
+                service.updateEmployee(employee);
+                return View();
+            }
+            else
+            {
+              var errors=  ModelState.Select(x => x.Value.Errors)
+                           .Where(y => y.Count > 0)
+                           .ToList();
+                return View();
+            }
+          
         }
 
         public IActionResult DetailEmployee()
