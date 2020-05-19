@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OOPS.BLL.Abstract.StaticAbstract;
 using OOPS.DTO.Static;
 using System;
 using System.Collections.Generic;
@@ -9,25 +10,15 @@ namespace OOPS.WebUI.Components
 {
     public class AccessTypesViewComponent : ViewComponent
     {
-        public AccessTypesViewComponent()
+        private readonly IAccessTypeService accessTypeService;
+        public AccessTypesViewComponent(IAccessTypeService _accessTypeService)
         {
-            
+            accessTypeService = _accessTypeService;
         }
 
         public IViewComponentResult Invoke()
         {
-            List<AccessTypeDTO> acces = new List<AccessTypeDTO>() {
-                new AccessTypeDTO
-                {
-                    Id = 1,
-                    AccessTypeName = "Yönetici"
-                },
-                new AccessTypeDTO
-                {
-                    Id = 2,
-                    AccessTypeName = "Çalışan"
-                }};
-            return View(acces);
+            return View(accessTypeService.getAll());
         }
 
     }

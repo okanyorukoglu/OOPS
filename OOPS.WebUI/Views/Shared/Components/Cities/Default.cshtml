@@ -1,0 +1,13 @@
+﻿@model IEnumerable<OOPS.DTO.Static.CityDTO>
+
+<div class="form-group">
+    <label class="control-label">Şehir</label>
+    <select class="form-control">
+        @foreach (var item in Model)
+        {
+
+            <option value="@item.Id">@item.Name</option>
+
+        }
+    </select>
+</div>

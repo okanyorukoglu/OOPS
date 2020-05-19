@@ -1,0 +1,11 @@
+﻿@model IEnumerable<OOPS.DTO.Static.CountryDTO>
+
+<div class="form-group">
+    <label class="control-label">Uyruğu</label>
+    <select class="form-control">
+        @foreach (var item in Model)
+        {
+            <option value="@item.Id">@item.CountryName</option>
+        }
+    </select>
+</div>

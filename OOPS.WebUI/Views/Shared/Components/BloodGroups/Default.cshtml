@@ -1,0 +1,11 @@
+﻿@model IEnumerable<OOPS.DTO.Static.BloodGroupDTO>
+
+<div class="form-group">
+    <label class="control-label">Kan Grubu</label>
+    <select class="form-control">
+        @foreach (var item in Model)
+        {
+            <option value="@item.Id">@item.BloodKind</option>
+        }
+    </select>
+</div>

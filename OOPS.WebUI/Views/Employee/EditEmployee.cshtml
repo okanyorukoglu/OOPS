@@ -167,14 +167,14 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Ad</label>
-                                                        <input type="text"  class="form-control">
+                                                        <input type="text" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Soyad</label>
-                                                        <input type="text"  class="form-control">
+                                                        <input type="text" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -214,16 +214,11 @@
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                   @await Component.InvokeAsync("AccessTypes")
+                                                    @await Component.InvokeAsync("AccessTypes")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Sözleşme Türü</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("ContractTypes")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
@@ -357,39 +352,19 @@
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Medeni Hal</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("MaritalStatuses") 
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Cinsiyet</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("Genders") 
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Engel Derecesi</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("DisabilitySituations")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Uyruğu</label>
-                                                        <select class="form-control">
-                                                            <option value="">country.CountryName</option>
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("Countries")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
@@ -401,32 +376,15 @@
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Kan Grubu</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("BloodGroups")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Eğitim Durumu</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("EducationStatuses")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Tamamlanan En Yüksek Eğitim Seviyesi</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("EducationLevels")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
@@ -477,21 +435,11 @@
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Ülke</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("Countries")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Şehir</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("Cities")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
@@ -514,12 +462,7 @@
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Hesap Tipi</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                    @await Component.InvokeAsync("BankAccountTypes")
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
