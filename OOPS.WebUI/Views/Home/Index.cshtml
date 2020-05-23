@@ -1,8 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-
+@model List<PermitDTO>
 <div class="content">
     <div class="row">
         <div class="col-md-12">
@@ -85,16 +84,13 @@
                     <ul class="list-group-item">
                         <li class="list-group-item  align-items-center">
                             <span class="caption-subject font-dark bold "><i class="icon-plane"></i> İzin Talepleri </span>
-
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Ads
-                            <span class="badge badge-primary badge-pill">50</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Junk
-                            <span class="badge badge-primary badge-pill">99</span>
-                        </li>
+                         @for(int i = 0; i< 3; i++)
+                         { 
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    @Model[i].PermitType.PermitTypeName
+                                </li>   
+                         }
                     </ul>
                 </div>
                 <!------------------------>

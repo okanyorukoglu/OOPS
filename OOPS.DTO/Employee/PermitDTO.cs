@@ -8,6 +8,7 @@ namespace OOPS.DTO.Employee
     public class PermitDTO
     {
         public int Id { get; set; }
+        public int EmployeeId { get; set; }
         public DateTime StartDate { get; set; }
         public TimeSpan StartHour { get; set; }
         public DateTime EndDate { get; set; }

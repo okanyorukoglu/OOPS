@@ -95,6 +95,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IMaritalStatusService, MaritalStatusService>();
             services.AddSingleton<IPermitTypeService, PermitTypeService>();
             services.AddSingleton<IVisaTypeService, VisaTypeService>();
+            services.AddSingleton<IPermitService, PermitService>();
 
             services.AddControllersWithViews().AddFluentValidation();
             services.AddTransient<IValidator<RegisterViewModel>, RegisterValidator>();

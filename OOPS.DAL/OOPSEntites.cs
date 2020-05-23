@@ -89,7 +89,7 @@ namespace OOPS.DAL
             .HasKey(hk => new { hk.EmployeeId, hk.OvertimeId });
 
             modelBuilder.Entity<EmployeePermit>()
-            .HasKey(hk => new { hk.EmployeeId, hk.PermitId });
+            .HasKey(hk => new { hk.Id });
 
 
         }

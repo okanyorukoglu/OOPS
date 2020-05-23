@@ -549,7 +549,7 @@
                                                     <div class="btn-group btn-group-devided" data-toggle="buttons">
                                                         <div class="col-md-6">
                                                             <div class="btn-group">
-                                                                <button class="btn btn-circle sbold green">
+                                                                <button class="btn btn-circle sbold green" data-toggle="modal" href="#izinModal">
                                                                     Yeni İzin Ekle
                                                                     <i class="fa fa-plus"></i>
                                                                 </button>
@@ -597,31 +597,24 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    1
-                                                                </td>
-                                                                <td>
-                                                                </td>
-                                                                <td>
-                                                                </td>
-                                                                <td>
-                                                                </td>
-                                                                <td>
-                                                                </td>
-                                                                <td>
-                                                                    @*TODO: permit tablosuna oluşturma tarihi ekle*@
-                                                                    02.02.2020
-                                                                </td>
-                                                                <td>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="label label-sm label-warning">  </span>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="label label-sm label-success">  </span>
-                                                                </td>
-                                                            </tr>
+                                                            @for(int i = 0; i< Model.EmployeePermits.Count; i++)
+                                                            {
+                                                                <tr>
+                                                                    <td>@(i+1)</td>
+                                                                    <td>@Model.EmployeePermits[i].Permit.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                    <td>@Model.EmployeePermits[i].Permit.EndDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                    <td>@(Model.EmployeePermits[i].Permit.EndDate-Model.EmployeePermits[i].Permit.StartDate) </td>
+                                                                    <td>@Model.EmployeePermits[i].Permit.PermitType.PermitTypeName</td>
+                                                                    <td>-</td>
+                                                                    <td>@Model.EmployeePermits[i].Permit.Description</td>
+                                                                    <td>
+                                                                        <span class="label label-sm label-warning">  </span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="label label-sm label-success">  </span>
+                                                                    </td>
+                                                                </tr>
+                                                            }
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -954,7 +947,7 @@
         </div>
     </div>
 </div>
-
+<partial name="../Permit/AddPermit" model="new PermitDTO() { EmployeeId = Model.Id}" />
 
 
 @section pageLeveljs{

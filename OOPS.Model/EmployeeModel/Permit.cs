@@ -1,4 +1,5 @@
-﻿using OOPS.Model.StaticModels;
+﻿using OOPS.Core.Entities;
+using OOPS.Model.StaticModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,9 +7,8 @@ using System.Text;
 
 namespace OOPS.Model.EmployeeModel
 {
-    public class Permit
+    public class Permit : Entity<int>
     {
-        public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public TimeSpan StartHour { get; set; }
         public DateTime EndDate { get; set; }
