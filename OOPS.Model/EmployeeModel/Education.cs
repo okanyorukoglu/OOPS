@@ -13,7 +13,7 @@ namespace OOPS.Model.EmployeeModel
             Employees = new HashSet<Employee>();
           
         }
-       
+       //TODO: SystemEducation tablosu bağlanacak. NAme alanına gerek yok
         public string Name { get; set; }
 
         [ForeignKey("EducationsType")]

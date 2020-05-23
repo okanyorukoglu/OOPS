@@ -73,6 +73,8 @@ namespace OOPS.DAL
 
             modelBuilder.Seed();
 
+            
+
             modelBuilder.Entity<EmployeeAdvance>()
             .HasKey(hk => new { hk.EmployeeId, hk.AdvanceId });
 

@@ -14,8 +14,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OOPS.BLL.Abstract;
+using OOPS.BLL.Abstract.CompanyAbstract;
+using OOPS.BLL.Abstract.EmployeeAbstract;
 using OOPS.BLL.Abstract.StaticAbstract;
 using OOPS.BLL.Concreate;
+using OOPS.BLL.Concreate.CompanyConcreate;
+using OOPS.BLL.Concreate.EmployeConcreate;
 using OOPS.BLL.Concreate.StaticConcreate;
 using OOPS.Core.Data.UnitOfWork;
 using OOPS.DAL;
@@ -95,6 +99,8 @@ namespace OOPS.WebUI
             services.AddSingleton<IMaritalStatusService, MaritalStatusService>();
             services.AddSingleton<IPermitTypeService, PermitTypeService>();
             services.AddSingleton<IVisaTypeService, VisaTypeService>();
+            services.AddSingleton<ICompanyService, CompanyService>();
+            services.AddSingleton<IEmployeeDetailService, EmployeDetailService>();
 
             services.AddControllersWithViews().AddFluentValidation();
             services.AddTransient<IValidator<RegisterViewModel>, RegisterValidator>();

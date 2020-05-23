@@ -22,6 +22,7 @@ namespace OOPS.DAL
                 Surname = "Kirkit",
                 CompanyID = 1,
                 Title = "Dotnetci"
+                
             },
             new Employee
             {
@@ -79,7 +80,11 @@ namespace OOPS.DAL
             }
             );
 
-            modelBuilder.Entity<Company>().HasData(
+            modelBuilder.Entity<EmployeeDetail>().HasData(
+                new EmployeeDetail { Id=1, BirthDate="15.03.1994", EmployeeID=1 }
+                );
+
+           modelBuilder.Entity<Company>().HasData(
              new Company
              {
                  Id = 1,

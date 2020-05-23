@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OOPS.BLL.Abstract;
+using OOPS.BLL.Abstract.CompanyAbstract;
+using OOPS.BLL.Abstract.EmployeeAbstract;
 using OOPS.DTO.Employee;
 using OOPS.DTO.ProjectBase;
 using OOPS.WebUI.Models;
@@ -13,9 +15,11 @@ namespace OOPS.WebUI.Controllers
     public class EmployeeController : BaseController
     {
         private IEmployeeService service;
-        public EmployeeController(IEmployeeService _service)
+        private IEmployeeDetailService employeeDetailService;
+        public EmployeeController(IEmployeeService _service, IEmployeeDetailService _employeeDetailService)
         {
             service = _service;
+            employeeDetailService = _employeeDetailService;
         }
         public IActionResult Index()
         {
@@ -54,8 +58,17 @@ namespace OOPS.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                service.updateEmployee(employee);
-                return View();
+                if (employee.EmployeeDetail.Id != null)
+                {
+
+                    employeeDetailService.updateEmployeeDetail(employee.EmployeeDetail);
+                }
+                else 
+                {
+                    service.updateEmployee(employee);
+                }
+                
+                return RedirectToAction("List");
             }
             else
             {
@@ -67,9 +80,9 @@ namespace OOPS.WebUI.Controllers
           
         }
 
+        //Giriş yapan Employee ise 
         public IActionResult DetailEmployee()
         {
-            //Giriş yapan Employee ise 
             int userID = CurrentUser.Id;
             var empInfo = service.getEmployeeUser(userID);
             return View(empInfo);
@@ -86,6 +99,8 @@ namespace OOPS.WebUI.Controllers
         {
             employee.CompanyID = (int)CurrentUser.CompanyID;
             service.newEmployee(employee);
+            //employeeDetailService.newEmployeeDetail(newEmp.EmployeeDetail);
+
             return RedirectToAction("List");
         }
 
