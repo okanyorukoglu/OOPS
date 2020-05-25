@@ -44,9 +44,7 @@ namespace OOPS.BLL.Concreate
         public EmployeeDTO getEmployee(int Id)
         {
             var getEmployee = uow.GetRepository<Employee>()
-        .GetIncludes(a => a.Id == Id,
-                    b=>b.EmployeeDetail,
-                    c=>c.EmployeeOtherInfo
+        .GetIncludes(a => a.Id == Id
                      );
             return MapperFactory.CurrentMapper.Map<EmployeeDTO>(getEmployee);
             //var emp = uow.GetRepository<Employee>().Get(z=>z.Id==Id);

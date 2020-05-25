@@ -101,6 +101,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IVisaTypeService, VisaTypeService>();
             services.AddSingleton<ICompanyService, CompanyService>();
             services.AddSingleton<IEmployeeDetailService, EmployeDetailService>();
+            services.AddSingleton<IEmployeeOtherInfoService, EmployeeOtherInfoService>();
 
             services.AddControllersWithViews().AddFluentValidation();
             services.AddTransient<IValidator<RegisterViewModel>, RegisterValidator>();

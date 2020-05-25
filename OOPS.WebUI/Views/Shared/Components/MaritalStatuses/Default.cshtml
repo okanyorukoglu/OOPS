@@ -1,11 +1,6 @@
 ﻿@model IEnumerable<OOPS.DTO.Static.MaritalStatusDTO>
 
-<div class="form-group">
-    <label class="control-label">Medeni Hal</label>
-    <select class="form-control">
-        @foreach (var item in Model)
-        {
-            <option value="@item.Id">@item.StatusName</option>
-        }
-    </select>
-</div>
+@foreach (var item in Model)
+{
+    <option value="@item.Id" selected>@item.StatusName</option>
+}

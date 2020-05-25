@@ -8,6 +8,7 @@ namespace OOPS.DTO.Employee
     public class EmployeeDetailDTO
     {
         public Nullable<int> Id { get; set; }
+        public Nullable<int> EmployeeID { get; set; }
         public virtual EmployeeDTO Employee { get; set; }
         public string TCKN { get; set; }
         public string BirthDate { get; set; }

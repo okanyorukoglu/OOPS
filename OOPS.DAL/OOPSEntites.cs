@@ -13,7 +13,7 @@ namespace OOPS.DAL
     {
         public OOPSEntites(DbContextOptions<OOPSEntites> options) : base(options)
         {
-
+            
         }
 
         public DbSet<User> Users { get; set; }

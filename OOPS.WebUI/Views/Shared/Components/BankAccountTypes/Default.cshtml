@@ -1,11 +1,6 @@
 ﻿@model IEnumerable<OOPS.DTO.Static.BankAccountTypeDTO>
 
-<div class="form-group">
-    <label class="control-label">Hesap Tipi</label>
-    <select class="form-control">
-        @foreach (var item in Model)
-        {
-            <option value="@item.Id">@item.BankAccountTypeName</option>
-        }
-    </select>
-</div>
+@foreach (var item in Model)
+{
+    <option value="@item.Id">@item.BankAccountTypeName</option>
+}

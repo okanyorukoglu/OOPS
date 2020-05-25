@@ -28,7 +28,7 @@ namespace OOPS.BLL.Concreate.EmployeConcreate
 
         public EmployeeDetailDTO getEmployeeDetail(int Id)
         {
-            var getEmployeeDetail = uow.GetRepository<Model.EmployeeModel.EmployeeDetail>().Get(z => z.Id == Id);
+            var getEmployeeDetail = uow.GetRepository<Model.EmployeeModel.EmployeeDetail>().Get(z => z.EmployeeID == Id);
             return MapperFactory.CurrentMapper.Map<EmployeeDetailDTO>(getEmployeeDetail);
         }
 
