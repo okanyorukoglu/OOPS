@@ -22,6 +22,7 @@ namespace OOPS.DAL
                 Surname = "Kirkit",
                 CompanyID = 1,
                 Title = "Dotnetci"
+      
             },
             new Employee
             {
@@ -93,8 +94,44 @@ namespace OOPS.DAL
 
             }
              );
+            modelBuilder.Entity<EmployeeDetail>().HasData(
+           new EmployeeDetail
+           {
+               Id = 1,
+               BirthDate = "12/10/1994",
+           },
+           new EmployeeDetail
+           {
+               Id = 2,
+               BirthDate = "12/08/1996",
+           },
+           new EmployeeDetail
+           {
+               Id = 3,
+               BirthDate = "12/12/1998",
+           },
+           new EmployeeDetail
+           {
+               Id = 4,
+               BirthDate = "12/05/1994",
+           },
+           new EmployeeDetail
+           {
+               Id = 5,
+               BirthDate = "13/07/1994",
+           },
+           new EmployeeDetail
+           {
+               Id = 6,
+               BirthDate = "08/07/1994",
+           },
+           new EmployeeDetail
+           {
+               Id = 7,
+               BirthDate = "12/11/1994",
+           });
 
-            modelBuilder.Entity<User>().HasData(
+           modelBuilder.Entity<User>().HasData(
              new User
              {
                  Id = 2,
@@ -232,12 +269,46 @@ namespace OOPS.DAL
                 new PermitType {Id=13, PermitTypeName="Yol İzni"}
                 );
 
+            //modelBuilder.Entity<Permit>().HasData(
+            //    new Permit { Id = 1, StartDate = new DateTime(2015, 12, 25), EmployeePermits = { } }
+        
+            //    );
+
             modelBuilder.Entity<MaritalStatus>().HasData(
                 new MaritalStatus { Id = 1, StatusName ="Evli"},
                 new MaritalStatus { Id = 2, StatusName ="Bekar"},
                 new MaritalStatus { Id = 3, StatusName ="Boşanmış"},
                 new MaritalStatus { Id = 4, StatusName ="Belirtilmemiş"}
                 );
+
+            modelBuilder.Entity<PublicHolidays>().HasData(
+                new PublicHolidays { Id=1, Name="23 Nisan Ulusal Egemenlik ve Çocuk Bayramı", DateTime="23 Nisan 2020" },
+                new PublicHolidays { Id = 2, Name = "29 Ekim Cumhuriyet Bayramı", DateTime = "29 Ekim 2020" },
+                new PublicHolidays { Id = 3, Name = "19 Mayıs Gençlik ve Spor Bayramı", DateTime = "19 Mayıs 2020" }
+                );
+
+            modelBuilder.Entity<ActivityCalender>().HasData(
+                new ActivityCalender { Id=1, Name="Şirket Toplantısı", DateTime="25.02.2020"},
+                new ActivityCalender { Id = 2, Name = "Şirket Yemeği", DateTime = "18.04.2020" },
+                new ActivityCalender { Id = 3, Name = "Ceo Koray Özdemir gelecek", DateTime = "02.07.2020" }
+                );
+            modelBuilder.Entity<PaymentRequests>().HasData(
+                new PaymentRequests { Id = 1, Name = "Taha Elmacı", DateTime = "22.05.2020" },
+                new PaymentRequests { Id = 2, Name = "Muharrem Kirkit", DateTime = "18.04.2020" },
+                new PaymentRequests { Id = 3, Name = "Okan Ozaman", DateTime = "08.06.2020" }
+                );
+            modelBuilder.Entity<OvertimeRequests>().HasData(
+                new OvertimeRequests { Id = 1, Name = "Emre Çakmak", DateTime = "23.12.2020" },
+                new OvertimeRequests { Id = 2, Name = "Can Tektaş", DateTime = "18.08.2020" },
+                new OvertimeRequests { Id = 3, Name = "Semih Dinçay", DateTime = "22.07.2020" }
+                );
+            modelBuilder.Entity<VisaDocumentRequests>().HasData(
+                new VisaDocumentRequests { Id = 1, Name = "Aslı", DateTime = "01.01.2020" },
+                new VisaDocumentRequests { Id = 2, Name = "Ahmet Taş", DateTime = "17.03.2020" },
+                new VisaDocumentRequests { Id = 3, Name = "Merve", DateTime = "12.03.2020" }
+                );
+
+
 
             modelBuilder.Entity<Gender>().HasData(
                 new Gender { Id = 1, GenderName ="Erkek"},
@@ -288,6 +359,12 @@ namespace OOPS.DAL
                  new Country() { Id = 1, CountryName = "Türkiye", Code = "+90", LangCode = "Tr-tr", },
                  new Country() { Id = 2, CountryName = "England", Code = "+44", LangCode = "En-en", }
                 );
+
+            //modelBuilder.Entity<Permit>.HasData(
+            //    new Permit() { },
+            //    new Permit() { },
+            //    new Permit() { }
+            //    );
 
             modelBuilder.Entity<City>().HasData(
                  new City() { Id = 1, CountryId = 1, Name = "ADANA", Code = "322" },

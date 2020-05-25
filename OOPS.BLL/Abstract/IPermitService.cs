@@ -9,7 +9,7 @@ namespace OOPS.BLL.Abstract
 {
     public interface IPermitService : IServiceBase
     {
-        List<PermitDTO> getAllEmployeePermits();
+        List<PermitDTO> getAllEmployeePermits(int companyId);
         PermitDTO getPermit(int Id);
         List<PermitDTO> getEmployeePermits(int employeeId);
         PermitDTO newPermit(PermitDTO Permit);

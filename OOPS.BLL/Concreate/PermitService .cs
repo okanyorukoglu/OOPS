@@ -47,8 +47,11 @@ namespace OOPS.BLL.Concreate
             return MapperFactory.CurrentMapper.Map<List<PermitDTO>>(emp);
         }
 
-        public List<PermitDTO> getAllEmployeePermits()
+        public List<PermitDTO> getAllEmployeePermits(int companyId)
         {
+            //var emp = uow.GetRepository<Employee>().Get(z => z.CompanyID == companyId);
+            //var permits = emp.EmployeePermits.Where(z => z.Permit.StartDate)
+
             var emp = uow.GetRepository<EmployeePermit>().Get(null, x => x.Permit.PermitType).Select(x => x.Permit).OrderByDescending(x => x.Id).ToList();
             return MapperFactory.CurrentMapper.Map<List<PermitDTO>>(emp);
         }

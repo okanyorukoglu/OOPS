@@ -9,6 +9,10 @@ namespace OOPS.Model.EmployeeModel
 {
     public class Permit : Entity<int>
     {
+        public Permit()
+        {
+            EmployeePermits = new HashSet<EmployeePermit>();
+        }
         public DateTime StartDate { get; set; }
         public TimeSpan StartHour { get; set; }
         public DateTime EndDate { get; set; }
@@ -23,5 +27,6 @@ namespace OOPS.Model.EmployeeModel
         public string Description { get; set; }
         public string Status { get; set; }
         public string Signed { get; set; }
+        public virtual ICollection<EmployeePermit> EmployeePermits { get; set; }
     }
 }
