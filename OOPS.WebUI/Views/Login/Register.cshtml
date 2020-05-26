@@ -165,11 +165,11 @@
                     <div class="input-icon">
                         <i class="fa fa-check"></i>
                         <input class="form-control placeholder-no-fix"
+                               asp-for="@Model.RePassword"
                                type="password" autocomplete="off"
-                               @*Şifre Tekrar doğrulaması view da validation yapılacak*@
                                placeholder="Şifreyi Tekrar Giriniz" />
                     </div>
-                    <span asp-validation-for="@Model.Password"></span>
+                    <span asp-validation-for="@Model.RePassword"></span>
                 </div>
             </div>
             <div class="form-group">
@@ -182,7 +182,7 @@
                 <div id="register_tnc_error"> </div>
             </div>
             <div class="form-actions">
-                <button id="register-back-btn" type="button" class="btn red btn-outline">Geri </button>
+                <button id="register-back-btn" type="button" class="btn red btn-outline"onclick="location.href='/Login'" > Geri </button>
                 <button type="submit"
                         id="register-submit-btn"
                         class="btn green pull-right"

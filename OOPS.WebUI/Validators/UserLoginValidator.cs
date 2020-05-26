@@ -13,7 +13,7 @@ namespace OOPS.WebUI.Validators
     {
         public UserLoginValidator()
         {
-            RuleFor(x => x.Email).EmailAddress(EmailValidationMode.AspNetCoreCompatible).NotNull();
+            RuleFor(x => x.Email).EmailAddress(EmailValidationMode.AspNetCoreCompatible).NotNull().WithMessage("E-Mail Alanı Boş Olamaz");
             RuleFor(x => x.Password).NotNull().WithMessage("Şifre Alanı Boş Olamaz");
         }
     }

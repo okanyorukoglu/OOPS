@@ -18,6 +18,6 @@ namespace OOPS.WebUI.Models
         public string CompanyName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        
+        public string RePassword { get; set; }
     }
 }

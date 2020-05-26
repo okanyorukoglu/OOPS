@@ -23,6 +23,5 @@ namespace OOPS.WebUI.Controllers
             var permits = _permitService.getAllEmployeePermits();
             return View(permits);
         }
-     
     }
 }

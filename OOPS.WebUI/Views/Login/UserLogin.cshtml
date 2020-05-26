@@ -100,7 +100,7 @@
                 <h4> @*@sysLanguage.LoginStrings.plc_forgetPassword*@ </h4>
                 <p>
                     @*@sysLanguage.LoginStrings.plc_noworries*@
-                    <a>şifremi unuttum @*@sysLanguage.LoginStrings.btn_here*@ </a> @*@sysLanguage.LoginStrings.plc_toresetyourpassword*@
+                    <a id="forget-password" class="forget-password" href="javascript:;">şifremi unuttum @*@sysLanguage.LoginStrings.btn_here*@ </a> @*@sysLanguage.LoginStrings.plc_toresetyourpassword*@
                 </p>
             </div>
         </form>
@@ -114,18 +114,18 @@
         </div>
 
         <form class="forget-form" method="post">
-            <h3> @*@sysLanguage.LoginStrings.plc_forgetpasswordQ*@ </h3>
-            <p> @*@sysLanguage.LoginStrings.plc_emailforresetpassword*@ </p>
+            <h3> Şifremi Unuttum @*@sysLanguage.LoginStrings.plc_forgetpasswordQ*@ </h3>
+            <p>  @*@sysLanguage.LoginStrings.plc_emailforresetpassword*@ </p>
             <div class="form-group">
                 <div class="input-icon">
                     <i class="fa fa-envelope"></i>
                     <input class="form-control placeholder-no-fix"
-                           type="text" autocomplete="off" @*placeholder="@sysLanguage.LoginStrings.plc_Email"*@ name="email" />
+                           type="text" autocomplete="off" placeholder=" Enter Your E-Mail " name="email" />
                 </div>
             </div>
             <div class="form-actions">
-                <button type="button" id="back-btn" class="btn red btn-outline"> @*@sysLanguage.LoginStrings.btn_Back*@ </button>
-                <button type="submit" class="btn green pull-right"> @*@sysLanguage.LoginStrings.btn_Submit*@ </button>
+                <button type="button" id="back-btn" class="btn red btn-outline"> Back </button>
+                <button type="submit" class="btn green pull-right"> Send </button>
             </div>
         </form>
         <!-- END FORGOT PASSWORD FORM -->
