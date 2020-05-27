@@ -1,81 +1,33 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
 @model List<PermitDTO>
 <div class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <!-- Çalışan Dağılımı Bloğu -->
-                <div class="col-md-4">
-                    <div class="portlet light portlet-fit ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class=" icon-layers font-dark"></i>
-                                <span class="caption-subject font-dark bold ">Çalışan Dağılımı</span>
-                            </div>
-                            <div class="actions">
-                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                    <i class="glyphicon glyphicon-option-horizontal"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div id="donut" class="chart"> </div>
-                        </div>
-                        <div class="portlet-body">
-                            <a href="#"><span>Raporlara Git</span></a>
-                        </div>
-                    </div>
-                </div>
-                <!------------------------>
                 <!--Etkinlik Takvimi-->
                 <div class="col-md-4">
-                    <ul class="list-group-item">
-                        <li class="list-group-item  align-items-center">
-                            <span class="caption-subject font-dark bold "><i class="icon-calendar"></i> Etkinlik Takvimi </span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Ads
-                            <span class="badge badge-primary badge-pill">50</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Junk
-                            <span class="badge badge-primary badge-pill">99</span>
-                        </li>
-                    </ul>
+                    @await Component.InvokeAsync("ActivityCalenders")
                 </div>
                 <!------------------------>
-                <!--Yaklaşan Doğum Günleri-->
+                <!--Ödeme Talepleri-->
                 <div class="col-md-4">
-                    <ul class="list-group-item">
-                        <li class="list-group-item  align-items-center">
-                            <span class="caption-subject font-dark bold "> <i class="icon-present"></i> Yaklaşan Doğum Günleri </span>
-
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Ads
-                            <span class="badge badge-primary badge-pill">50</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Junk
-                            <span class="badge badge-primary badge-pill">99</span>
-                        </li>
-                    </ul>
+                    @await Component.InvokeAsync("PaymentRequests")
                 </div>
+                <!------------------------>
+                <!--Fazla Mesai Talepleri-->
+                <div class="col-md-4">
+                    @await Component.InvokeAsync("OvertimeRequests")
+                </div>
+                <!------------------------>
             </div>
             <div class="row">
-                <!------------------------>
+                
                 <!--Vize Belgesi Talepleri-->
                 <div class="col-md-4">
-                    <ul class="list-group-item">
-                        <li class="list-group-item  align-items-center">
-                            <span class="caption-subject font-dark bold "> <i class="icon-globe"></i> Vize Belgesi Talepleri </span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <p>Onayınızı bekleyen vize belgesi talebi yok.</p>
-                        </li>
-                    </ul>
+                    @await Component.InvokeAsync("VisaDocumentRequests")
                 </div>
                 <!------------------------>
                 <!--İzin Talepleri-->
@@ -95,78 +47,19 @@
                 <!------------------------>
                 <!--Yaklaşan İzinler-->
                 <div class="col-md-4">
-                    <ul class="list-group-item">
-                        <li class="list-group-item  align-items-center">
-                            <span class="caption-subject font-dark bold "> <i class="icon-plane"></i> Yaklaşan İzinler </span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Ads
-                            <span class="badge badge-primary badge-pill">50</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Junk
-                            <span class="badge badge-primary badge-pill">99</span>
-                        </li>
-                    </ul>
+                    @await Component.InvokeAsync("IncomingPermits")
                 </div>
+                <!------------------------>
             </div>
             <div class="row">
-                <!------------------------>
-                <!--Fazla Mesai Talepleri-->
-                <div class="col-md-4">
-                    <ul class="list-group-item">
-                        <li class="list-group-item  align-items-center">
-                            <span class="caption-subject font-dark bold "> <i class="icon-clock"></i> Fazla Mesai Talepleri </span>
-
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Ads
-                            <span class="badge badge-primary badge-pill">50</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Junk
-                            <span class="badge badge-primary badge-pill">99</span>
-                        </li>
-                    </ul>
-                </div>
-                <!------------------------>
                 <!--Resmi Tatiller-->
                 <div class="col-md-4">
-                    <ul class="list-group-item">
-                        <li class="list-group-item  align-items-center">
-                            <span class="caption-subject font-dark bold "><i class="icon-umbrella"></i> Resmi Tatiller </span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div class="row">
-                                <div class="col-md-8">Ulusal Egemenlik ve Çocuk Bayramı</div>
-                                <div class="col-md-4">23 Nisan</div>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div class="row">
-                                <div class="col-md-8"> Emek ve Dayanışma Günü </div>
-                                <div class="col-md-4"> 1 Mayıs </div>
-                            </div>    
-                        </li>
-                    </ul>
+                    @await Component.InvokeAsync("PublicHolidays")
                 </div>
                 <!------------------------>
-                <!--Ödeme Talepleri-->
+                <!--Yaklaşan Doğum Günleri-->
                 <div class="col-md-4">
-                    <ul class="list-group-item">
-                        <li class="list-group-item  align-items-center">
-                            <span class="caption-subject font-dark bold "><i class="icon-credit-card"></i> Ödeme Talepleri </span>
-
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Ads
-                            <span class="badge badge-primary badge-pill">50</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Junk
-                            <span class="badge badge-primary badge-pill">99</span>
-                        </li>
-                    </ul>
+                    @*@await Component.InvokeAsync("IncomingBirtdate")*@
                 </div>
                 <!------------------------>
             </div>

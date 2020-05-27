@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OOPS.BLL.Abstract;
+using OOPS.BLL.Abstract.EmployeeAbstract;
 using OOPS.BLL.Abstract.StaticAbstract;
 using OOPS.BLL.Concreate;
 using OOPS.BLL.Concreate.StaticConcreate;
@@ -96,6 +97,13 @@ namespace OOPS.WebUI
             services.AddSingleton<IPermitTypeService, PermitTypeService>();
             services.AddSingleton<IVisaTypeService, VisaTypeService>();
             services.AddSingleton<IPermitService, PermitService>();
+            services.AddSingleton<IPublicHolidaysService, PublicHolidaysService>();
+            services.AddSingleton<IEmployeeDetailService, EmployeDetailService>();
+            services.AddSingleton<IActivityCalenderService, ActivityCalenderService>();
+            services.AddSingleton<IPaymentRequestsService, PaymentRequestsService>();
+            services.AddSingleton<IOvertimeRequestsService, OvertimeRequestsService>();
+            services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
+
 
             services.AddControllersWithViews().AddFluentValidation();
             services.AddTransient<IValidator<RegisterViewModel>, RegisterValidator>();

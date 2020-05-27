@@ -20,8 +20,7 @@ namespace OOPS.WebUI.Controllers
 
         public IActionResult Index()
         {
-            var permits = _permitService.getAllEmployeePermits();
-            return View(permits);
+            return View();
         }
     }
 }
