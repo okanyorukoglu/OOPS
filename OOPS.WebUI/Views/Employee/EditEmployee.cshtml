@@ -657,16 +657,16 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @for(int i = 0; i< Model.EmployeePermits.Count; i++)
+                                                            @for(int i = 0; i< Model.Employee.EmployeePermits.Count; i++)
                                                             {
                                                                 <tr>
                                                                     <td>@(i+1)</td>
-                                                                    <td>@Model.EmployeePermits[i].Permit.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
-                                                                    <td>@Model.EmployeePermits[i].Permit.EndDate.ToString("dd.MM.yyyy HH:mm")</td>
-                                                                    <td>@(Model.EmployeePermits[i].Permit.EndDate-Model.EmployeePermits[i].Permit.StartDate) </td>
-                                                                    <td>@Model.EmployeePermits[i].Permit.PermitType.PermitTypeName</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.EndDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                    <td>@(Model.Employee.EmployeePermits[i].Permit.EndDate-Model.Employee.EmployeePermits[i].Permit.StartDate) </td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.PermitType.PermitTypeName</td>
                                                                     <td>-</td>
-                                                                    <td>@Model.EmployeePermits[i].Permit.Description</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.Description</td>
                                                                     <td>
                                                                         <span class="label label-sm label-warning">  </span>
                                                                     </td>
@@ -1007,7 +1007,7 @@
         </div>
     </div>
 </div>
-<partial name="../Permit/AddPermit" model="new PermitDTO() { EmployeeId = Model.Id}" />
+<partial name="../Permit/AddPermit" model="new PermitDTO() { EmployeeId = Model.Employee.Id}" />
 
 
 @section pageLeveljs{
