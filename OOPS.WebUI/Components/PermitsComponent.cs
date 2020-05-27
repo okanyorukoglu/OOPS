@@ -20,7 +20,7 @@ namespace OOPS.WebUI.Components
         {
             //var companyId = CurrentUser.companyId;
             var companyId = 1;
-            return View(permitService.getAllEmployeePermits(companyId));
+            return View(permitService.getAllEmployeePermits());
         }
     }
 }

@@ -47,7 +47,7 @@ namespace OOPS.BLL.Concreate
             return MapperFactory.CurrentMapper.Map<List<PermitDTO>>(emp);
         }
 
-        public List<PermitDTO> getAllEmployeePermits(int companyId)
+        public List<PermitDTO> getAllEmployeePermits()
         {
             //var emp = uow.GetRepository<Employee>().Get(z => z.CompanyID == companyId);
             //var permits = emp.EmployeePermits.Where(z => z.Permit.StartDate)

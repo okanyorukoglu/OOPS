@@ -2,7 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model List<PermitDTO>
 <div class="content">
     <div class="row">
         <div class="col-md-12">
@@ -27,26 +26,23 @@
                 
                 <!--Vize Belgesi Talepleri-->
                 <div class="col-md-4">
+<<<<<<< HEAD
+                    <ul class="list-group-item">
+                        <li class="list-group-item  align-items-center">
+                            <span class="caption-subject font-dark bold "> <i class="icon-globe"></i> Vize Belgesi Talepleri </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <p>Onayınızı bekleyen vize belgesi talebi yok.</p>
+                        </li>
+                    </ul>
+=======
                     @await Component.InvokeAsync("VisaDocumentRequests")
+>>>>>>> muharremeklenecek
                 </div>
                 <!------------------------>
                 <!--İzin Talepleri-->
                 <div class="col-md-4">
-                    <ul class="list-group-item">
-                        <li class="list-group-item  align-items-center">
-                            <span class="caption-subject font-dark bold "><i class="icon-plane"></i> İzin Talepleri </span>
-                        </li>
-
-                        @for (int i = 0; i < 3; i++)
-                        {
-                            @if (Model.Count > 0 && i < Model.Count && Model[i] != null)
-                            {
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    @Model[i].PermitType.PermitTypeName
-                                </li>
-                            }
-                        }
-                    </ul>
+                    @await Component.InvokeAsync("Permits")
                 </div>
                 <!------------------------>
                 <!--Yaklaşan İzinler-->
