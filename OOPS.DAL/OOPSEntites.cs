@@ -13,7 +13,7 @@ namespace OOPS.DAL
     {
         public OOPSEntites(DbContextOptions<OOPSEntites> options) : base(options)
         {
-
+            
         }
 
         public DbSet<User> Users { get; set; }
@@ -72,6 +72,8 @@ namespace OOPS.DAL
         {
 
             modelBuilder.Seed();
+
+            
 
             modelBuilder.Entity<EmployeeAdvance>()
             .HasKey(hk => new { hk.EmployeeId, hk.AdvanceId });

@@ -11,7 +11,7 @@ namespace OOPS.Model.EmployeeModel
         {
             Educations = new HashSet<Education>();
         }
-     
+     //TODO: Sabit tablo olucak eğitim popup içinde durumu field ı na bağlanıca
         public string Name { get; set; }
 
         public virtual ICollection<Education> Educations { get; set; }

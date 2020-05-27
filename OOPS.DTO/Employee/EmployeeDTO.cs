@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using OOPS.DTO.Company;
 using OOPS.DTO.ProjectBase;
@@ -16,9 +18,9 @@ namespace OOPS.DTO.Employee
         public string PhonePersonal { get; set; }
         public string PhoneBusiness { get; set; }
         public string EmailBusiness { get; set; }
-        public string EmailPersonal { get; set; }
-        //public DateTime StartDate { get; set; }
-        //public DateTime ContractEndDate { get; set; }
+        //public string EmailPersonal { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? ContractEndDate { get; set; }
         public virtual EmployeeDetailDTO EmployeeDetail { get; set; }
         public virtual EmployeeOtherInfoDTO EmployeeOtherInfo { get; set; }
         public virtual EmploymentTypeDTO EmploymentType { get; set; }

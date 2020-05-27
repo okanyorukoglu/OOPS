@@ -1,4 +1,4 @@
-﻿@model EmployeeDTO
+﻿@model EmployeeModel
 @{
     ViewData["Title"] = "EditEmployee";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -27,8 +27,8 @@
                     <!-- END SIDEBAR USERPIC -->
                     <!-- SIDEBAR USER TITLE -->
                     <div class="profile-usertitle">
-                        <div class="profile-usertitle-name">@Model.Name @Model.Surname  </div>
-                        <div class="profile-usertitle-job">@Model.Title </div>
+                        <div class="profile-usertitle-name">@Model.Employee.Name @Model.Employee.Surname  </div>
+                        <div class="profile-usertitle-job">@Model.Employee.Title </div>
                     </div>
                     <div class="portlet light ">
                         <!-- STAT -->
@@ -157,7 +157,9 @@
                                 <!-- BAŞ GENEL INFO TAB -->
                                 <div class="tab-pane active" id="tab_1">
                                     <form asp-action="EditEmployee" method="post" class="horizontal-form">
-                                        <input type="hidden" asp-for="Id" value="Id" />
+                                        <input type="hidden" asp-for="@Model.Employee.Id" />
+                                        <input type="hidden" asp-for="@Model.Employee.CompanyID" />
+                                        <input type="hidden" asp-for="@Model.Employee.ContractTypeID" />
                                         <div class="form-body">
                                             <!--Genel Bilgiler-->
                                             <h3 class="form-section">Genel Bilgiler</h3>
@@ -166,42 +168,42 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Ad</label>
-                                                        <input type="text" asp-for="Name" class="form-control">
+                                                        <input type="text" asp-for="@Model.Employee.Name" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Soyad</label>
-                                                        <input type="text" asp-for="Surname" class="form-control">
+                                                        <input type="text" asp-for="@Model.Employee.Surname" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">E-Posta (İş)</label>
-                                                        <input type="text" asp-for="EmailBusiness" class="form-control">
+                                                        <label class="control-label">E-Posta</label>
+                                                        <input type="text" asp-for="@Model.Employee.EmailBusiness" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">E-Posta (Kişisel)</label>
-                                                        <input type="text" asp-for="EmailPersonal" class="form-control">
+                                                        <label class="control-label">Ünvan</label>
+                                                        <input type="text" asp-for="@Model.Employee.Title" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Telefon (İş)</label>
-                                                        <input type="text" asp-for="PhoneBusiness" class="form-control">
+                                                        <input type="text" asp-for="@Model.Employee.PhoneBusiness" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Telefon (Kişisel)</label>
-                                                        <input type="text" asp-for="PhonePersonal" class="form-control" >
+                                                        <input type="text" asp-for="@Model.Employee.PhonePersonal" class="form-control" >
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -213,11 +215,21 @@
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    @await Component.InvokeAsync("AccessTypes")
+                                                    <div class="form-group">
+                                                        <label class="control-label">Erişim Türü</label>
+                                                        <select class="form-control" asp-for="@Model.Employee.AccessTypeID">
+                                                            @await Component.InvokeAsync("AccessTypes")
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    @await Component.InvokeAsync("ContractTypes")
+                                                    <div class="form-group">
+                                                        <label class="control-label" >Sözleşme Türü</label>
+                                                        <select class="form-control" asp-for="@Model.Employee.ContractTypeID">
+                                                            @await Component.InvokeAsync("ContractTypes")
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
@@ -332,73 +344,107 @@
                                 <!-- SON KARIYER INFO TAB -->
                                 <!-- BAŞ KISISEL BILGILER INFO TAB -->
                                 <div class="tab-pane" id="tab_3">
-                                    <form action="#" class="horizontal-form">
+                                    <form asp-action="EditEmployeedetail" asp-controller="Employee" method="post" class="horizontal-form">
+                                        <input type="hidden" asp-for="@Model.Employee.Id" />
+                                        <input type="hidden" asp-for="@Model.Employee.CompanyID" />
+                                        <input type="hidden" asp-for="@Model.EmployeeDetail.Id" />
+                                        <input type="hidden" asp-for="@Model.EmployeeDetail.EmployeeID" />
                                         <div class="form-body">
                                             <h3 class="form-section">Kişisel Bilgiler</h3>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Doğum Tarihi</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.BirthDate" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Kimlik Numarası</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.TCKN" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    @await Component.InvokeAsync("MaritalStatuses") 
-                                                </div>
-                                                <!--/span-->
-                                                <div class="col-md-6">
-                                                    @await Component.InvokeAsync("Genders") 
-                                                </div>
-                                                <!--/span-->
-                                                <div class="col-md-6">
-                                                    @await Component.InvokeAsync("DisabilitySituations")
+                                                    <div class="form-group">
+                                                        <label class="control-label">Medeni Hal</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.MaritalStatusID">
+                                                            @await Component.InvokeAsync("MaritalStatuses")
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">Uyruk</label>
-                                                        <input type="text" class="form-control">
+                                                        <label class="control-label">Cinsiyet</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.GenderID">
+                                                            @await Component.InvokeAsync("Genders")
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Engel Derecesi</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.DisabilitySituationID">
+                                                            @await Component.InvokeAsync("DisabilitySituations")
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label" asp-for="@Model">Uyruk</label>
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.Nationality" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Çocuk Sayısı</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.Children" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    @await Component.InvokeAsync("BloodGroups")
+                                                    <div class="form-group">
+                                                        <label class="control-label">Kan Grubu</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.BloodGroupID" >
+                                                            @await Component.InvokeAsync("BloodGroups")
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    @await Component.InvokeAsync("EducationStatuses")
+                                                    <div class="form-group">
+                                                        <label class="control-label">Eğitim Durumu</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.EducationStatusID">
+                                                            @await Component.InvokeAsync("EducationStatuses")
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    @await Component.InvokeAsync("EducationLevels")
+                                                    <div class="form-group">
+                                                        <label class="control-label">Tamamlanan En Yüksek Eğitim Seviyesi</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.EducationLevelID">
+                                                            @await Component.InvokeAsync("EducationLevels")
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Son Tamamlanan Eğitim Kurumu</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeDetail.LastCompletedEducationalInstitution" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                             </div>
                                             <div class="margiv-top-10">
-                                                <a href="javascript:;" class="btn green btn-circle"> Kaydet </a>
-                                                <a href="javascript:;" class="btn default btn-circle"> İptal </a>
+                                                <button type="submit" class="btn green btn-circle"> Kaydet </button>
+                                                <button href="javascript:;" class="btn default btn-circle"> İptal </button>
                                             </div>
                                             <!--/row-üsttekinin içine yaz-->
                                         </div>
@@ -407,46 +453,59 @@
                                 <!-- SON KISISEL BILGILER INFO TAB -->
                                 <!-- BAŞ DIGER BILGILER INFO TAB -->
                                 <div class="tab-pane" id="tab_4">
-                                    <form action="#" class="horizontal-form">
+                                    <form asp-action="EditEmployeeOtherInfo" asp-controller="Employee" class="horizontal-form">
+                                        <input type="hidden" asp-for="@Model.Employee.Id" />
+                                        <input type="hidden" asp-for="@Model.Employee.CompanyID" />
+                                        <input type="hidden" asp-for="@Model.EmployeeOtherInfo.Id" />
+                                        <input type="hidden" asp-for="@Model.EmployeeOtherInfo.EmployeeID" />
                                         <div class="form-body">
-
-
                                             <!--Adres Bilgileri-->
                                             <h3 class="form-section">Adres Bilgileri</h3>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Adres Bilgileri</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.AdressInfo" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Adres (devam)</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.AdressFull" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Ev Telefonu</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.HomePhone" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    @await Component.InvokeAsync("Countries")
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ülke</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeOtherInfo.CountryId">
+                                                            @await Component.InvokeAsync("Countries")
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    @await Component.InvokeAsync("Cities")
+                                                    <div class="form-group">
+                                                        <label class="control-label">Şehir</label>
+                                                        @*<select class="form-control" asp-for="@Model.EmployeeOtherInfo.CityId">
+                                                             @await Component.InvokeAsync("Cities")
+                                                           </select>*@
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.City.Name" class="form-control">
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Posta Kodu</label>
-                                                        <input type="text" class="form-control"> @*TODO: düzelt*@
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.PostalCode" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -458,79 +517,80 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Banka Adı</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.BankName" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
-                                                    @await Component.InvokeAsync("BankAccountTypes")
+                                                    <div class="form-group">
+                                                        <label class="control-label">Hesap Tipi</label>
+                                                        <select class="form-control" asp-for="@Model.EmployeeOtherInfo.BankAccountTypeId">
+                                                            @await Component.InvokeAsync("BankAccountTypes")
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Hesap No</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.BankAccountNo" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>IBAN</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.IBAN" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                             </div>
-
-
                                             <!--Acil Durum Bilgileri-->
                                             <h3 class="form-section">Acil Durum Bilgileri</h3>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Acil Durumda Aranacak Kişi</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.ContactNameforEmergency" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Acil Durumda Aranacak Kişi Yakınlık Derecesi</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.RelationshipforEmergencyContact" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Acil Durumda Aranacak Kişi Telefon</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.NumberforEmergencyContact" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                             </div>
-
-
                                             <!--Bağlantılar ve Sosyal Medya Hesapları-->
                                             <h3 class="form-section">Bağlantılar ve Sosyal Medya Hesapları</h3>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Bağlantı Adı</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.SocialMediaConnectionName" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Bağlantı Adresi</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.SocialMediaConnectionAddress" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="margiv-top-10">
-                                            <a href="javascript:;" class="btn green btn-circle"> Kaydet </a>
-                                            <a href="javascript:;" class="btn default btn-circle"> İptal </a>
+                                            <button type="submit" class="btn green btn-circle"> Kaydet </button>
+                                            <button href="javascript:;" class="btn default btn-circle"> İptal </button>
                                         </div>
                                     </form>
                                 </div>

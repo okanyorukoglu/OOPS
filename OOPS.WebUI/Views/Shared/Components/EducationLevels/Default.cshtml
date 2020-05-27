@@ -1,11 +1,6 @@
 ﻿@model IEnumerable<OOPS.DTO.Static.EducationLevelDTO>
 
-<div class="form-group">
-    <label class="control-label">Tamamlanan En Yüksek Eğitim Seviyesi</label>
-    <select class="form-control">
-        @foreach (var item in Model)
-        {
-            <option value="@item.Id">@item.EducationLevelName</option>
-        }
-    </select>
-</div>
+@foreach (var item in Model)
+{
+    <option value="@item.Id" selected>@item.EducationLevelName</option>
+}
