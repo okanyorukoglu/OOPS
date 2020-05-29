@@ -31,6 +31,18 @@ namespace OOPS.WebUI.Controllers
             service.newDebit(debit);
             return RedirectToAction("Index","Home");
         }
-       
+        public IActionResult ListDebit()
+        {
+            List<DebitDTO> debit = service.getAll();
+            return View(debit);
+        }
+
+        [HttpPost]
+        public IActionResult ListDebit(DebitDTO debit)
+        {
+
+            service.getDebit(debit.EmployeeId);
+            return RedirectToAction("Index");
+        }
     }
 }
