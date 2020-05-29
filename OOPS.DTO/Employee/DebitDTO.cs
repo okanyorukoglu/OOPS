@@ -10,9 +10,11 @@ namespace OOPS.DTO.Employee
         public int Id { get; set; }
         public int SerialNumber { get; set; }
         public DateTime ReturnDate { get; set; }
+        public DateTime DateOfIssue { get; set; }
         public string Description { get; set; }
-        public int DebitCategoryID { get; set; }
+        public Nullable<int> DebitCategoryID { get; set; }
         public virtual DebitCategoryDTO DebitCategory { get; set; }
         public List<EmployeeDebitDTO> EmployeeDebits { get; set; }
+        public int EmployeeId { get; set; }
     }
 }

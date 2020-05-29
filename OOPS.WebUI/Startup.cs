@@ -28,6 +28,8 @@ using OOPS.MapConfig.ConfigProfile;
 using OOPS.WebUI.CustomHandler;
 using OOPS.WebUI.Models;
 using OOPS.WebUI.Validators;
+using OOPS.BLL.Abstract.Employee;
+using OOPS.BLL.Concreate.EmployeeConcreate;
 
 namespace OOPS.WebUI
 {
@@ -90,6 +92,7 @@ namespace OOPS.WebUI
             services.AddSingleton<ICityService, CityService>();
             services.AddSingleton<IContractTypeService, ContractTypeService>();
             services.AddSingleton<ICountryService, CountryService>();
+            services.AddSingleton<IDebitService, DebitService>();
             services.AddSingleton<IDebitCategoryService, DebitCategoryService>();
             services.AddSingleton<IDisabilitySituationService, DisabilitySituationService>();
             services.AddSingleton<IDistrictService, DistrictService>();

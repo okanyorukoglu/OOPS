@@ -2,7 +2,7 @@
 using OOPS.Core.Data.UnitOfWork;
 using OOPS.DTO.Static;
 using OOPS.MapConfig.ConfigProfile;
-using OOPS.Model.StaticModels;
+using OOPS.Model.EmployeeModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
