@@ -8,7 +8,7 @@ namespace OOPS.BLL.Abstract.Employee
 {
     public interface IDebitService : IServiceBase
     {
-        List<DebitDTO> getAll();
+        List<DebitDTO> getAllEmployeeDebits();
         DebitDTO getDebit(int Id);
         DebitDTO newDebit(DebitDTO Debit);
         DebitDTO updateDebit(DebitDTO Debit);

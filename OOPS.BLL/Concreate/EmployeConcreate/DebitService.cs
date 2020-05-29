@@ -33,7 +33,7 @@ namespace OOPS.BLL.Concreate.EmployeeConcreate
             }
         }
 
-        public List<DebitDTO> getAll()
+        public List<DebitDTO> getAllEmployeeDebits()
         {
             var getDebitList = uow.GetRepository<Debit>().Get(null, null, null).ToList();
             return MapperFactory.CurrentMapper.Map<List<DebitDTO>>(getDebitList);

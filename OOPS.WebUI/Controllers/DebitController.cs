@@ -33,7 +33,7 @@ namespace OOPS.WebUI.Controllers
         }
         public IActionResult ListDebit()
         {
-            List<DebitDTO> debit = service.getAll();
+            List<DebitDTO> debit = service.getAllEmployeeDebits();
             return View(debit);
         }
 

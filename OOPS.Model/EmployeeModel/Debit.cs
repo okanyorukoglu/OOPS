@@ -24,6 +24,6 @@ namespace OOPS.Model.EmployeeModel
         public Nullable<int> DebitCategoryID { get; set; }
         public virtual DebitCategory DebitCategory { get; set; }
 
-        public ICollection<EmployeeDebit> EmployeeDebits { get; set; }
+        public virtual ICollection<EmployeeDebit> EmployeeDebits { get; set; }
     }
 }
