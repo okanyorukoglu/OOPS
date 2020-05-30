@@ -16,6 +16,7 @@ namespace OOPS.Model.EmployeeModel
         public string AdressFull { get; set; }
         public string HomePhone { get; set; }
         public string PostalCode { get; set; }
+        public string CityName { get; set; }
         public string BankName { get; set; }
         public string BankAccountNo { get; set; }
         public string IBAN { get; set; }
