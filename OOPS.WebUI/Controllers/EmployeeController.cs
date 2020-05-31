@@ -19,12 +19,15 @@ namespace OOPS.WebUI.Controllers
         private IEmployeeService service;
         private IEmployeeDetailService employeeDetailService;
         private IEmployeeOtherInfoService employeeOtherInfoService;
+        private IMaritalStatusService maritalStatusService;
        
-        public EmployeeController(IEmployeeService _service, IEmployeeDetailService _employeeDetailService, IEmployeeOtherInfoService _employeeOtherInfoService)
+        public EmployeeController(IEmployeeService _service, IEmployeeDetailService _employeeDetailService, IEmployeeOtherInfoService _employeeOtherInfoService,
+            IMaritalStatusService _maritalStatusService  )
         {
             service = _service;
             employeeDetailService = _employeeDetailService;
             employeeOtherInfoService = _employeeOtherInfoService;
+            maritalStatusService = _maritalStatusService;
            
         }
         public IActionResult Index()
@@ -53,6 +56,7 @@ namespace OOPS.WebUI.Controllers
 
         public IActionResult EditEmployee(int id)
         {
+            ViewBag.MaritalStatus = new SelectList(maritalStatusService.getAll(), "Id", "StatusName");
             EmployeeModel model = new EmployeeModel();
             model.Employee = service.getEmployee(id);
             var empDetail = employeeDetailService.getEmployeeDetail(id);

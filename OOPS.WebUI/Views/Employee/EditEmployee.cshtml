@@ -369,8 +369,11 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Medeni Hal</label>
-                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.MaritalStatusID">
-                                                            @await Component.InvokeAsync("MaritalStatuses")
+                                                        @*@Html.DropDownListFor(x => x.EmployeeDetail.MaritalStatusID, new SelectList(ViewBag.MaritalStatus, "Id", "StatusName"))*@
+                                                        @*@Html.DropDownList("Id", (IEnumerable<SelectListItem>)ViewBag.MaritalStatus, null, new { @class = "form-control" })*@
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.MaritalStatusID" asp-items="ViewBag.MaritalStatus">
+                                                              @*@await Component.InvokeAsync("MaritalStatuses")*@
+                                                            <option>Durum seçiniz</option> 
                                                         </select>
                                                     </div>
                                                 </div>
