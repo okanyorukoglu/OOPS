@@ -30,6 +30,7 @@ using OOPS.WebUI.Models;
 using OOPS.WebUI.Validators;
 using OOPS.BLL.Abstract.Employee;
 using OOPS.BLL.Concreate.EmployeeConcreate;
+using Newtonsoft.Json;
 
 namespace OOPS.WebUI
 {
@@ -46,7 +47,6 @@ namespace OOPS.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             var optionsBuilder = new DbContextOptionsBuilder<OOPSEntites>();
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("OOPSEntites"));
@@ -60,7 +60,7 @@ namespace OOPS.WebUI
                 context.Database.Migrate();
             }
 
-
+            
             services.AddAuthentication("CookieAuthentication")
               .AddCookie("CookieAuthentication", config =>
               {
@@ -80,7 +80,6 @@ namespace OOPS.WebUI
 
             services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
             services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
-
 
             services.AddSingleton<IUnitofWork, UnitofWork>();
             services.AddSingleton<IUserService, UserService>();

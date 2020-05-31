@@ -34,7 +34,7 @@ namespace OOPS.BLL.Concreate.StaticConcreate
 
         public List<DebitCategoryDTO> getAll()
         {
-            var getDebitCategoryList = uow.GetRepository<DebitCategory>().Get(null, null, null).ToList();
+            var getDebitCategoryList = uow.GetRepository<DebitCategory>().GetAll().ToList();
             return MapperFactory.CurrentMapper.Map<List<DebitCategoryDTO>>(getDebitCategoryList);
         }
 

@@ -35,7 +35,7 @@ namespace OOPS.BLL.Concreate.EmployeeConcreate
 
         public List<DebitDTO> getAllEmployeeDebits()
         {
-            var getDebitList = uow.GetRepository<Debit>().Get(null, null, null).ToList();
+            var getDebitList = uow.GetRepository<EmployeeDebit>().Get(null, x => x.Debit.DebitCategory).Select(x => x.Debit).OrderByDescending(x => x.Id).ToList();
             return MapperFactory.CurrentMapper.Map<List<DebitDTO>>(getDebitList);
         }
 
@@ -53,14 +53,17 @@ namespace OOPS.BLL.Concreate.EmployeeConcreate
 
         public DebitDTO newDebit(DebitDTO Debit)
         {
-
-
             var adedDebit = MapperFactory.CurrentMapper.Map<Debit>(Debit);
-            adedDebit = uow.GetRepository<Debit>().Add(adedDebit);
+            uow.GetRepository<Debit>().Add(adedDebit);
+            uow.SaveChanges();
+            var addedEmployeeDebit = new EmployeeDebit()
+            {
+                EmployeeId = Debit.EmployeeId,
+                DebitId = adedDebit.Id
+            };
+            uow.GetRepository<EmployeeDebit>().Add(addedEmployeeDebit);
             uow.SaveChanges();
             return MapperFactory.CurrentMapper.Map<DebitDTO>(adedDebit);
-
-
         }
 
         public DebitDTO updateDebit(DebitDTO Debit)

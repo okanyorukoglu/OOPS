@@ -1,4 +1,5 @@
-﻿using OOPS.BLL.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using OOPS.BLL.Abstract;
 using OOPS.Core.Data.UnitOfWork;
 using OOPS.DTO.Employee;
 using OOPS.DTO.ProjectBase;
@@ -43,9 +44,12 @@ namespace OOPS.BLL.Concreate
 
         public EmployeeDTO getEmployee(int Id)
         {
+
             var getEmployee = uow.GetRepository<Employee>()
-        .GetIncludes(a => a.Id == Id
-                     );
+                .GetIncludes(a => a.Id == Id,
+                             b => b.EmployeePermits,
+                             c => c.EmployeeDebits
+                    );
             return MapperFactory.CurrentMapper.Map<EmployeeDTO>(getEmployee);
             //var emp = uow.GetRepository<Employee>().Get(z=>z.Id==Id);
             //return MapperFactory.CurrentMapper.Map<EmployeeDTO>(emp);
@@ -67,8 +71,8 @@ namespace OOPS.BLL.Concreate
 
         public EmployeeDTO updateEmployee(EmployeeDTO employee)
         {
-            var selectedEmp = uow.GetRepository<Employee>().Get(z=>z.Id == employee.Id);
-            selectedEmp = MapperFactory.CurrentMapper.Map(employee,selectedEmp);
+            var selectedEmp = uow.GetRepository<Employee>().Get(z => z.Id == employee.Id);
+            selectedEmp = MapperFactory.CurrentMapper.Map(employee, selectedEmp);
             uow.GetRepository<Employee>().Update(selectedEmp);
             uow.SaveChanges();
             return MapperFactory.CurrentMapper.Map<EmployeeDTO>(selectedEmp);

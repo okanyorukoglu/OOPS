@@ -237,7 +237,13 @@ namespace OOPS.DAL
                 new PermitType {Id=13, PermitTypeName="Yol İzni"}
                 );
 
-            modelBuilder.Entity<MaritalStatus>().HasData(
+            modelBuilder.Entity<DebitCategory>().HasData(
+               new DebitCategory { Id = 1, Name = "Bilgisayar" },
+               new DebitCategory { Id = 2, Name = "Cep Telefonu" },
+               new DebitCategory { Id = 3, Name = "Araç" }
+               );
+
+           modelBuilder.Entity<MaritalStatus>().HasData(
                 new MaritalStatus { Id = 1, StatusName ="Evli"},
                 new MaritalStatus { Id = 2, StatusName ="Bekar"},
                 new MaritalStatus { Id = 3, StatusName ="Boşanmış"},
@@ -305,12 +311,6 @@ namespace OOPS.DAL
                 new DisabilitySituation { Id = 2, DisabilityName ="1.Derece"},
                 new DisabilitySituation { Id = 3, DisabilityName ="2.Derece"},
                 new DisabilitySituation { Id = 4, DisabilityName ="3.Derece"}
-                );
-
-            modelBuilder.Entity<DebitCategory>().HasData(
-                new DebitCategory { Id = 1, Name ="Bilgisayar" },
-                new DebitCategory { Id = 2, Name ="Cep Telefonu" },
-                new DebitCategory { Id = 3, Name ="Araç" }
                 );
 
             modelBuilder.Entity<ContractType>().HasData(
