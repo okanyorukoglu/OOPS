@@ -159,7 +159,6 @@
                                     <form asp-action="EditEmployee" method="post" class="horizontal-form">
                                         <input type="hidden" asp-for="@Model.Employee.Id" />
                                         <input type="hidden" asp-for="@Model.Employee.CompanyID" />
-                                        <input type="hidden" asp-for="@Model.Employee.ContractTypeID" />
                                         <div class="form-body">
                                             <!--Genel Bilgiler-->
                                             <h3 class="form-section">Genel Bilgiler</h3>
@@ -217,17 +216,17 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Erişim Türü</label>
-                                                        <select class="form-control" asp-for="@Model.Employee.AccessTypeID">
-                                                            @await Component.InvokeAsync("AccessTypes")
+                                                        <select class="form-control" asp-for="@Model.Employee.AccessTypeID" asp-items="ViewBag.AccessType">
+                                                            <option selected>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label" >Sözleşme Türü</label>
-                                                        <select class="form-control" asp-for="@Model.Employee.ContractTypeID">
-                                                            @await Component.InvokeAsync("ContractTypes")
+                                                        <label class="control-label">Sözleşme Türü</label>
+                                                        <select class="form-control" asp-for="@Model.Employee.ContractTypeID" asp-items="ViewBag.ContractType">
+                                                            <option selected>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -369,11 +368,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Medeni Hal</label>
-                                                        @*@Html.DropDownListFor(x => x.EmployeeDetail.MaritalStatusID, new SelectList(ViewBag.MaritalStatus, "Id", "StatusName"))*@
-                                                        @*@Html.DropDownList("Id", (IEnumerable<SelectListItem>)ViewBag.MaritalStatus, null, new { @class = "form-control" })*@
                                                         <select class="form-control" asp-for="@Model.EmployeeDetail.MaritalStatusID" asp-items="ViewBag.MaritalStatus">
-                                                              @*@await Component.InvokeAsync("MaritalStatuses")*@
-                                                            <option>Durum seçiniz</option> 
+                                                            <option>Durum seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -381,8 +377,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Cinsiyet</label>
-                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.GenderID">
-                                                            @await Component.InvokeAsync("Genders")
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.GenderID" asp-items="ViewBag.Gender">
+                                                            <option>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -390,8 +386,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Engel Derecesi</label>
-                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.DisabilitySituationID">
-                                                            @await Component.InvokeAsync("DisabilitySituations")
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.DisabilitySituationID" asp-items="ViewBag.Disability">
+                                                            <option>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -413,8 +409,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Kan Grubu</label>
-                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.BloodGroupID" >
-                                                            @await Component.InvokeAsync("BloodGroups")
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.BloodGroupID" asp-items="ViewBag.BloodGroup">
+                                                            <option>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -422,8 +418,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Eğitim Durumu</label>
-                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.EducationStatusID">
-                                                            @await Component.InvokeAsync("EducationStatuses")
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.EducationStatusID" asp-items="ViewBag.EducationStatus">
+                                                            <option>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -431,11 +427,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Tamamlanan En Yüksek Eğitim Seviyesi</label>
-                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.EducationLevelID">
-                                                            @await Component.InvokeAsync("EducationLevels")
+                                                        <select class="form-control" asp-for="@Model.EmployeeDetail.EducationLevelID" asp-items="ViewBag.EducationLevel">
+                                                            <option>Seçiniz</option>
                                                         </select>
                                                     </div>
+                                                    <!--/span-->
                                                 </div>
+
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -443,13 +441,13 @@
                                                         <input type="text" asp-for="@Model.EmployeeDetail.LastCompletedEducationalInstitution" class="form-control">
                                                     </div>
                                                 </div>
-                                                <!--/span-->
+
+                                                <!--/row-üsttekinin içine yaz-->
                                             </div>
                                             <div class="margiv-top-10">
                                                 <button type="submit" class="btn green btn-circle"> Kaydet </button>
                                                 <button href="javascript:;" class="btn default btn-circle"> İptal </button>
                                             </div>
-                                            <!--/row-üsttekinin içine yaz-->
                                         </div>
                                     </form>
                                 </div>
@@ -489,8 +487,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Ülke</label>
-                                                        <select class="form-control" asp-for="@Model.EmployeeOtherInfo.CountryId">
-                                                            @await Component.InvokeAsync("Countries")
+                                                        <select class="form-control" asp-for="@Model.EmployeeOtherInfo.CountryId" asp-items="ViewBag.Country">
+                                                            <option>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -498,10 +496,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Şehir</label>
-                                                        @*<select class="form-control" asp-for="@Model.EmployeeOtherInfo.CityId">
-                                                             @await Component.InvokeAsync("Cities")
-                                                           </select>*@
-                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.City.Name" class="form-control">
+                                                        <input type="text" asp-for="@Model.EmployeeOtherInfo.CityName" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -527,8 +522,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Hesap Tipi</label>
-                                                        <select class="form-control" asp-for="@Model.EmployeeOtherInfo.BankAccountTypeId">
-                                                            @await Component.InvokeAsync("BankAccountTypes")
+                                                        <select class="form-control" asp-for="@Model.EmployeeOtherInfo.BankAccountTypeId" asp-items="ViewBag.BankAccountType">
+                                                            <option>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>

@@ -19,17 +19,42 @@ namespace OOPS.WebUI.Controllers
         private IEmployeeService service;
         private IEmployeeDetailService employeeDetailService;
         private IEmployeeOtherInfoService employeeOtherInfoService;
+        private IBankAccountTypeService bankAccountTypeService;
+        private IAccessTypeService accessTypeService;
+        private IBloodGroupService bloodGroupService;
+        private ICityService cityService;
+        private IContractTypeService contractType;
+        private ICountryService countryService;
+        private IDisabilitySituationService disabilitySituationService;
+        private IEducationLevelService educationLevelService;
+        private IEducationStatusService educationStatusService;
+        private IEmploymentTypeService employmentTypeService;
+        private IGenderService genderService;
         private IMaritalStatusService maritalStatusService;
-       
         public EmployeeController(IEmployeeService _service, IEmployeeDetailService _employeeDetailService, IEmployeeOtherInfoService _employeeOtherInfoService,
-            IMaritalStatusService _maritalStatusService  )
+            IBankAccountTypeService _bankAccountTypeService, IAccessTypeService _accessTypeService, IBloodGroupService _bloodGroupService, ICityService _cityService,
+            IContractTypeService _contractType, ICountryService _countryService, IDisabilitySituationService _disabilitySituationService, IEducationLevelService _educationLevelService,
+            IEducationStatusService _educationStatusService, IEmploymentTypeService _employmentTypeService, IGenderService _genderService,
+            IMaritalStatusService _maritalStatusService)
         {
             service = _service;
             employeeDetailService = _employeeDetailService;
             employeeOtherInfoService = _employeeOtherInfoService;
+            bankAccountTypeService = _bankAccountTypeService;
+            accessTypeService = _accessTypeService;
+            bloodGroupService = _bloodGroupService;
+            cityService = _cityService;
+            contractType = _contractType;
+            countryService = _countryService;
+            disabilitySituationService = _disabilitySituationService;
+            educationLevelService = _educationLevelService;
+            educationStatusService = _educationStatusService;
+            employmentTypeService = _employmentTypeService;
+            genderService = _genderService;
             maritalStatusService = _maritalStatusService;
-           
+
         }
+
         public IActionResult Index()
         {
             var RoleName = CurrentUser.Role.Name;
@@ -56,6 +81,17 @@ namespace OOPS.WebUI.Controllers
 
         public IActionResult EditEmployee(int id)
         {
+            ViewBag.AccessType = new SelectList(accessTypeService.getAll(), "Id", "AccessTypeName");
+            ViewBag.BankAccountType = new SelectList(bankAccountTypeService.getAll(), "Id", "BankAccountTypeName");
+            ViewBag.BloodGroup = new SelectList(bloodGroupService.getAll(), "Id", "BloodKind");
+            ViewBag.City = new SelectList(cityService.getAll(), "Id", "Name");
+            ViewBag.ContractType = new SelectList(contractType.getAll(), "Id", "ContractName");
+            ViewBag.Country = new SelectList(countryService.getAll(), "Id", "CountryName");
+            ViewBag.Disability = new SelectList(disabilitySituationService.getAll(), "Id", "DisabilityName");
+            ViewBag.EducationLevel = new SelectList(educationLevelService.getAll(), "Id", "EducationLevelName");
+            ViewBag.EducationStatus = new SelectList(educationStatusService.getAll(), "Id", "StatusName");
+            ViewBag.EmploymentType = new SelectList(employmentTypeService.getAll(), "Id", "EmploymentTypeName");
+            ViewBag.Gender = new SelectList(genderService.getAll(), "Id", "GenderName");
             ViewBag.MaritalStatus = new SelectList(maritalStatusService.getAll(), "Id", "StatusName");
             EmployeeModel model = new EmployeeModel();
             model.Employee = service.getEmployee(id);
