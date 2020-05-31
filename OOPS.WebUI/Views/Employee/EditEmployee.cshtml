@@ -202,14 +202,14 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Telefon (Kişisel)</label>
-                                                        <input type="text" asp-for="@Model.Employee.PhonePersonal" class="form-control" >
+                                                        <input type="text" asp-for="@Model.Employee.PhonePersonal" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">İşe Başlama Tarihi</label>
-                                                        <input class="form-control form-control-inline date-picker"  size="16" type="text" value="" />
+                                                        <input class="form-control form-control-inline date-picker" size="16" type="text" value="" />
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -234,7 +234,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Sözleşme Bitiş Tarihi</label>
-                                                        <input type="text"  class="form-control">
+                                                        <input type="text" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -607,7 +607,7 @@
                                                     <div class="btn-group btn-group-devided" data-toggle="buttons">
                                                         <div class="col-md-6">
                                                             <div class="btn-group">
-                                                                <button class="btn btn-circle sbold green" data-toggle="modal" href="#izinModal"> 
+                                                                <button class="btn btn-circle sbold green" data-toggle="modal" href="#izinModal">
                                                                     Yeni İzin Ekle
                                                                     <i class="fa fa-plus"></i>
                                                                 </button>
@@ -655,7 +655,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @for(int i = 0; i< Model.Employee.EmployeePermits.Count; i++)
+                                                            @for (int i = 0; i < Model.Employee.EmployeePermits.Count; i++)
                                                             {
                                                                 <tr>
                                                                     <td>@(i+1)</td>
@@ -1005,6 +1005,191 @@
         </div>
     </div>
 </div>
+
+<!--POZİSYON EKLEME POP-UP-->
+<form method="post" action="/AddPosition/AddPosition">
+    <input type="hidden" asp-for="@Model.Employee.Id" />
+    <input type="hidden" asp-for="@Model.Employee.CompanyID" />
+    <input type="hidden" asp-for="@Model.Employee.Position.CompanyID" />
+    <div class="modal fade" id="addPosition" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">İzin Talep Et</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-body">
+                            <div class="col-md-12">
+
+                                <div class="col-md-6">
+                                    <label class="control-label">Ülke</label>
+                                    <select class="form-control" asp-for="@Model.EmployeeOtherInfo.CountryId" asp-items="ViewBag.Country">
+                                        <option>Seçiniz</option>
+                                    </select>
+                                </div>
+
+                                    <div class="form-group">
+                                        <label>Şirket</label>
+                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyID">
+                                            @await Component.InvokeAsync("Companies", new { Id = Model.Employee.CompanyID })
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Departman </label>
+                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyDepartmentID">
+                                            @await Component.InvokeAsync("CompanyDepartments")
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Şube</label>
+                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyBranchID">
+                                            @await Component.InvokeAsync("CompanyBranchs")
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Yöneticisi</label>
+                                        <select class="form-control">
+                                            <option>Hakkı Korkmaz</option>
+                                            <option>Ahmet Ali</option>
+                                            <option>Hüseyin Çelik</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Çalışma Şekli</label>
+                                        <select class="form-control" asp-for="@Model.Employee.Position.EmploymentTypeID">
+                                            @await Component.InvokeAsync("EmploymentTypes")
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Başlangıç Tarihi</label>
+                                        <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                            <input type="text" class="form-control" asp-for="@Model.Employee.Position.StartDate" readonly>
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Bitiş Tarihi </label>
+                                        <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                            <input type="text" class="form-control" asp-for="@Model.Employee.Position.EndDate" readonly>
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn green">Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</form>
+
+<!-- MAAŞ EKLEME POP-UP-->
+<div class="modal fade" id="addSalary" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">İzin Talep Et</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-body">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Maaş</label><br />
+                                    <label>2.300,00</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Birim</label>
+                                    <select class="form-control">
+                                        <option>TL</option>
+                                        <option>EUR</option>
+                                        <option>USD</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Geçerlilik Başlangıç Tarihi </label>
+                                    <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                        <input type="text" class="form-control" readonly>
+                                        <span class="input-group-btn">
+                                            <button class="btn default" type="button">
+                                                <i class="fa fa-calendar"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Maaş Periyodu</label>
+                                    <select class="form-control">
+                                        <option>AYLIK</option>
+                                        <option>HAFTALIK</option>
+                                        <option>GÜNLÜK</option>
+                                        <option>SAATLİK</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                    <button type="button" class="btn green">Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+
+
 <partial name="../Permit/AddPermit" model="new PermitDTO() { EmployeeId = Model.Employee.Id}" />
 
 

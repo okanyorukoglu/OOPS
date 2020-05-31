@@ -51,6 +51,12 @@ namespace OOPS.BLL.Concreate
             //return MapperFactory.CurrentMapper.Map<EmployeeDTO>(emp);
         }
 
+        public EmployeeDTO getEmployeeInfo(int Id)
+        {
+            var emp = uow.GetRepository<Employee>().Get(z => z.Id == Id);
+            return MapperFactory.CurrentMapper.Map<EmployeeDTO>(emp);
+        }
+
         public EmployeeDTO getEmployeeUser(int Id)
         {
             var emp = uow.GetRepository<Employee>().Get(z => z.UserID == Id);

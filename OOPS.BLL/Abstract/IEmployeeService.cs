@@ -12,6 +12,7 @@ namespace OOPS.BLL.Abstract
         List<EmployeeDTO> getCompanyEmployees(int companyId);
         EmployeeDTO getEmployee(int Id);
         EmployeeDTO getEmployeeUser(int Id);
+        EmployeeDTO getEmployeeInfo(int Id);
         EmployeeDTO newEmployee(EmployeeDTO employee);
         EmployeeDTO updateEmployee(EmployeeDTO employee);
         bool deleteEmployee(int employeeId);

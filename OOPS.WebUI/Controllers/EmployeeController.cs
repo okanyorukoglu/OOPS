@@ -31,11 +31,12 @@ namespace OOPS.WebUI.Controllers
         private IEmploymentTypeService employmentTypeService;
         private IGenderService genderService;
         private IMaritalStatusService maritalStatusService;
+        private IPositionService positionService;
         public EmployeeController(IEmployeeService _service, IEmployeeDetailService _employeeDetailService, IEmployeeOtherInfoService _employeeOtherInfoService,
             IBankAccountTypeService _bankAccountTypeService, IAccessTypeService _accessTypeService, IBloodGroupService _bloodGroupService, ICityService _cityService,
             IContractTypeService _contractType, ICountryService _countryService, IDisabilitySituationService _disabilitySituationService, IEducationLevelService _educationLevelService,
             IEducationStatusService _educationStatusService, IEmploymentTypeService _employmentTypeService, IGenderService _genderService,
-            IMaritalStatusService _maritalStatusService)
+            IMaritalStatusService _maritalStatusService, IPositionService _positionService)
         {
             service = _service;
             employeeDetailService = _employeeDetailService;
@@ -52,6 +53,8 @@ namespace OOPS.WebUI.Controllers
             employmentTypeService = _employmentTypeService;
             genderService = _genderService;
             maritalStatusService = _maritalStatusService;
+            positionService = _positionService;
+
 
         }
 

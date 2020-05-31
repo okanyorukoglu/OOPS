@@ -13,10 +13,12 @@ namespace OOPS.Model.CompanyModels
         {
             Employees = new HashSet<Employee>();
             Users = new HashSet<User>();
+            Positions = new HashSet<Position>();
         }
         public string CompanyName { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
         public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Position> Positions { get; set; }
     }
 }

@@ -109,6 +109,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IPaymentRequestsService, PaymentRequestsService>();
             services.AddSingleton<IOvertimeRequestsService, OvertimeRequestsService>();
             services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
+            services.AddSingleton<IPositionService, PositionService>();
 
 
             services.AddControllersWithViews().AddFluentValidation();
