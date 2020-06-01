@@ -17,5 +17,8 @@ namespace OOPS.DTO.Employee
         public string EducationLocation { get; set; }
         public string ValidityPeriodMonth { get; set; }
         public string Description { get; set; }
+        public int CompanyID { get; set; }
+
+
     }
 }
