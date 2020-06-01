@@ -22,7 +22,7 @@ namespace OOPS.DAL
                 Surname = "Kirkit",
                 CompanyID = 1,
                 Title = "Dotnetci"
-                
+
             },
             new Employee
             {
@@ -57,9 +57,9 @@ namespace OOPS.DAL
                 CompanyID = 1,
                 Title = "Yönetici",
                 UserID = 2,
-                PhoneBusiness="05346663322",
-                EmailBusiness= "hakanmert@gmail.com",
-                
+                PhoneBusiness = "05346663322",
+                EmailBusiness = "hakanmert@gmail.com",
+
             },
             new Employee
             {
@@ -80,11 +80,29 @@ namespace OOPS.DAL
             }
             );
 
-            //modelBuilder.Entity<EmployeeDetail>().HasData(
-            //    new EmployeeDetail { Id=1, BirthDate="15.03.1994", EmployeeID=1 }
-            //    );
+            modelBuilder.Entity<CompanyBranch>().HasData(
+              new CompanyBranch
+              {
+                  Id = 1,
+                  CompanyID = 1,
+                  BranchName = "İzmir"
+              },
+                            new CompanyBranch
+                            {
+                                Id = 2,
+                                CompanyID = 2,
+                                BranchName = "Bursa"
+                            },
+                            new CompanyBranch
+                            {
+                                Id = 3,
+                                CompanyID = 1,
+                                BranchName = "Ankara"
+                            }
+                            );
 
-           modelBuilder.Entity<Company>().HasData(
+
+            modelBuilder.Entity<Company>().HasData(
              new Company
              {
                  Id = 1,
@@ -98,36 +116,68 @@ namespace OOPS.DAL
 
             }
              );
+            modelBuilder.Entity<CompanyDepartment>().HasData(
+    new CompanyDepartment
+    {
+        Id = 1,
+        CompanyID = 1,
+        Name = "Bilgi İşlem"
+    },
+    new CompanyDepartment
+    {
+        Id = 2,
+        CompanyID = 1,
+        Name = "İnsan Kaynakları"
+    },
+    new CompanyDepartment
+    {
+        Id = 3,
+        CompanyID = 1,
+        Name = "Halkla İkişkiler"
+    },
+    new CompanyDepartment
+    {
+        Id = 4,
+        CompanyID = 2,
+        Name = "Bilgi İşlem"
+    },
+    new CompanyDepartment
+    {
+        Id = 5,
+        CompanyID = 2,
+        Name = "İnsan Kaynakları"
+    }
+    );
 
-           modelBuilder.Entity<User>().HasData(
+            modelBuilder.Entity<User>().HasData(
+              new User
+              {
+                  Id = 2,
+                  UserName = "hakanmert",
+                  EMail = "hakanmert@gmail.com",
+                  Password = "1234",
+                  RoleID = 1,
+                  CompanyID = 1
+              },
              new User
              {
-                 Id = 2,
-                 UserName = "hakanmert",
-                 EMail = "hakanmert@gmail.com",
+                 Id = 3,
+                 UserName = "cansever",
+                 EMail = "cansever@gmail.com",
                  Password = "1234",
                  RoleID = 1,
-                 CompanyID = 1
+                 CompanyID = 2
              },
-            new User
-            {
-                Id = 3,
-                UserName = "cansever",
-                EMail = "cansever@gmail.com",
-                Password = "1234",
-                RoleID = 1,
-                CompanyID = 2
-            },
-            new User
-            {
-                Id = 4,
-                UserName = "Emre",
-                EMail = "emre@gmail.com",
-                Password = "1234",
-                RoleID = 2,
-                CompanyID = 2
-            }
-             );
+             new User
+             {
+                 Id = 4,
+                 UserName = "Emre",
+                 EMail = "emre@gmail.com",
+                 Password = "1234",
+                 RoleID = 2,
+                 CompanyID = 2
+             }
+              );
 
             modelBuilder.Entity<Role>().HasData(
                 new Role
@@ -158,22 +208,22 @@ namespace OOPS.DAL
             modelBuilder.Entity<BankAccountType>().HasData(
                 new BankAccountType
                 {
-                    Id=1,
+                    Id = 1,
                     BankAccountTypeName = "Vadeli"
                 },
                   new BankAccountType
                   {
-                      Id=2,
+                      Id = 2,
                       BankAccountTypeName = "Vadesiz"
                   },
                 new BankAccountType
                 {
-                    Id=3,
+                    Id = 3,
                     BankAccountTypeName = "Çek"
                 },
                 new BankAccountType
                 {
-                    Id=4,
+                    Id = 4,
                     BankAccountTypeName = "Diğer"
                 }
                 );
@@ -181,22 +231,22 @@ namespace OOPS.DAL
             modelBuilder.Entity<BloodGroup>().HasData(
                 new BloodGroup
                 {
-                    Id=1,
-                     BloodKind="A+"
+                    Id = 1,
+                    BloodKind = "A+"
                 },
                 new BloodGroup
                 {
-                    Id=2,
+                    Id = 2,
                     BloodKind = "A-"
                 },
                 new BloodGroup
                 {
-                    Id=3,
+                    Id = 3,
                     BloodKind = "B+"
                 },
                 new BloodGroup
                 {
-                    Id=4,
+                    Id = 4,
                     BloodKind = "B-"
                 },
                 new BloodGroup
@@ -222,36 +272,36 @@ namespace OOPS.DAL
                 );
 
             modelBuilder.Entity<PermitType>().HasData(
-                new PermitType {Id=1, PermitTypeName="Askerlik İzni"},
-                new PermitType {Id=2, PermitTypeName="Babalık İzni"},
-                new PermitType {Id=3, PermitTypeName="Doğum İzni"},
-                new PermitType {Id=4, PermitTypeName="Doğum Sonrası İzni"},
-                new PermitType {Id=5, PermitTypeName="Evlilik İzni"},
-                new PermitType {Id=6, PermitTypeName="Hastalık İzni"},
-                new PermitType {Id=7, PermitTypeName="İş Arama İzni"},
-                new PermitType {Id=8, PermitTypeName="Mazaret İzni"},
-                new PermitType {Id=9, PermitTypeName="Süt İzni"},
-                new PermitType {Id=10, PermitTypeName="Ücretsiz İzni"},
-                new PermitType {Id=11, PermitTypeName="Vefat İzni"},
-                new PermitType {Id=12, PermitTypeName="Yıllık İzin"},
-                new PermitType {Id=13, PermitTypeName="Yol İzni"}
+                new PermitType { Id = 1, PermitTypeName = "Askerlik İzni" },
+                new PermitType { Id = 2, PermitTypeName = "Babalık İzni" },
+                new PermitType { Id = 3, PermitTypeName = "Doğum İzni" },
+                new PermitType { Id = 4, PermitTypeName = "Doğum Sonrası İzni" },
+                new PermitType { Id = 5, PermitTypeName = "Evlilik İzni" },
+                new PermitType { Id = 6, PermitTypeName = "Hastalık İzni" },
+                new PermitType { Id = 7, PermitTypeName = "İş Arama İzni" },
+                new PermitType { Id = 8, PermitTypeName = "Mazaret İzni" },
+                new PermitType { Id = 9, PermitTypeName = "Süt İzni" },
+                new PermitType { Id = 10, PermitTypeName = "Ücretsiz İzni" },
+                new PermitType { Id = 11, PermitTypeName = "Vefat İzni" },
+                new PermitType { Id = 12, PermitTypeName = "Yıllık İzin" },
+                new PermitType { Id = 13, PermitTypeName = "Yol İzni" }
                 );
 
             modelBuilder.Entity<MaritalStatus>().HasData(
-                new MaritalStatus { Id = 1, StatusName ="Evli"},
-                new MaritalStatus { Id = 2, StatusName ="Bekar"},
-                new MaritalStatus { Id = 3, StatusName ="Boşanmış"},
-                new MaritalStatus { Id = 4, StatusName ="Belirtilmemiş"}
+                new MaritalStatus { Id = 1, StatusName = "Evli" },
+                new MaritalStatus { Id = 2, StatusName = "Bekar" },
+                new MaritalStatus { Id = 3, StatusName = "Boşanmış" },
+                new MaritalStatus { Id = 4, StatusName = "Belirtilmemiş" }
                 );
 
             modelBuilder.Entity<PublicHolidays>().HasData(
-                new PublicHolidays { Id=1, Name="23 Nisan Ulusal Egemenlik ve Çocuk Bayramı", DateTime="23 Nisan 2020" },
+                new PublicHolidays { Id = 1, Name = "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı", DateTime = "23 Nisan 2020" },
                 new PublicHolidays { Id = 2, Name = "29 Ekim Cumhuriyet Bayramı", DateTime = "29 Ekim 2020" },
                 new PublicHolidays { Id = 3, Name = "19 Mayıs Gençlik ve Spor Bayramı", DateTime = "19 Mayıs 2020" }
                 );
 
             modelBuilder.Entity<ActivityCalender>().HasData(
-                new ActivityCalender { Id=1, Name="Şirket Toplantısı", DateTime="25.02.2020"},
+                new ActivityCalender { Id = 1, Name = "Şirket Toplantısı", DateTime = "25.02.2020" },
                 new ActivityCalender { Id = 2, Name = "Şirket Yemeği", DateTime = "18.04.2020" },
                 new ActivityCalender { Id = 3, Name = "Ceo Koray Özdemir gelecek", DateTime = "02.07.2020" }
                 );
@@ -274,48 +324,48 @@ namespace OOPS.DAL
 
 
             modelBuilder.Entity<Gender>().HasData(
-                new Gender { Id = 1, GenderName ="Erkek"},
-                new Gender { Id = 2, GenderName ="Kadın"},
-                new Gender { Id = 3, GenderName ="Belirtilmemiş"}
+                new Gender { Id = 1, GenderName = "Erkek" },
+                new Gender { Id = 2, GenderName = "Kadın" },
+                new Gender { Id = 3, GenderName = "Belirtilmemiş" }
                 );
 
             modelBuilder.Entity<EmploymentType>().HasData(
-                new EmploymentType { Id = 1, EmploymentTypeName ="Tam Zamanlı"},
-                new EmploymentType { Id = 2, EmploymentTypeName ="Yarı Zamanlı"}
+                new EmploymentType { Id = 1, EmploymentTypeName = "Tam Zamanlı" },
+                new EmploymentType { Id = 2, EmploymentTypeName = "Yarı Zamanlı" }
                 );
 
             modelBuilder.Entity<EducationStatus>().HasData(
-                new EducationStatus { Id = 1, StatusName ="Mezun"},
-                new EducationStatus { Id = 2, StatusName ="Öğrenci"}
+                new EducationStatus { Id = 1, StatusName = "Mezun" },
+                new EducationStatus { Id = 2, StatusName = "Öğrenci" }
                 );
 
             modelBuilder.Entity<EducationLevel>().HasData(
-                new EducationLevel { Id = 1, EducationLevelName ="İlkokul"},
-                new EducationLevel { Id = 2, EducationLevelName ="Ortaokul"},
-                new EducationLevel { Id = 3, EducationLevelName ="Lise"},
-                new EducationLevel {Id=4, EducationLevelName="Önlisans"},
-                new EducationLevel {Id=5, EducationLevelName="Lisans"},
-                new EducationLevel {Id=6, EducationLevelName="Yüksek Lisans"},
-                new EducationLevel {Id=7, EducationLevelName="Doktora"},
-                new EducationLevel {Id=8, EducationLevelName="Yok"}
+                new EducationLevel { Id = 1, EducationLevelName = "İlkokul" },
+                new EducationLevel { Id = 2, EducationLevelName = "Ortaokul" },
+                new EducationLevel { Id = 3, EducationLevelName = "Lise" },
+                new EducationLevel { Id = 4, EducationLevelName = "Önlisans" },
+                new EducationLevel { Id = 5, EducationLevelName = "Lisans" },
+                new EducationLevel { Id = 6, EducationLevelName = "Yüksek Lisans" },
+                new EducationLevel { Id = 7, EducationLevelName = "Doktora" },
+                new EducationLevel { Id = 8, EducationLevelName = "Yok" }
                 );
 
             modelBuilder.Entity<DisabilitySituation>().HasData(
-                new DisabilitySituation { Id = 1, DisabilityName ="Yok"},
-                new DisabilitySituation { Id = 2, DisabilityName ="1.Derece"},
-                new DisabilitySituation { Id = 3, DisabilityName ="2.Derece"},
-                new DisabilitySituation { Id = 4, DisabilityName ="3.Derece"}
+                new DisabilitySituation { Id = 1, DisabilityName = "Yok" },
+                new DisabilitySituation { Id = 2, DisabilityName = "1.Derece" },
+                new DisabilitySituation { Id = 3, DisabilityName = "2.Derece" },
+                new DisabilitySituation { Id = 4, DisabilityName = "3.Derece" }
                 );
 
             modelBuilder.Entity<DebitCategory>().HasData(
-                new DebitCategory { Id = 1, Name ="Bilgisayar" },
-                new DebitCategory { Id = 2, Name ="Cep Telefonu" },
-                new DebitCategory { Id = 3, Name ="Araç" }
+                new DebitCategory { Id = 1, Name = "Bilgisayar" },
+                new DebitCategory { Id = 2, Name = "Cep Telefonu" },
+                new DebitCategory { Id = 3, Name = "Araç" }
                 );
 
             modelBuilder.Entity<ContractType>().HasData(
-                new ContractType { Id = 1, ContractName ="Süreli"},
-                new ContractType { Id = 2, ContractName ="Süresiz"}
+                new ContractType { Id = 1, ContractName = "Süreli" },
+                new ContractType { Id = 2, ContractName = "Süresiz" }
                 );
 
             modelBuilder.Entity<Country>().HasData(

@@ -44,6 +44,12 @@ namespace OOPS.BLL.Concreate.CompanyConcrete
             return MapperFactory.CurrentMapper.Map<CompanyDepartmentDTO>(getDepartment);
         }
 
+        public List<CompanyDepartmentDTO> getSelectByCompanyId(int companyId)
+        {
+            var getCompanyDepartmenrListhwithCompanyId = uow.GetRepository<CompanyDepartment>().GetAll().Where(z => z.CompanyID == companyId);
+            return MapperFactory.CurrentMapper.Map<List<CompanyDepartmentDTO>>(getCompanyDepartmenrListhwithCompanyId);
+        }
+
         public CompanyDepartmentDTO newDepartmant(CompanyDepartmentDTO companyDeparment)
         {
             if (!uow.GetRepository<CompanyDepartment>().GetAll().Any(z => z.Name == companyDeparment.Name))

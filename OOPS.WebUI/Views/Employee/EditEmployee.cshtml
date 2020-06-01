@@ -1010,10 +1010,9 @@
 </div>
 
 <!--POZİSYON EKLEME POP-UP-->
-<form method="post" action="/AddPosition/AddPosition">
+<form method="post" action="/Position/AddPosition">
     <input type="hidden" asp-for="@Model.Employee.Id" />
     <input type="hidden" asp-for="@Model.Employee.CompanyID" />
-    <input type="hidden" asp-for="@Model.Employee.Position.CompanyID" />
     <div class="modal fade" id="addPosition" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1025,18 +1024,10 @@
                     <div class="row">
                         <div class="form-body">
                             <div class="col-md-12">
-
                                 <div class="col-md-6">
-                                    <label class="control-label">Ülke</label>
-                                    <select class="form-control" asp-for="@Model.EmployeeOtherInfo.CountryId" asp-items="ViewBag.Country">
-                                        <option>Seçiniz</option>
-                                    </select>
-                                </div>
-
                                     <div class="form-group">
                                         <label>Şirket</label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyID" asp-items="ViewBag.Company">
-                                            @*@await Component.InvokeAsync("Companies", new { Id = Model.Employee.CompanyID })*@
+                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyID" asp-items="ViewBag.Companies">                
                                             <option>Seçiniz</option>
                                         </select>
                                     </div>
@@ -1045,39 +1036,25 @@
                                     <div class="form-group">
                                         <label>Departman </label>
                                         <select class="form-control" asp-for="@Model.Employee.Position.CompanyDepartmentID" asp-items="ViewBag.CompanyDepartments">
-                                            @*@await Component.InvokeAsync("CompanyDepartments")*@
                                             <option>Seçiniz</option>
                                         </select>
                                     </div>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Şube</label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyBranchID" asp-items="ViewBag.CompanyBranchs">
-                                            @*@await Component.InvokeAsync("CompanyBranchs")*@
-                                            <option>Seçiniz</option>
-                                        </select>
-                                    </div>
-
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Yöneticisi</label>
-                                        <select class="form-control">
-                                            <option>Hakkı Korkmaz</option>
-                                            <option>Ahmet Ali</option>
-                                            <option>Hüseyin Çelik</option>
+                                        <label>Şube</label>
+                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyBranchID" asp-items="ViewBag.CompanyBranchs">   
+                                            <option>Seçiniz</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Çalışma Şekli</label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.EmploymentTypeID">
-                                            @await Component.InvokeAsync("EmploymentTypes")
+                                        <select class="form-control" asp-for="@Model.Employee.Position.EmploymentTypeID"  asp-items="ViewBag.EmploymentType">
+                                            <option>Seçiniz</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1125,7 +1102,7 @@
 </form>
 
 <!-- MAAŞ EKLEME POP-UP-->
-<div class="modal fade" id="addSalary" tabindex="-1" role="basic" aria-hidden="true">
+<div class="modal fade" id="addSalary" tabindex="-1"  aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

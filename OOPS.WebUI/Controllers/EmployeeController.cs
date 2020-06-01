@@ -90,6 +90,7 @@ namespace OOPS.WebUI.Controllers
 
         public IActionResult EditEmployee(int id)
         {
+            int companyId = (int)CurrentUser.CompanyID;
             ViewBag.AccessType = new SelectList(accessTypeService.getAll(), "Id", "AccessTypeName");
             ViewBag.BankAccountType = new SelectList(bankAccountTypeService.getAll(), "Id", "BankAccountTypeName");
             ViewBag.BloodGroup = new SelectList(bloodGroupService.getAll(), "Id", "BloodKind");
@@ -102,9 +103,10 @@ namespace OOPS.WebUI.Controllers
             ViewBag.EmploymentType = new SelectList(employmentTypeService.getAll(), "Id", "EmploymentTypeName");
             ViewBag.Gender = new SelectList(genderService.getAll(), "Id", "GenderName");
             ViewBag.MaritalStatus = new SelectList(maritalStatusService.getAll(), "Id", "StatusName");
-            ViewBag.Companies = new SelectList(companyService.getAll(), "Id", "CompanyName");
-            ViewBag.CompanyBranchs = new SelectList(companyBranchService.getAll(), "Id", "BranchName");
-            ViewBag.CompanyDepartments = new SelectList(companyDepartmentService.getAll(), "Id", "Name");
+            ViewBag.Companies = new SelectList(companyService.getAll(companyId), "Id", "CompanyName"); 
+            ViewBag.CompanyBranchs = new SelectList(companyBranchService.getSelectByCompanyId(companyId), "Id", "BranchName");
+            ViewBag.CompanyDepartments = new SelectList(companyDepartmentService.getSelectByCompanyId(companyId), "Id", "Name");
+
             EmployeeModel model = new EmployeeModel();
             model.Employee = service.getEmployee(id);
             var empDetail = employeeDetailService.getEmployeeDetail(id);

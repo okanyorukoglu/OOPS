@@ -20,5 +20,7 @@ namespace OOPS.DTO.Company
         public virtual DistrictDTO District { get; set; }
         public string Adress { get; set; }
         public virtual List<EmployeeDTO> Employees { get; set; }
+        public virtual List<PositionDTO> Positions { get; set; }
+
     }
 }

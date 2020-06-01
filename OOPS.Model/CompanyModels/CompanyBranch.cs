@@ -13,8 +13,8 @@ namespace OOPS.Model.CompanyModels
         public CompanyBranch()
         {
             Employees = new HashSet<Employee>();
+            Positions = new HashSet<Position>();
         }
-        public int Id { get; set; }
         public string BranchName { get; set; }
         public string Phone { get; set; }
         public string WebSite { get; set; }
@@ -31,8 +31,8 @@ namespace OOPS.Model.CompanyModels
 
         public string Adress { get; set; }
 
-
         public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Position> Positions { get; set; }
 
 
     }

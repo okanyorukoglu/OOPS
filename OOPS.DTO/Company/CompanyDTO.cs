@@ -12,6 +12,7 @@ namespace OOPS.DTO.Company
         public string CompanyName { get; set; }
         public virtual List<EmployeeDTO> Employees { get; set; }
         public virtual List<UserDTO> Users { get; set; }
+        public virtual List<PositionDTO> Positions { get; set; }
 
     }
 }

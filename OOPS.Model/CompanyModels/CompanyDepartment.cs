@@ -12,8 +12,8 @@ namespace OOPS.Model.CompanyModels
         public CompanyDepartment()
         {
             Employees = new HashSet<Employee>();
+            Positions = new HashSet<Position>();
         }
-        public int Id { get; set; }
         public string Name { get; set; }
 
         [ForeignKey("Company")]
@@ -21,6 +21,7 @@ namespace OOPS.Model.CompanyModels
         public virtual Company Company { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Position> Positions { get; set; }
 
     }
 }

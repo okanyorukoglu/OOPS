@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Internal;
+﻿
 using OOPS.BLL.Abstract.CompanyAbstract;
 using OOPS.Core.Data.UnitOfWork;
 using OOPS.DTO.Company;
@@ -33,9 +33,10 @@ namespace OOPS.BLL.Concreate.CompanyConcreate
             }
         }
 
-        public List<CompanyDTO> getAll()
+
+        public List<CompanyDTO> getAll(int companyId)
         {
-            var getCompanytList = uow.GetRepository<Company>().GetAll().ToList();
+            var getCompanytList = uow.GetRepository<Company>().GetAll().Where(z => z.Id == companyId);
             return MapperFactory.CurrentMapper.Map<List<CompanyDTO>>(getCompanytList);
         }
 

@@ -48,7 +48,7 @@ namespace OOPS.BLL.Concreate.CompanyConcrete
 
         public List<CompanyBranchDTO> getSelectByCompanyId(int companyId)
         {
-            var getCompanyBrancListhwithCompanyId = uow.GetRepository<CompanyBranch>().Get(z => z.CompanyID == companyId);
+            var getCompanyBrancListhwithCompanyId = uow.GetRepository<CompanyBranch>().GetAll().Where(z => z.CompanyID == companyId);
             return MapperFactory.CurrentMapper.Map<List<CompanyBranchDTO>>(getCompanyBrancListhwithCompanyId);
         }
 

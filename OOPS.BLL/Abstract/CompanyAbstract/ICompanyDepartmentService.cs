@@ -9,6 +9,7 @@ namespace OOPS.BLL.Abstract.CompanyAbstract
 {
     public interface ICompanyDepartmentService : IServiceBase
     {
+        List<CompanyDepartmentDTO> getSelectByCompanyId(int companyId);
         CompanyDepartmentDTO newDepartmant(CompanyDepartmentDTO companyDeparment);
         CompanyDepartmentDTO updateDepartmant(CompanyDepartmentDTO companyDeparment);
         bool deleteDepartmant(int DepartmantId);
