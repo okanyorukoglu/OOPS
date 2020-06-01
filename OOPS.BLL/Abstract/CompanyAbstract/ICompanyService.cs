@@ -8,8 +8,11 @@ namespace OOPS.BLL.Abstract.CompanyAbstract
 {
     public interface ICompanyService : IServiceBase
     {
+        CompanyDTO newCompany(CompanyDTO company);
+        CompanyDTO updateCompany(CompanyDTO company);
+        bool deleteCompany(int companyId);
         CompanyDTO getCompany(int Id);
-        CompanyDTO updateCompany(CompanyDTO Company);
-        bool deleteCompany(int CompanyId);
+        List<CompanyDTO> getAll();
+
     }
 }

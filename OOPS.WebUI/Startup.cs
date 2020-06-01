@@ -28,6 +28,7 @@ using OOPS.MapConfig.ConfigProfile;
 using OOPS.WebUI.CustomHandler;
 using OOPS.WebUI.Models;
 using OOPS.WebUI.Validators;
+using OOPS.BLL.Concreate.CompanyConcrete;
 
 namespace OOPS.WebUI
 {
@@ -110,6 +111,8 @@ namespace OOPS.WebUI
             services.AddSingleton<IOvertimeRequestsService, OvertimeRequestsService>();
             services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
             services.AddSingleton<IPositionService, PositionService>();
+            services.AddSingleton<ICompanyBranchService, CompanyBranchService>();
+            services.AddSingleton<ICompanyDepartmentService, CompanyDepartmentService>();
 
 
             services.AddControllersWithViews().AddFluentValidation();

@@ -1,4 +1,5 @@
-﻿using OOPS.Model.EmployeeModel;
+﻿using OOPS.Core.Entities;
+using OOPS.Model.EmployeeModel;
 using OOPS.Model.StaticModels;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace OOPS.Model.CompanyModels
 {
-    public class CompanyBranch
+    public class CompanyBranch : Entity<int>
     {
         public CompanyBranch()
         {

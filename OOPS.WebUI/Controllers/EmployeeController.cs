@@ -32,11 +32,14 @@ namespace OOPS.WebUI.Controllers
         private IGenderService genderService;
         private IMaritalStatusService maritalStatusService;
         private IPositionService positionService;
+        private ICompanyService companyService;
+        private ICompanyBranchService companyBranchService;
+        private ICompanyDepartmentService companyDepartmentService;
         public EmployeeController(IEmployeeService _service, IEmployeeDetailService _employeeDetailService, IEmployeeOtherInfoService _employeeOtherInfoService,
             IBankAccountTypeService _bankAccountTypeService, IAccessTypeService _accessTypeService, IBloodGroupService _bloodGroupService, ICityService _cityService,
             IContractTypeService _contractType, ICountryService _countryService, IDisabilitySituationService _disabilitySituationService, IEducationLevelService _educationLevelService,
             IEducationStatusService _educationStatusService, IEmploymentTypeService _employmentTypeService, IGenderService _genderService,
-            IMaritalStatusService _maritalStatusService, IPositionService _positionService)
+            IMaritalStatusService _maritalStatusService, IPositionService _positionService, ICompanyService _companyService, ICompanyBranchService _companyBranchService,ICompanyDepartmentService _companyDepartmentService)
         {
             service = _service;
             employeeDetailService = _employeeDetailService;
@@ -54,6 +57,9 @@ namespace OOPS.WebUI.Controllers
             genderService = _genderService;
             maritalStatusService = _maritalStatusService;
             positionService = _positionService;
+            companyService = _companyService;
+            companyBranchService = _companyBranchService;
+            companyDepartmentService = _companyDepartmentService;
 
 
         }
@@ -96,6 +102,9 @@ namespace OOPS.WebUI.Controllers
             ViewBag.EmploymentType = new SelectList(employmentTypeService.getAll(), "Id", "EmploymentTypeName");
             ViewBag.Gender = new SelectList(genderService.getAll(), "Id", "GenderName");
             ViewBag.MaritalStatus = new SelectList(maritalStatusService.getAll(), "Id", "StatusName");
+            ViewBag.Companies = new SelectList(companyService.getAll(), "Id", "CompanyName");
+            ViewBag.CompanyBranchs = new SelectList(companyBranchService.getAll(), "Id", "BranchName");
+            ViewBag.CompanyDepartments = new SelectList(companyDepartmentService.getAll(), "Id", "Name");
             EmployeeModel model = new EmployeeModel();
             model.Employee = service.getEmployee(id);
             var empDetail = employeeDetailService.getEmployeeDetail(id);

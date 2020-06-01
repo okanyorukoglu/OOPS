@@ -263,7 +263,10 @@
                                                 <div class="actions">
                                                     <div class="btn-group btn-group-devided" data-toggle="buttons">
                                                         <label class="btn sbold green btn-outline btn-circle btn-sm">
-                                                            <input type="radio" name="options" class="toggle">Pozisyon Ekle
+                                                            <a data-toggle="modal" href="#addPosition">
+                                                                <i class="toggle"></i> Pozisyon Ekle
+                                                            </a>
+                                                            @*<input type="radio" name="options" class="toggle" href="#addPosition">Pozisyon Ekle*@
                                                         </label>
                                                     </div>
                                                 </div>
@@ -1032,16 +1035,18 @@
 
                                     <div class="form-group">
                                         <label>Şirket</label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyID">
-                                            @await Component.InvokeAsync("Companies", new { Id = Model.Employee.CompanyID })
+                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyID" asp-items="ViewBag.Company">
+                                            @*@await Component.InvokeAsync("Companies", new { Id = Model.Employee.CompanyID })*@
+                                            <option>Seçiniz</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Departman </label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyDepartmentID">
-                                            @await Component.InvokeAsync("CompanyDepartments")
+                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyDepartmentID" asp-items="ViewBag.CompanyDepartments">
+                                            @*@await Component.InvokeAsync("CompanyDepartments")*@
+                                            <option>Seçiniz</option>
                                         </select>
                                     </div>
 
@@ -1049,8 +1054,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Şube</label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyBranchID">
-                                            @await Component.InvokeAsync("CompanyBranchs")
+                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyBranchID" asp-items="ViewBag.CompanyBranchs">
+                                            @*@await Component.InvokeAsync("CompanyBranchs")*@
+                                            <option>Seçiniz</option>
                                         </select>
                                     </div>
 
