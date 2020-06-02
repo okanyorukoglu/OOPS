@@ -23,10 +23,11 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public IActionResult AddPosition(EmployeeModel emp)
         {
-            EmployeeDTO employee = employeeservice.getEmployeeInfo(emp.Employee.Id);
-            var test = service.newPosition(emp.Employee.Position);
-            employee.PositionID = test.Id;
-            employeeservice.updateEmployee(employee);
+
+            emp.Position.EmployeeId = emp.Employee.Id;
+            service.newPosition(emp.Position);
+            
+
 
             return RedirectToAction("List", "Employee");
         }

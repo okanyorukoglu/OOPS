@@ -20,6 +20,7 @@ namespace OOPS.Model.EmployeeModel
             EmployeeExpenses = new HashSet<EmployeeExpense>();
             EmployeeOverTimes = new HashSet<EmployeeOverTime>();
             EmployeePermits = new HashSet<EmployeePermit>();
+            EmployeePositions = new HashSet<EmployeePosition>();
 
         }
         public string Name { get; set; }
@@ -69,6 +70,7 @@ namespace OOPS.Model.EmployeeModel
         public virtual ICollection<EmployeeExpense> EmployeeExpenses { get; set; }
         public virtual ICollection<EmployeeOverTime> EmployeeOverTimes { get; set; }
         public virtual ICollection<EmployeePermit> EmployeePermits { get; set; }
+        public virtual ICollection<EmployeePosition> EmployeePositions { get; set; }
   
 
     }

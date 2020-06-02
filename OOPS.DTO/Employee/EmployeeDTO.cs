@@ -45,8 +45,6 @@ namespace OOPS.DTO.Employee
         public Nullable<int> CompanyDepartmentId { get; set; }
         public virtual CompanyDepartmentDTO CompanyDepartment { get; set; }
 
-        public Nullable<int> PositionID { get; set; }
-        public virtual PositionDTO Position { get; set; }
 
         public virtual List<EmployeeAdvanceDTO> EmployeeAdvances { get; set; }
         public virtual List<EmployeeBankInfoDTO> EmployeeBankInfos { get; set; }
@@ -55,5 +53,6 @@ namespace OOPS.DTO.Employee
         public virtual List<EmployeeExpenseDTO> EmployeeExpenses { get; set; }
         public virtual List<EmployeeOverTimeDTO> EmployeeOverTimes { get; set; }
         public virtual List<EmployeePermitDTO> EmployeePermits { get; set; }
+        public virtual List<EmployeePositionDTO> EmployeePositions { get; set; }
     }
 }

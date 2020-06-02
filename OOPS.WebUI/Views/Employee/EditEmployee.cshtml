@@ -286,15 +286,20 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            @for (int i = 0; i < Model.Employee.EmployeePositions.Count; i++)
+                                                            {
                                                             <tr>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
+                                                                
+                                                                <td>@Model.Employee.EmployeePositions[i].Position.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                <td>@Model.Employee.EmployeePositions[i].Position.EndDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                <td>@Model.Employee.EmployeePositions[i].Position.EmploymentType.EmploymentTypeName </td>
+                                                                <td>@Model.Employee.EmployeePositions[i].Position.Company.CompanyName</td>
+                                                                <td>@Model.Employee.EmployeePositions[i].Position.CompanyBranch.BranchName</td>
+                                                                <td>@Model.Employee.EmployeePositions[i].Position.CompanyDepartment.Name</td>
+                                                                <td>@Model.Employee.Title</td>
                                                             </tr>
+                                                            }
+
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -1027,7 +1032,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Şirket</label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyID" asp-items="ViewBag.Companies">                
+                                        <select class="form-control" asp-for="@Model.Position.CompanyID" asp-items="ViewBag.Companies">                
                                             <option>Seçiniz</option>
                                         </select>
                                     </div>
@@ -1035,7 +1040,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Departman </label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyDepartmentID" asp-items="ViewBag.CompanyDepartments">
+                                        <select class="form-control" asp-for="@Model.Position.CompanyDepartmentID" asp-items="ViewBag.CompanyDepartments">
                                             <option>Seçiniz</option>
                                         </select>
                                     </div>
@@ -1045,7 +1050,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Şube</label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.CompanyBranchID" asp-items="ViewBag.CompanyBranchs">   
+                                        <select class="form-control" asp-for="@Model.Position.CompanyBranchID" asp-items="ViewBag.CompanyBranchs">   
                                             <option>Seçiniz</option>
                                         </select>
                                     </div>
@@ -1053,7 +1058,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Çalışma Şekli</label>
-                                        <select class="form-control" asp-for="@Model.Employee.Position.EmploymentTypeID"  asp-items="ViewBag.EmploymentType">
+                                        <select class="form-control" asp-for="@Model.Position.EmploymentTypeID"  asp-items="ViewBag.EmploymentType">
                                             <option>Seçiniz</option>
                                         </select>
                                     </div>
@@ -1064,7 +1069,7 @@
                                     <div class="form-group">
                                         <label>Başlangıç Tarihi</label>
                                         <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
-                                            <input type="text" class="form-control" asp-for="@Model.Employee.Position.StartDate" readonly>
+                                            <input type="text" class="form-control" asp-for="@Model.Position.StartDate" readonly>
                                             <span class="input-group-btn">
                                                 <button class="btn default" type="button">
                                                     <i class="fa fa-calendar"></i>
@@ -1077,7 +1082,7 @@
                                     <div class="form-group">
                                         <label>Bitiş Tarihi </label>
                                         <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
-                                            <input type="text" class="form-control" asp-for="@Model.Employee.Position.EndDate" readonly>
+                                            <input type="text" class="form-control" asp-for="@Model.Position.EndDate" readonly>
                                             <span class="input-group-btn">
                                                 <button class="btn default" type="button">
                                                     <i class="fa fa-calendar"></i>

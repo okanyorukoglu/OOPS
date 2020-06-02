@@ -12,7 +12,7 @@ namespace OOPS.Model.EmployeeModel
     {
         public Position()
         {
-            Employees = new HashSet<Employee>();
+            EmployeePositions = new HashSet<EmployeePosition>();
         }
 
         [ForeignKey("Company")]
@@ -34,7 +34,7 @@ namespace OOPS.Model.EmployeeModel
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<EmployeePosition> EmployeePositions { get; set; }
 
     }
 }
