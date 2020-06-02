@@ -12,7 +12,8 @@ namespace OOPS.WebUI.Models
         public EmployeeDetailDTO EmployeeDetail { get; set; }
         public EmployeeOtherInfoDTO EmployeeOtherInfo { get; set; }
         public PositionDTO Position { get; set; }
-        
+        public EmployeePositionDTO EmployeePosition { get; set; }
+
 
     }
 }

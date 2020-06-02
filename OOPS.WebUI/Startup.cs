@@ -113,6 +113,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IPositionService, PositionService>();
             services.AddSingleton<ICompanyBranchService, CompanyBranchService>();
             services.AddSingleton<ICompanyDepartmentService, CompanyDepartmentService>();
+            services.AddSingleton<IEmployeePositionService, EmployeePositionService>();
 
 
             services.AddControllersWithViews().AddFluentValidation();
