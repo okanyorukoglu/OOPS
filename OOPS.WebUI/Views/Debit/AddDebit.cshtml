@@ -50,7 +50,8 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Açıklama</label>
-                                    <input type="text" name="@Html.NameFor(m => m.Description)" class="form-control" rows="3" margin="auto" style="margin: 0px -4px 0px 0px; height: 90px; width: 543px; text-align:left;">
+                                    @*<input type="text" name="@Html.NameFor(m => m.Description)" class="form-control" rows="3" margin="auto" style="margin: 0px -4px 0px 0px; height: 90px; width: 543px; text-align:left;">*@
+                                    <textarea name="@Html.NameFor(m => m.Description)" class="form-control" rows="3" style="margin: 0px -2px 0px 0px; width: 539px; height: 123px;"></textarea>
                                 </div>
                             </div>
                         </div>
