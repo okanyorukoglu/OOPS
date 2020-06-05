@@ -105,6 +105,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IPublicHolidaysService, PublicHolidaysService>();
             services.AddSingleton<IEmployeeDetailService, EmployeDetailService>();
             services.AddSingleton<ICompanyService, CompanyService>();
+            services.AddSingleton<ISystemEducationService, SystemEducationService>();
             services.AddSingleton<IEmployeeOtherInfoService, EmployeeOtherInfoService>();
             services.AddSingleton<IActivityCalenderService, ActivityCalenderService>();
             services.AddSingleton<IPaymentRequestsService, PaymentRequestsService>();

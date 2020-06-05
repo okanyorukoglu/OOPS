@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace OOPS.DTO.Employee
@@ -17,5 +18,11 @@ namespace OOPS.DTO.Employee
         public string EducationLocation { get; set; }
         public string ValidityPeriodMonth { get; set; }
         public string Description { get; set; }
+        public int CompanyID { get; set; }
+        
+        
+
+
+
     }
 }
