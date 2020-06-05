@@ -17,6 +17,7 @@ using OOPS.BLL.Abstract;
 using OOPS.BLL.Abstract.EmployeeAbstract;
 using OOPS.BLL.Abstract.CompanyAbstract;
 using OOPS.BLL.Abstract.EmployeeAbstract;
+
 using OOPS.BLL.Abstract.StaticAbstract;
 using OOPS.BLL.Concreate;
 using OOPS.BLL.Concreate.CompanyConcreate;
@@ -28,6 +29,8 @@ using OOPS.MapConfig.ConfigProfile;
 using OOPS.WebUI.CustomHandler;
 using OOPS.WebUI.Models;
 using OOPS.WebUI.Validators;
+using OOPS.Model.EmployeeModel;
+using OOPS.BLL.Concreate.EmployeeConcreate;
 
 namespace OOPS.WebUI
 {
@@ -104,6 +107,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IPublicHolidaysService, PublicHolidaysService>();
             services.AddSingleton<IEmployeeDetailService, EmployeDetailService>();
             services.AddSingleton<ICompanyService, CompanyService>();
+            services.AddSingleton<ISystemEducationService, SystemEducationService>();
             services.AddSingleton<IEmployeeOtherInfoService, EmployeeOtherInfoService>();
             services.AddSingleton<IActivityCalenderService, ActivityCalenderService>();
             services.AddSingleton<IPaymentRequestsService, PaymentRequestsService>();
