@@ -119,6 +119,7 @@ namespace OOPS.WebUI
             services.AddControllersWithViews().AddFluentValidation();
             services.AddTransient<IValidator<RegisterViewModel>, RegisterValidator>();
             services.AddTransient<IValidator<UserLoginViewModel>, UserLoginValidator>();
+            services.AddTransient<IValidator<EmployeeModel>, EmployeeValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
