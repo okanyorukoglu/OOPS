@@ -25,7 +25,7 @@ namespace OOPS.Model.EmployeeModel
 
         [ForeignKey("VisaType")]
         public int VisaId { get; set; }
-        public VisaType VisaType { get; set; }
+        public virtual VisaType VisaType { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
     }

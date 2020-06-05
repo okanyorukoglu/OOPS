@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OOPS.Core.Entities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -32,6 +33,11 @@ namespace OOPS.Core.Data.Repository
         public T Get(Expression<Func<T, bool>> filter = null)
         {
             return GetQueryable(filter, null, null).SingleOrDefault();
+        }
+
+        public IQueryable<T> GetQueryable(Expression<Func<T, bool>> filter = null)
+        {
+            return GetQueryable(filter, null, null);
         }
 
         protected virtual IQueryable<T> GetQueryable(
@@ -110,7 +116,6 @@ namespace OOPS.Core.Data.Repository
             {
                 query = query.Include(include);
             }
-
             return query.FirstOrDefault();
         }
 

@@ -84,7 +84,7 @@ namespace OOPS.DAL
             .HasKey(hk => new { hk.EmployeeId, hk.BankInformationId });
 
             modelBuilder.Entity<EmployeeDebit>()
-            .HasKey(hk => new { hk.EmployeeId, hk.DebitId });
+            .HasKey(hk => new { hk.Id });
 
             modelBuilder.Entity<EmployeeExpense>()
             .HasKey(hk => new { hk.EmployeeId, hk.ExpenseId });

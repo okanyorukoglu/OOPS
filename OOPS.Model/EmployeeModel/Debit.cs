@@ -11,17 +11,18 @@ namespace OOPS.Model.EmployeeModel
     {
         public Debit()
         {
-            EmployeeDebits = new HashSet<EmployeeDebit>();
+            //EmployeeDebits = new HashSet<EmployeeDebit>();
         }
-   
+
         public int SerialNumber { get; set; }
         public DateTime ReturnDate { get; set; }
+        public DateTime DateOfIssue { get; set; }
         public string Description { get; set; }
 
         [ForeignKey("DebitCategory")]
-        public int DebitCategoryID { get; set; }
+        public Nullable<int> DebitCategoryID { get; set; }
         public virtual DebitCategory DebitCategory { get; set; }
 
-        public ICollection<EmployeeDebit> EmployeeDebits { get; set; }
+        //public virtual ICollection<EmployeeDebit> EmployeeDebits { get; set; }
     }
 }
