@@ -33,6 +33,13 @@ namespace OOPS.BLL.Concreate
             var addedPosition = MapperFactory.CurrentMapper.Map<Position>(Position);
             uow.GetRepository<Position>().Add(addedPosition);
             uow.SaveChanges();
+            var addedEmployeePosition = new EmployeePosition()
+            {
+                EmployeeId = Position.EmployeeId,
+                PositionId = addedPosition.Id
+            };
+            uow.GetRepository<EmployeePosition>().Add(addedEmployeePosition);
+            uow.SaveChanges();
             return MapperFactory.CurrentMapper.Map<PositionDTO>(addedPosition);
         }
 

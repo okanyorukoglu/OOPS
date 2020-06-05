@@ -240,7 +240,5 @@ namespace OOPS.WebUI.Controllers
             service.deleteEmployee(Id);
             return RedirectToAction("List");
         }
-
-        
     }
 }
