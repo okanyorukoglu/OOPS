@@ -13,6 +13,7 @@ namespace OOPS.DTO.Company
         public virtual List<EmployeeDTO> Employees { get; set; }
         public virtual List<UserDTO> Users { get; set; }
         public virtual List<PositionDTO> Positions { get; set; }
+        public virtual List<SystemEducationDTO> SystemEducations { get; set; }
 
     }
 }

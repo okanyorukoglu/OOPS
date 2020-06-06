@@ -16,7 +16,6 @@ using Microsoft.Extensions.Hosting;
 using OOPS.BLL.Abstract;
 using OOPS.BLL.Abstract.EmployeeAbstract;
 using OOPS.BLL.Abstract.CompanyAbstract;
-using OOPS.BLL.Abstract.EmployeeAbstract;
 using OOPS.BLL.Abstract.StaticAbstract;
 using OOPS.BLL.Concreate;
 using OOPS.BLL.Concreate.CompanyConcreate;
@@ -28,6 +27,9 @@ using OOPS.MapConfig.ConfigProfile;
 using OOPS.WebUI.CustomHandler;
 using OOPS.WebUI.Models;
 using OOPS.WebUI.Validators;
+using OOPS.BLL.Abstract.Employee;
+using OOPS.BLL.Concreate.EmployeeConcreate;
+using OOPS.BLL.Concreate.CompanyConcrete;
 
 namespace OOPS.WebUI
 {

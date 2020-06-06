@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOPS.DTO.Company;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -18,9 +19,9 @@ namespace OOPS.DTO.Employee
         public string EducationLocation { get; set; }
         public string ValidityPeriodMonth { get; set; }
         public string Description { get; set; }
-        public int CompanyID { get; set; }
-        
-        
+        public Nullable<int> CompanyID { get; set; }
+        public virtual CompanyDTO Company { get; set; }
+
 
 
 

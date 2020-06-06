@@ -363,11 +363,6 @@ namespace OOPS.DAL
                 new DisabilitySituation { Id = 4, DisabilityName ="3.Derece"}
                 );
 
-            modelBuilder.Entity<DebitCategory>().HasData(
-                new DebitCategory { Id = 1, Name ="Bilgisayar" },
-                new DebitCategory { Id = 2, Name ="Cep Telefonu" },
-                new DebitCategory { Id = 3, Name ="Araç" }
-                );
 
             modelBuilder.Entity<ContractType>().HasData(
                 new ContractType { Id = 1, ContractName ="Süreli"},
