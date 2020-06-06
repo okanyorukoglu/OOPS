@@ -41,7 +41,7 @@ namespace OOPS.BLL.Concreate.EmployeeConcreate
 
         public List<SystemEducationDTO> getAllSystemEducations(int Id)
         {
-            var systemEducations = uow.GetRepository<SystemEducation>().Get(a => a.CompanyID == Id);
+            var systemEducations = uow.GetRepository<SystemEducation>().GetAll().Where(z => z.CompanyID == Id).ToList();
             return MapperFactory.CurrentMapper.Map<List<SystemEducationDTO>>(systemEducations);
         }
 

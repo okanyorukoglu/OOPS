@@ -35,15 +35,19 @@ namespace OOPS.WebUI.Controllers
         private ICompanyService companyService;
         private ICompanyBranchService companyBranchService;
         private ICompanyDepartmentService companyDepartmentService;
+        private IEmployeePositionService employeePositionService;
         public EmployeeController(IEmployeeService _service, IEmployeeDetailService _employeeDetailService, IEmployeeOtherInfoService _employeeOtherInfoService,
             IBankAccountTypeService _bankAccountTypeService, IAccessTypeService _accessTypeService, IBloodGroupService _bloodGroupService, ICityService _cityService,
             IContractTypeService _contractType, ICountryService _countryService, IDisabilitySituationService _disabilitySituationService, IEducationLevelService _educationLevelService,
             IEducationStatusService _educationStatusService, IEmploymentTypeService _employmentTypeService, IGenderService _genderService,
-            IMaritalStatusService _maritalStatusService, IPositionService _positionService, ICompanyService _companyService, ICompanyBranchService _companyBranchService,ICompanyDepartmentService _companyDepartmentService)
+            IMaritalStatusService _maritalStatusService, IPositionService _positionService, ICompanyService _companyService, ICompanyBranchService _companyBranchService,ICompanyDepartmentService _companyDepartmentService,
+            IEmployeePositionService _employeePositionService
+            )
         {
             service = _service;
             employeeDetailService = _employeeDetailService;
             employeeOtherInfoService = _employeeOtherInfoService;
+            employeePositionService = _employeePositionService;
             bankAccountTypeService = _bankAccountTypeService;
             accessTypeService = _accessTypeService;
             bloodGroupService = _bloodGroupService;
@@ -109,6 +113,9 @@ namespace OOPS.WebUI.Controllers
 
             EmployeeModel model = new EmployeeModel();
             model.Employee = service.getEmployee(id);
+            //int empPosId= model.e
+            //var test = employeePositionService.getEmployeePosition();
+            //model.Employee.EmployeePositions = employeePositionService.getEmployeePosition();
             var empDetail = employeeDetailService.getEmployeeDetail(id);
             var empOtherInfo = employeeOtherInfoService.getEmployeeOtherInfo(id);
             if (empDetail == null)

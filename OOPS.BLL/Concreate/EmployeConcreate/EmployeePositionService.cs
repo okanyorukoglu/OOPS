@@ -5,6 +5,7 @@ using OOPS.MapConfig.ConfigProfile;
 using OOPS.Model.EmployeeModel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace OOPS.BLL.Concreate.EmployeConcreate
@@ -16,10 +17,10 @@ namespace OOPS.BLL.Concreate.EmployeConcreate
         {
             uow = _uow;
         }
-        public EmployeePositionDTO getEmployeePosition(int Id)
+        public List<EmployeePositionDTO> getEmployeePosition(int Id)
         {
-            var getEmployeePosition = uow.GetRepository<Model.EmployeeModel.EmployeePosition>().Get(z => z.EmployeeId == Id);
-            return MapperFactory.CurrentMapper.Map<EmployeePositionDTO>(getEmployeePosition);
+            var getEmployeePosition = uow.GetRepository<EmployeePosition>().GetAll().Where(z=>z.EmployeeId == Id).ToList();
+            return MapperFactory.CurrentMapper.Map<List<EmployeePositionDTO>>(getEmployeePosition);
         }
 
         public EmployeePositionDTO newEmployeePosition(EmployeePositionDTO employeePosition)

@@ -24,29 +24,31 @@ namespace OOPS.WebUI.Controllers
         {
 
             SystemEducationDTO model = new SystemEducationDTO();
-            model.CompanyID = CurrentUser.Id;
+            model.CompanyID = CurrentUser.CompanyID;
             return View(model);
         }
 
         [HttpPost]
         public IActionResult AddSystemEducation(SystemEducationDTO systemEducation)
         {
+            systemEducation.CompanyID = CurrentUser.CompanyID;
             service.newSystemEducation(systemEducation);
             return RedirectToAction("Index");
         }
 
         public IActionResult ListSystemEducation()
         {
-            List<SystemEducationDTO> systemEducation = service.getAll();
+            int companyId =(int) CurrentUser.CompanyID;
+            List<SystemEducationDTO> systemEducation = service.getAllSystemEducations(companyId);
             return View(systemEducation);
         }
 
-        [HttpPost]
-        public IActionResult ListSystemEducation(SystemEducationDTO systemEducation)
-        {
+        //[HttpPost]
+        //public IActionResult ListSystemEducation(SystemEducationDTO systemEducation)
+        //{
 
-            service.getSystemEducation(systemEducation.Id);
-            return RedirectToAction("Index");
-        }
+        //    service.getSystemEducation(systemEducation.Id);
+        //    return RedirectToAction("Index");
+        //}
     }
 }

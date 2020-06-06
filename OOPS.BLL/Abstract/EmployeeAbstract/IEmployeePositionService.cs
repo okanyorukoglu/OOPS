@@ -8,7 +8,7 @@ namespace OOPS.BLL.Abstract.EmployeeAbstract
 {
     public interface IEmployeePositionService : IServiceBase
     {
-        EmployeePositionDTO getEmployeePosition(int Id);
+        List<EmployeePositionDTO> getEmployeePosition(int Id);
         EmployeePositionDTO newEmployeePosition(EmployeePositionDTO employeeDetail);
         EmployeePositionDTO updateEmployeePosition(EmployeePositionDTO employeeDetail);
     }
