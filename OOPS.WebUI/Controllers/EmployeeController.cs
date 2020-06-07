@@ -40,7 +40,7 @@ namespace OOPS.WebUI.Controllers
             IBankAccountTypeService _bankAccountTypeService, IAccessTypeService _accessTypeService, IBloodGroupService _bloodGroupService, ICityService _cityService,
             IContractTypeService _contractType, ICountryService _countryService, IDisabilitySituationService _disabilitySituationService, IEducationLevelService _educationLevelService,
             IEducationStatusService _educationStatusService, IEmploymentTypeService _employmentTypeService, IGenderService _genderService,
-            IMaritalStatusService _maritalStatusService, IPositionService _positionService, ICompanyService _companyService, ICompanyBranchService _companyBranchService,ICompanyDepartmentService _companyDepartmentService,
+            IMaritalStatusService _maritalStatusService, IPositionService _positionService, ICompanyService _companyService, ICompanyBranchService _companyBranchService, ICompanyDepartmentService _companyDepartmentService,
             IEmployeePositionService _employeePositionService
             )
         {
@@ -107,7 +107,7 @@ namespace OOPS.WebUI.Controllers
             ViewBag.EmploymentType = new SelectList(employmentTypeService.getAll(), "Id", "EmploymentTypeName");
             ViewBag.Gender = new SelectList(genderService.getAll(), "Id", "GenderName");
             ViewBag.MaritalStatus = new SelectList(maritalStatusService.getAll(), "Id", "StatusName");
-            ViewBag.Companies = new SelectList(companyService.getAll(companyId), "Id", "CompanyName"); 
+            ViewBag.Companies = new SelectList(companyService.getAll(companyId), "Id", "CompanyName");
             ViewBag.CompanyBranchs = new SelectList(companyBranchService.getSelectByCompanyId(companyId), "Id", "BranchName");
             ViewBag.CompanyDepartments = new SelectList(companyDepartmentService.getSelectByCompanyId(companyId), "Id", "Name");
 
@@ -129,7 +129,7 @@ namespace OOPS.WebUI.Controllers
             {
                 model.EmployeeDetail = empDetail;
             }
-            if (empOtherInfo==null)
+            if (empOtherInfo == null)
             {
                 model.EmployeeOtherInfo = new EmployeeOtherInfoDTO();
             }
@@ -145,19 +145,26 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public IActionResult EditEmployee(EmployeeModel employeeModel)
         {
-            if (ModelState.IsValid)
-            {
-                service.updateEmployee(employeeModel.Employee);
 
-                return RedirectToAction("List");
-            }
-            else
-            {
-                var errors = ModelState.Select(x => x.Value.Errors)
-                             .Where(y => y.Count > 0)
-                             .ToList();
-                return View();
-            }
+
+            service.updateEmployee(employeeModel.Employee);
+
+            return RedirectToAction("List");
+
+            //if (ModelState.IsValid)
+            //{
+            //    service.updateEmployee(employeeModel.Employee);
+
+            //    return RedirectToAction("List");
+            //}
+            //else
+            //{
+            //    var errors = ModelState.Select(x => x.Value.Errors)
+            //                 .Where(y => y.Count > 0)
+            //                 .ToList();
+            //    return View();
+            //}
+
         }
 
         //EmployeeDetail Update and Add
@@ -168,7 +175,7 @@ namespace OOPS.WebUI.Controllers
                 if (employeeModel.EmployeeDetail.Id == null)
                 {
                     //employeeModel.EmployeeDetail.Employee = service.getEmployee(employeeModel.Employee.Id);
-                    employeeModel.EmployeeDetail.EmployeeID =employeeModel.Employee.Id;
+                    employeeModel.EmployeeDetail.EmployeeID = employeeModel.Employee.Id;
                     employeeDetailService.newEmployeeDetail(employeeModel.EmployeeDetail);
                     //employeeModel.EmployeeDetail.Employee = service.getEmployee(employeeModel.Employee.Id);
                     //employeeDetailService.updateEmployeeDetail(employeeModel.EmployeeDetail);
@@ -178,8 +185,8 @@ namespace OOPS.WebUI.Controllers
                     employeeModel.EmployeeDetail.Employee = service.getEmployee(employeeModel.Employee.Id);
                     employeeDetailService.updateEmployeeDetail(employeeModel.EmployeeDetail);
                 }
-                
-               
+
+
                 return RedirectToAction("List");
             }
             else
@@ -197,7 +204,7 @@ namespace OOPS.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 if (employeeModel.EmployeeOtherInfo.Id == null)
-                {          
+                {
                     employeeModel.EmployeeOtherInfo.EmployeeID = employeeModel.Employee.Id;
                     employeeOtherInfoService.newEmployeeOtherInfo(employeeModel.EmployeeOtherInfo);
                 }
