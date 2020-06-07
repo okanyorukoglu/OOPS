@@ -31,6 +31,7 @@ namespace OOPS.Model.EmployeeModel
         [ForeignKey("EmploymentType")]
         public Nullable<int> EmploymentTypeID { get; set; }
         public virtual EmploymentType EmploymentType { get; set; }
+        public int EmployeeId { get; set; }
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

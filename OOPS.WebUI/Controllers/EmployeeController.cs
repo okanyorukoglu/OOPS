@@ -112,10 +112,13 @@ namespace OOPS.WebUI.Controllers
             ViewBag.CompanyDepartments = new SelectList(companyDepartmentService.getSelectByCompanyId(companyId), "Id", "Name");
 
             EmployeeModel model = new EmployeeModel();
+            //TODO:employeePosition düzelt
             model.Employee = service.getEmployee(id);
-            //int empPosId= model.e
-            //var test = employeePositionService.getEmployeePosition();
-            //model.Employee.EmployeePositions = employeePositionService.getEmployeePosition();
+            if (model.Employee.EmployeePositions.Count != 0)
+            {
+                model.Employee.EmployeePositions[0].Position = positionService.getPositions(id);
+            }
+            //model.Employee.EmployeePositions = positionService.getEmployeePosition(id);
             var empDetail = employeeDetailService.getEmployeeDetail(id);
             var empOtherInfo = employeeOtherInfoService.getEmployeeOtherInfo(id);
             if (empDetail == null)

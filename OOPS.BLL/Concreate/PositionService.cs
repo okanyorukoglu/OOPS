@@ -25,7 +25,8 @@ namespace OOPS.BLL.Concreate
 
         public PositionDTO getPositions(int Id)
         {
-            throw new NotImplementedException();
+            var emp = uow.GetRepository<Position>().Get(z => z.EmployeeId == Id);
+            return MapperFactory.CurrentMapper.Map<PositionDTO>(emp);
         }
 
         public PositionDTO newPosition(PositionDTO Position)
