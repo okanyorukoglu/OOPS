@@ -30,9 +30,9 @@ namespace OOPS.Model.EmployeeModel
         public string PhonePersonal { get; set; }
         public string  PhoneBusiness { get; set; }
         public string EmailBusiness { get; set; }
-        //public string EmailPersonal { get; set; }
-        //public DateTime StartDate { get; set; }
-        //public DateTime ContractEndDate { get; set; }
+
+        public DateTime? StartDate { get; set; }
+        public DateTime? ContractEndDate { get; set; }
         public virtual EmployeeDetail EmployeeDetail { get; set; }
         public virtual EmployeeOtherInfo EmployeeOtherInfo { get; set; }
         public virtual EmploymentType EmploymentType { get; set; }

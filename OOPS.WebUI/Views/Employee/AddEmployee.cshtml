@@ -148,7 +148,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Soyad</label>
-                                                        <input type="text" asp-for="Surname"  class="form-control">
+                                                        <input type="text" asp-for="Surname" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -162,7 +162,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Ünvan</label>
-                                                        <input type="text" asp-for="Title"  class="form-control">
+                                                        <input type="text" asp-for="Title" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -182,33 +182,48 @@
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">İşe Başlama Tarihi</label>
-                                                        <input class="form-control form-control-inline date-picker" size="16" type="text" value="" />
+                                                        <label class="control-label">Sözleşme Türü</label>
+                                                        <select class="form-control" asp-for="ContractTypeID" asp-items="ViewBag.ContractType">
+                                                            <option>Seçiniz</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Erişim Türü</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
+                                                        <select class="form-control" asp-for="AccessTypeID" asp-items="ViewBag.AccessType">
+                                                            <option>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">Sözleşme Türü</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
+                                                        <label class="control-label">İşe Başlama Tarihi</label>
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                            <input type="text" class="form-control" asp-for="StartDate" readonly>
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
+
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Sözleşme Bitiş Tarihi</label>
-                                                        <input type="text" class="form-control">
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                            <input type="text" class="form-control" asp-for="ContractEndDate" readonly>
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!--/span-->

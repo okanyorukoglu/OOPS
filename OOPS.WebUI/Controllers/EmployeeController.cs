@@ -239,6 +239,8 @@ namespace OOPS.WebUI.Controllers
         public IActionResult AddEmployee()
         {
             EmployeeDTO emp = new EmployeeDTO();
+            ViewBag.ContractType = new SelectList(contractType.getAll(), "Id", "ContractName");
+            ViewBag.AccessType = new SelectList(accessTypeService.getAll(), "Id", "AccessTypeName");
             return View(emp);
         }
 

@@ -209,8 +209,10 @@
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">İşe Başlama Tarihi</label>
-                                                        <input class="form-control form-control-inline date-picker" size="16" type="text" value="" />
+                                                        <label class="control-label">Sözleşme Türü</label>
+                                                        <select class="form-control" asp-for="@Model.Employee.ContractTypeID" asp-items="ViewBag.ContractType">
+                                                            <option>Seçiniz</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -225,17 +227,30 @@
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">Sözleşme Türü</label>
-                                                        <select class="form-control" asp-for="@Model.Employee.ContractTypeID" asp-items="ViewBag.ContractType">
-                                                            <option>Seçiniz</option>
-                                                        </select>
+                                                        <label class="control-label">İşe Başlama Tarihi</label>
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                            <input type="text" class="form-control" asp-for="@Model.Employee.StartDate" readonly>
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
+
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Sözleşme Bitiş Tarihi</label>
-                                                        <input type="text" class="form-control">
+                                                        <div class="input-group date date-picker"  data-date-format="dd-mm-yyyy" >
+                                                            <input type="text" class="form-control" asp-for="@Model.Employee.ContractEndDate" readonly>
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -351,7 +366,7 @@
                                 <!-- SON KARIYER INFO TAB -->
                                 <!-- BAŞ KISISEL BILGILER INFO TAB -->
                                 <div class="tab-pane" id="tab_3">
-                                    <form asp-action="EditEmployeedetail" asp-controller="Employee" method="post" class="horizontal-form">
+                                    <form asp-action="EditEmployeedetail" method="post" class="horizontal-form">
                                         <input type="hidden" asp-for="@Model.Employee.Id" />
                                         <input type="hidden" asp-for="@Model.Employee.CompanyID" />
                                         <input type="hidden" asp-for="@Model.EmployeeDetail.Id" />
