@@ -182,7 +182,7 @@ namespace OOPS.WebUI.Controllers
                 }
                 else
                 {
-                    employeeModel.EmployeeDetail.Employee = service.getEmployee(employeeModel.Employee.Id);
+                    //employeeModel.EmployeeDetail.Employee = service.getEmployee(employeeModel.Employee.Id);
                     employeeDetailService.updateEmployeeDetail(employeeModel.EmployeeDetail);
                 }
 

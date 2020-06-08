@@ -45,6 +45,14 @@ namespace OOPS.BLL.Concreate.EmployeConcreate
             var selectedEmployeeDetail = uow.GetRepository<EmployeeDetail>().Get(z => z.Id == employeeDetail.Id);
             selectedEmployeeDetail = MapperFactory.CurrentMapper.Map(employeeDetail, selectedEmployeeDetail);
             uow.GetRepository<EmployeeDetail>().Update(selectedEmployeeDetail);
+            selectedEmployeeDetail.EmployeeID = employeeDetail.EmployeeID;
+            selectedEmployeeDetail.BloodGroupID = employeeDetail.BloodGroupID;
+            selectedEmployeeDetail.DisabilitySituationID = employeeDetail.DisabilitySituationID;
+            selectedEmployeeDetail.EducationLevelID = employeeDetail.EducationLevelID;
+            selectedEmployeeDetail.EducationStatusID = employeeDetail.EducationStatusID;
+            selectedEmployeeDetail.GenderID = employeeDetail.GenderID;
+            selectedEmployeeDetail.MaritalStatusID = employeeDetail.MaritalStatusID;
+            uow.GetRepository<EmployeeDetail>().Update(selectedEmployeeDetail);
             uow.SaveChanges();
             return MapperFactory.CurrentMapper.Map<EmployeeDetailDTO>(selectedEmployeeDetail);
         }
