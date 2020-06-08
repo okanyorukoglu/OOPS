@@ -19,7 +19,7 @@ namespace OOPS.WebUI.Components
         public IViewComponentResult Invoke()
         {
             //var companyId = CurrentUser.companyId;
-            var companyId = 1;
+            //var companyId = 1;
             return View(permitService.getAllEmployeePermits());
         }
     }
