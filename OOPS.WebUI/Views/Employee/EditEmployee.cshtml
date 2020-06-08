@@ -229,7 +229,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">İşe Başlama Tarihi</label>
                                                         <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
-                                                            <input type="text" class="form-control" asp-for="@Model.Employee.StartDate" readonly>
+                                                            <input type="text" class="form-control" asp-for="@Model.Employee.StartDate" >
                                                             <span class="input-group-btn">
                                                                 <button class="btn default" type="button">
                                                                     <i class="fa fa-calendar"></i>
@@ -244,7 +244,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Sözleşme Bitiş Tarihi</label>
                                                         <div class="input-group date date-picker"  data-date-format="dd-mm-yyyy" >
-                                                            <input type="text" class="form-control" asp-for="@Model.Employee.ContractEndDate" readonly>
+                                                            <input type="text" class="form-control" asp-for="@Model.Employee.ContractEndDate" >
                                                             <span class="input-group-btn">
                                                                 <button class="btn default" type="button">
                                                                     <i class="fa fa-calendar"></i>
@@ -260,7 +260,7 @@
                                         </div>
                                         <div class="margiv-top-10">
                                             <button type="submit" class="btn green btn-circle"> Kaydet </button>
-                                            <button href="javascript:;" class="btn default btn-circle"> İptal </button>
+                                            <button href="/Employee/List" class="btn default btn-circle"> İptal </button>
                                         </div>
                                     </form>
                                 </div>
@@ -469,7 +469,7 @@
                                             </div>
                                             <div class="margiv-top-10">
                                                 <button type="submit" class="btn green btn-circle"> Kaydet </button>
-                                                <button href="javascript:;" class="btn default btn-circle"> İptal </button>
+                                                <button href="/Employee/List" class="btn default btn-circle"> İptal </button>
                                             </div>
                                         </div>
                                     </form>
@@ -477,7 +477,7 @@
                                 <!-- SON KISISEL BILGILER INFO TAB -->
                                 <!-- BAŞ DIGER BILGILER INFO TAB -->
                                 <div class="tab-pane" id="tab_4">
-                                    <form asp-action="EditEmployeeOtherInfo" asp-controller="Employee" class="horizontal-form">
+                                    <form asp-action="EditEmployeeOtherInfo" class="horizontal-form">
                                         <input type="hidden" asp-for="@Model.Employee.Id" />
                                         <input type="hidden" asp-for="@Model.Employee.CompanyID" />
                                         <input type="hidden" asp-for="@Model.EmployeeOtherInfo.Id" />
@@ -611,7 +611,7 @@
                                         </div>
                                         <div class="margiv-top-10">
                                             <button type="submit" class="btn green btn-circle"> Kaydet </button>
-                                            <button href="javascript:;" class="btn default btn-circle"> İptal </button>
+                                            <button href="/Employee/List" class="btn default btn-circle"> İptal </button>
                                         </div>
                                     </form>
                                 </div>

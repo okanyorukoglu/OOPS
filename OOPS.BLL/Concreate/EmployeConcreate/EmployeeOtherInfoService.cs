@@ -51,6 +51,12 @@ namespace OOPS.BLL.Concreate.EmployeConcreate
             var selectedEmployeeOtherInfo = uow.GetRepository<EmployeeOtherInfo>().Get(z => z.Id == employeeOtherInfo.Id);
             selectedEmployeeOtherInfo = MapperFactory.CurrentMapper.Map(employeeOtherInfo, selectedEmployeeOtherInfo);
             uow.GetRepository<EmployeeOtherInfo>().Update(selectedEmployeeOtherInfo);
+            selectedEmployeeOtherInfo.CityId = employeeOtherInfo.CityId;
+            selectedEmployeeOtherInfo.CountryId = employeeOtherInfo.CountryId;
+            selectedEmployeeOtherInfo.DistrictId = employeeOtherInfo.DistrictId;
+            selectedEmployeeOtherInfo.EmployeeID = employeeOtherInfo.EmployeeID;
+            selectedEmployeeOtherInfo.BankAccountTypeId = employeeOtherInfo.BankAccountTypeId;
+            uow.GetRepository<EmployeeOtherInfo>().Update(selectedEmployeeOtherInfo);
             uow.SaveChanges();
             return MapperFactory.CurrentMapper.Map<EmployeeOtherInfoDTO>(selectedEmployeeOtherInfo);
         }

@@ -145,17 +145,30 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public IActionResult EditEmployee(EmployeeModel employeeModel)
         {
-
-
             service.updateEmployee(employeeModel.Employee);
 
             return RedirectToAction("List");
+        }
 
+        //EmployeeDetail Update and Add
+        [HttpPost]
+        public IActionResult EditEmployeedetail(EmployeeModel employeeModel)
+        {
+            if (employeeModel.EmployeeDetail.Id == null)
+            {
+                employeeModel.EmployeeDetail.EmployeeID = employeeModel.Employee.Id;
+                employeeDetailService.newEmployeeDetail(employeeModel.EmployeeDetail);
+            }
+            else
+            {
+                employeeDetailService.updateEmployeeDetail(employeeModel.EmployeeDetail);
+            }
+
+
+            return RedirectToAction("List");
             //if (ModelState.IsValid)
             //{
-            //    service.updateEmployee(employeeModel.Employee);
 
-            //    return RedirectToAction("List");
             //}
             //else
             //{
@@ -164,66 +177,22 @@ namespace OOPS.WebUI.Controllers
             //                 .ToList();
             //    return View();
             //}
-
-        }
-
-        //EmployeeDetail Update and Add
-        public IActionResult EditEmployeedetail(EmployeeModel employeeModel)
-        {
-            if (ModelState.IsValid)
-            {
-                if (employeeModel.EmployeeDetail.Id == null)
-                {
-                    //employeeModel.EmployeeDetail.Employee = service.getEmployee(employeeModel.Employee.Id);
-                    employeeModel.EmployeeDetail.EmployeeID = employeeModel.Employee.Id;
-                    employeeDetailService.newEmployeeDetail(employeeModel.EmployeeDetail);
-                    //employeeModel.EmployeeDetail.Employee = service.getEmployee(employeeModel.Employee.Id);
-                    //employeeDetailService.updateEmployeeDetail(employeeModel.EmployeeDetail);
-                }
-                else
-                {
-                    //employeeModel.EmployeeDetail.Employee = service.getEmployee(employeeModel.Employee.Id);
-                    employeeDetailService.updateEmployeeDetail(employeeModel.EmployeeDetail);
-                }
-
-
-                return RedirectToAction("List");
-            }
-            else
-            {
-                var errors = ModelState.Select(x => x.Value.Errors)
-                             .Where(y => y.Count > 0)
-                             .ToList();
-                return View();
-            }
         }
 
         //EmployeeOtherInfo Update and Add
+        [HttpPost]
         public IActionResult EditEmployeeOtherInfo(EmployeeModel employeeModel)
         {
-            if (ModelState.IsValid)
+            if (employeeModel.EmployeeOtherInfo.Id == null)
             {
-                if (employeeModel.EmployeeOtherInfo.Id == null)
-                {
-                    employeeModel.EmployeeOtherInfo.EmployeeID = employeeModel.Employee.Id;
-                    employeeOtherInfoService.newEmployeeOtherInfo(employeeModel.EmployeeOtherInfo);
-                }
-                else
-                {
-                    employeeModel.EmployeeOtherInfo.Employee = service.getEmployee(employeeModel.Employee.Id);
-                    employeeOtherInfoService.updateEmployeeOtherInfo(employeeModel.EmployeeOtherInfo);
-                }
-
-
-                return RedirectToAction("List");
+                employeeModel.EmployeeOtherInfo.EmployeeID = employeeModel.Employee.Id;
+                employeeOtherInfoService.newEmployeeOtherInfo(employeeModel.EmployeeOtherInfo);
             }
             else
             {
-                var errors = ModelState.Select(x => x.Value.Errors)
-                             .Where(y => y.Count > 0)
-                             .ToList();
-                return View();
+                employeeOtherInfoService.updateEmployeeOtherInfo(employeeModel.EmployeeOtherInfo);
             }
+            return RedirectToAction("List");
         }
 
 
@@ -249,7 +218,6 @@ namespace OOPS.WebUI.Controllers
         {
             employee.CompanyID = (int)CurrentUser.CompanyID;
             service.newEmployee(employee);
-            //employeeDetailService.newEmployeeDetail(newEmp.EmployeeDetail);
 
             return RedirectToAction("List");
         }
