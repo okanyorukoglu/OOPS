@@ -228,8 +228,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">İşe Başlama Tarihi</label>
-                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
-                                                            <input type="text" class="form-control" asp-for="@Model.Employee.StartDate" >
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d" >
+                                                            <input type="text" class="form-control" asp-for="@Model.Employee.StartDate">
                                                             <span class="input-group-btn">
                                                                 <button class="btn default" type="button">
                                                                     <i class="fa fa-calendar"></i>
@@ -243,8 +243,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Sözleşme Bitiş Tarihi</label>
-                                                        <div class="input-group date date-picker"  data-date-format="dd-mm-yyyy" >
-                                                            <input type="text" class="form-control" asp-for="@Model.Employee.ContractEndDate" >
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" id="datepickersozlesmebitis">
+                                                            <input type="text" class="form-control" asp-for="@Model.Employee.ContractEndDate">
                                                             <span class="input-group-btn">
                                                                 <button class="btn default" type="button">
                                                                     <i class="fa fa-calendar"></i>
@@ -304,15 +304,15 @@
                                                         <tbody>
                                                             @for (int i = 0; i < Model.Employee.EmployeePositions.Count; i++)
                                                             {
-                                                            <tr>
-                                                                <td>@Model.Employee.EmployeePositions[i].Position.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
-                                                                <td>@Model.Employee.EmployeePositions[i].Position.EndDate.ToString("dd.MM.yyyy HH:mm")</td>
-                                                                <td>@Model.Employee.EmployeePositions[i].Position.EmploymentType.EmploymentTypeName </td>
-                                                                <td>@Model.Employee.EmployeePositions[i].Position.Company.CompanyName</td>
-                                                                <td>@Model.Employee.EmployeePositions[i].Position.CompanyBranch.BranchName</td>
-                                                                <td>@Model.Employee.EmployeePositions[i].Position.CompanyDepartment.Name</td>
-                                                                <td>@Model.Employee.Title</td>
-                                                            </tr>
+                                                                <tr>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.EndDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.EmploymentType.EmploymentTypeName </td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.Company.CompanyName</td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.CompanyBranch.BranchName</td>
+                                                                    <td>@Model.Employee.EmployeePositions[i].Position.CompanyDepartment.Name</td>
+                                                                    <td>@Model.Employee.Title</td>
+                                                                </tr>
                                                             }
 
                                                         </tbody>
@@ -832,7 +832,7 @@
                                                                 Zimmet Ekle
                                                                 <i class="fa fa-plus"></i>
                                                             </button>
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -853,20 +853,20 @@
                                                         <tbody>
                                                             @for (int i = 0; i < Model.Employee.EmployeeDebits.Count; i++)
                                                             {
-                                                            <tr>
-                                                                <td>@(i + 1)</td>
-                                                                <td>@Model.Employee.EmployeeDebits[i].Debit.DebitCategory</td>
-                                                                <td>@Model.Employee.EmployeeDebits[i].Debit.SerialNumber</td>
-                                                                <td>@Model.Employee.EmployeeDebits[i].Debit.DateOfIssue</td>
-                                                                <td>@Model.Employee.EmployeeDebits[i].Debit.ReturnDate</td>
-                                                                <td>@Model.Employee.EmployeeDebits[i].Debit.Description</td>
-                                                                <td>
-                                                                    <span class="label label-sm label-warning">  </span>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="label label-sm label-success">  </span>
-                                                                </td>
-                                                            </tr>
+                                                                <tr>
+                                                                    <td>@(i + 1)</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.DebitCategory</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.SerialNumber</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.DateOfIssue</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.ReturnDate</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.Description</td>
+                                                                    <td>
+                                                                        <span class="label label-sm label-warning">  </span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="label label-sm label-success">  </span>
+                                                                    </td>
+                                                                </tr>
                                                             }
 
                                                         </tbody>
@@ -1058,7 +1058,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Şirket</label>
-                                        <select class="form-control" asp-for="@Model.Position.CompanyID" asp-items="ViewBag.Companies">                
+                                        <select class="form-control" asp-for="@Model.Position.CompanyID" asp-items="ViewBag.Companies">
                                             <option>Seçiniz</option>
                                         </select>
                                     </div>
@@ -1076,7 +1076,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Şube</label>
-                                        <select class="form-control" asp-for="@Model.Position.CompanyBranchID" asp-items="ViewBag.CompanyBranchs">   
+                                        <select class="form-control" asp-for="@Model.Position.CompanyBranchID" asp-items="ViewBag.CompanyBranchs">
                                             <option>Seçiniz</option>
                                         </select>
                                     </div>
@@ -1084,7 +1084,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Çalışma Şekli</label>
-                                        <select class="form-control" asp-for="@Model.Position.EmploymentTypeID"  asp-items="ViewBag.EmploymentType">
+                                        <select class="form-control" asp-for="@Model.Position.EmploymentTypeID" asp-items="ViewBag.EmploymentType">
                                             <option>Seçiniz</option>
                                         </select>
                                     </div>
@@ -1133,7 +1133,7 @@
 </form>
 
 <!-- MAAŞ EKLEME POP-UP-->
-<div class="modal fade" id="addSalary" tabindex="-1"  aria-hidden="true">
+<div class="modal fade" id="addSalary" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -1211,4 +1211,11 @@
 @section pageLeveljs{
     <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
     <script src="../assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script>
+        
+        $('#datepickersozlesmebitis').datepicker({
+            pickerPosition: 'top-left'
+        });
+
+    </script>
 }
