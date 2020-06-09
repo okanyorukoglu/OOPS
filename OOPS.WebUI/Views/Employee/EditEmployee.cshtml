@@ -228,7 +228,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">İşe Başlama Tarihi</label>
-                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d" >
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
                                                             <input type="text" class="form-control" asp-for="@Model.Employee.StartDate">
                                                             <span class="input-group-btn">
                                                                 <button class="btn default" type="button">
@@ -682,8 +682,8 @@
                                                             {
                                                                 <tr>
                                                                     <td>@(i+1)</td>
-                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
-                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.EndDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.StartDate.ToString("dd.MM.yyyy") - @Model.Employee.EmployeePermits[i].Permit.StartHour</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.EndDate.ToString("dd.MM.yyyy") - @Model.Employee.EmployeePermits[i].Permit.EndHour</td>
                                                                     <td>@(Model.Employee.EmployeePermits[i].Permit.EndDate-Model.Employee.EmployeePermits[i].Permit.StartDate) </td>
                                                                     <td>@Model.Employee.EmployeePermits[i].Permit.PermitType.PermitTypeName</td>
                                                                     <td>-</td>
@@ -1212,7 +1212,7 @@
     <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
     <script src="../assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
     <script>
-        
+
         $('#datepickersozlesmebitis').datepicker({
             pickerPosition: 'top-left'
         });
