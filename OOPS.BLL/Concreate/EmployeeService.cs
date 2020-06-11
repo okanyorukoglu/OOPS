@@ -47,7 +47,8 @@ namespace OOPS.BLL.Concreate
         .GetIncludes(a => a.Id == Id,
                      b => b.EmployeePermits,
                      c => c.EmployeePositions,
-                     d=>d.Company
+                     d => d.Company,
+                     e => e.EmployeeVisas
                      );
             return MapperFactory.CurrentMapper.Map<EmployeeDTO>(getEmployee);
             //var emp = uow.GetRepository<Employee>().Get(z=>z.Id==Id);
@@ -76,9 +77,9 @@ namespace OOPS.BLL.Concreate
 
         public EmployeeDTO updateEmployee(EmployeeDTO employee)
         {
-            var selectedEmp = uow.GetRepository<Employee>().Get(z=>z.Id == employee.Id);
-            selectedEmp = MapperFactory.CurrentMapper.Map(employee,selectedEmp);
-            
+            var selectedEmp = uow.GetRepository<Employee>().Get(z => z.Id == employee.Id);
+            selectedEmp = MapperFactory.CurrentMapper.Map(employee, selectedEmp);
+
             uow.GetRepository<Employee>().Update(selectedEmp);
             selectedEmp.CompanyID = employee.CompanyID;
             uow.GetRepository<Employee>().Update(selectedEmp);

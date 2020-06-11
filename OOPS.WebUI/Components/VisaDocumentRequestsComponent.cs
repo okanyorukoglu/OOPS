@@ -18,7 +18,7 @@ namespace OOPS.WebUI.Components
 
         public IViewComponentResult Invoke()
         {
-            return View(visaDocumentRequestsService.getAll());
+            return View(visaDocumentRequestsService.getAllEmployeeVisaDocumentRequests());
         }
     }
 }

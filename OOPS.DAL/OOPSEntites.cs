@@ -48,6 +48,7 @@ namespace OOPS.DAL
         public DbSet<Permit> Permits { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<RequestForVisa> RequestForVisas { get; set; }
+        public DbSet<EmployeeVisa> EmployeeVisas { get; set; }
         public DbSet<SystemEducation> SystemEducations { get; set; }
         #endregion
 
@@ -93,6 +94,9 @@ namespace OOPS.DAL
             .HasKey(hk => new { hk.EmployeeId, hk.OvertimeId });
 
             modelBuilder.Entity<EmployeePermit>()
+            .HasKey(hk => new { hk.Id });
+
+            modelBuilder.Entity<EmployeeVisa>()
             .HasKey(hk => new { hk.Id });
 
 

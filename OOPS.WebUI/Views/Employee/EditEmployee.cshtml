@@ -992,9 +992,10 @@
                                                 </div>
                                                 <div class="actions">
                                                     <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                                        <label class="btn sbold green btn-outline btn-circle btn-sm active">
-                                                            <input type="radio" name="options" class="toggle" id="option2">Vize Belgesi Süreci Ekle
-                                                        </label>
+                                                        <button class="btn btn-circle sbold green" data-toggle="modal" href="#vizeBelgeModal">
+                                                            Vize Belgesi Ekle
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1010,18 +1011,16 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td> Almanya Vizesi </td>
-                                                                <td> İş Seyahati </td>
-                                                                <td> 16/03/2020 </td>
-                                                                <td> 23/03/2020 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>  </td>
-                                                                <td> Eğitim </td>
-                                                                <td> 30/03/2020 </td>
-                                                                <td> 06/04/2020  </td>
-                                                            </tr>
+                                                            @for (int i = 0; i < Model.Employee.EmployeeVisas.Count; i++)
+                                                            {
+                                                                <tr>
+                                                                    <td>@Model.Employee.EmployeeVisas[i].VisaDocumentRequests.VisaType.VisaTypeName</td>
+                                                                    <td>@Model.Employee.EmployeeVisas[i].VisaDocumentRequests.Description</td>
+                                                                    <td>@Model.Employee.EmployeeVisas[i].VisaDocumentRequests.TripStartDate.ToString("dd.MM.yyyy")</td>
+                                                                    <td>@Model.Employee.EmployeeVisas[i].VisaDocumentRequests.TripEndDate.ToString("dd.MM.yyyy")</td>
+                                                                </tr>
+                                                            }
+
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -1206,6 +1205,7 @@
 
 <partial name="../Permit/AddPermit" model="new PermitDTO() { EmployeeId = Model.Employee.Id}" />
 <partial name="../Debit/AddDebit" model="new DebitDTO() { EmployeeId = Model.Employee.Id}" />
+<partial name="../Visa/AddVisa" model="new OOPS.DTO.Static.VisaDocumentRequestDTO() { EmployeeId = Model.Employee.Id }" />
 
 
 @section pageLeveljs{

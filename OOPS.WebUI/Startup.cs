@@ -102,7 +102,6 @@ namespace OOPS.WebUI
             services.AddSingleton<IGenderService, GenderService>();
             services.AddSingleton<IMaritalStatusService, MaritalStatusService>();
             services.AddSingleton<IPermitTypeService, PermitTypeService>();
-            services.AddSingleton<IVisaTypeService, VisaTypeService>();
             services.AddSingleton<IPermitService, PermitService>();
             services.AddSingleton<IPublicHolidaysService, PublicHolidaysService>();
             services.AddSingleton<IEmployeeDetailService, EmployeDetailService>();
@@ -112,11 +111,12 @@ namespace OOPS.WebUI
             services.AddSingleton<IActivityCalenderService, ActivityCalenderService>();
             services.AddSingleton<IPaymentRequestsService, PaymentRequestsService>();
             services.AddSingleton<IOvertimeRequestsService, OvertimeRequestsService>();
-            services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
             services.AddSingleton<IPositionService, PositionService>();
             services.AddSingleton<ICompanyBranchService, CompanyBranchService>();
             services.AddSingleton<ICompanyDepartmentService, CompanyDepartmentService>();
             services.AddSingleton<IEmployeePositionService, EmployeePositionService>();
+            services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
+            services.AddSingleton<IVisaTypeService, VisaTypeService>();
 
 
             services.AddControllersWithViews().AddFluentValidation();

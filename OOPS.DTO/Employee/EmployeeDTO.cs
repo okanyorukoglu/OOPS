@@ -55,5 +55,6 @@ namespace OOPS.DTO.Employee
         public virtual List<EmployeeOverTimeDTO> EmployeeOverTimes { get; set; }
         public virtual List<EmployeePermitDTO> EmployeePermits { get; set; }
         public virtual List<EmployeePositionDTO> EmployeePositions { get; set; }
+        public virtual List<EmployeeVisaDTO> EmployeeVisas { get; set; }
     }
 }
