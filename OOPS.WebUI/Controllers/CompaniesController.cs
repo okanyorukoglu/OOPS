@@ -26,10 +26,19 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public IActionResult CompanyBranchAdd(SettingsModel settingsModel)
         {
-            //settingsModel.CompanyBranch.Company.Id =(int) settingsModel.CompanyBranch.CompanyID;
             settingsModel.CompanyBranch.Company = null;
             companyBranchService.newCompanyBranch(settingsModel.CompanyBranch);
             return RedirectToAction("Index","Settings");
         }
+
+        [HttpPost]
+        public IActionResult CompanyDepartmentAdd(SettingsModel settingsModel)
+        {
+            settingsModel.CompanyDepartment.Company = null;
+            companyDepartmentService.newDepartmant(settingsModel.CompanyDepartment);
+            return RedirectToAction("Index", "Settings");
+        }
+
+
     }
 }

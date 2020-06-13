@@ -52,17 +52,12 @@ namespace OOPS.BLL.Concreate.CompanyConcrete
 
         public CompanyDepartmentDTO newDepartmant(CompanyDepartmentDTO companyDeparment)
         {
-            if (!uow.GetRepository<CompanyDepartment>().GetAll().Any(z => z.Name == companyDeparment.Name))
-            {
+
                 var adedCompanyDepartment = MapperFactory.CurrentMapper.Map<CompanyDepartment>(companyDeparment);
                 adedCompanyDepartment = uow.GetRepository<CompanyDepartment>().Add(adedCompanyDepartment);
                 uow.SaveChanges();
                 return MapperFactory.CurrentMapper.Map<CompanyDepartmentDTO>(adedCompanyDepartment);
-            }
-            else
-            {
-                return null;
-            }
+
         }
 
         public CompanyDepartmentDTO updateDepartmant(CompanyDepartmentDTO companyDeparment)

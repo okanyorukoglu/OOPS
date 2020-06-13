@@ -30,10 +30,12 @@ namespace OOPS.WebUI.Controllers
             SettingsModel model = new SettingsModel();
             model.SystemEducation = new SystemEducationDTO();
             model.CompanyBranch = new CompanyBranchDTO();
+            model.CompanyDepartment = new CompanyDepartmentDTO();
             model.Company = companyService.getCompanyInfo((int)CurrentUser.CompanyID);
             model.SystemEducation.Company = companyService.getCompany((int)CurrentUser.CompanyID);
             model.CompanyBranch.Company = companyService.getCompany((int)CurrentUser.CompanyID);
             model.CompanyBranch.CompanyID = CurrentUser.CompanyID;
+            model.CompanyDepartment.CompanyID = CurrentUser.CompanyID;
             model.SystemEducation.CompanyID = CurrentUser.CompanyID;
             return View(model);
         }
