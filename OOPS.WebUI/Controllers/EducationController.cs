@@ -30,7 +30,6 @@ namespace OOPS.WebUI.Controllers
 
         public IActionResult AddEducation()
         {
-            EducationDTO education = new EducationDTO();
             return View();
         }
 

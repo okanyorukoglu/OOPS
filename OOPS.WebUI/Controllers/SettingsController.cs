@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OOPS.BLL.Abstract;
+using OOPS.BLL.Abstract.CompanyAbstract;
 using OOPS.BLL.Abstract.EmployeeAbstract;
+using OOPS.DTO.Company;
 using OOPS.DTO.Employee;
-
+using OOPS.WebUI.Models;
 
 namespace OOPS.WebUI.Controllers
 {
@@ -15,24 +17,32 @@ namespace OOPS.WebUI.Controllers
 
         private ISystemEducationService service;
         private IEmployeeService employeeservice;
-        public SettingsController(ISystemEducationService _service, IEmployeeService _employeeservice)
+        private ICompanyService companyService;
+        public SettingsController(ISystemEducationService _service, IEmployeeService _employeeservice, ICompanyService _companyService)
         {
             service = _service;
             employeeservice = _employeeservice;
+            companyService = _companyService;
         }
         public IActionResult Index()
         {
 
-            SystemEducationDTO model = new SystemEducationDTO();
-            model.CompanyID = CurrentUser.CompanyID;
+            SettingsModel model = new SettingsModel();
+            model.SystemEducation = new SystemEducationDTO();
+            model.CompanyBranch = new CompanyBranchDTO();
+            model.Company = companyService.getCompanyInfo((int)CurrentUser.CompanyID);
+            model.SystemEducation.Company = companyService.getCompany((int)CurrentUser.CompanyID);
+            model.CompanyBranch.Company = companyService.getCompany((int)CurrentUser.CompanyID);
+            model.CompanyBranch.CompanyID = CurrentUser.CompanyID;
+            model.SystemEducation.CompanyID = CurrentUser.CompanyID;
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult AddSystemEducation(SystemEducationDTO systemEducation)
+        public IActionResult AddSystemEducation(SettingsModel settingsModel)
         {
-            systemEducation.CompanyID = CurrentUser.CompanyID;
-            service.newSystemEducation(systemEducation);
+            settingsModel.SystemEducation.CompanyID = CurrentUser.CompanyID;
+            service.newSystemEducation(settingsModel.SystemEducation);
             return RedirectToAction("Index");
         }
 
@@ -43,12 +53,5 @@ namespace OOPS.WebUI.Controllers
             return View(systemEducation);
         }
 
-        //[HttpPost]
-        //public IActionResult ListSystemEducation(SystemEducationDTO systemEducation)
-        //{
-
-        //    service.getSystemEducation(systemEducation.Id);
-        //    return RedirectToAction("Index");
-        //}
     }
 }

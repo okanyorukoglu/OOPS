@@ -54,17 +54,12 @@ namespace OOPS.BLL.Concreate.CompanyConcrete
 
         public CompanyBranchDTO newCompanyBranch(CompanyBranchDTO CompanyBranch)
         {
-            if (!uow.GetRepository<CompanyBranch>().GetAll().Any(z => z.BranchName == CompanyBranch.BranchName))
-            {
+
                 var adedCompanyBranch = MapperFactory.CurrentMapper.Map<CompanyBranch>(CompanyBranch);
                 adedCompanyBranch = uow.GetRepository<CompanyBranch>().Add(adedCompanyBranch);
                 uow.SaveChanges();
                 return MapperFactory.CurrentMapper.Map<CompanyBranchDTO>(adedCompanyBranch);
-            }
-            else
-            {
-                return null;
-            }
+
         }
 
         public CompanyBranchDTO updateCompanyBranch(CompanyBranchDTO CompanyBranch)

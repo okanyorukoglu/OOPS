@@ -46,6 +46,16 @@ namespace OOPS.BLL.Concreate.CompanyConcreate
             return MapperFactory.CurrentMapper.Map<CompanyDTO>(getCompany);
         }
 
+        public CompanyDTO getCompanyInfo(int Id)
+        {
+            var getEmployee = uow.GetRepository<Company>()
+       .GetIncludes(a => a.Id == Id,
+                    b => b.CompanyBranches,
+                    c => c.CompanyDepartments
+                    );
+            return MapperFactory.CurrentMapper.Map<CompanyDTO>(getEmployee);
+        }
+
         public CompanyDTO newCompany(CompanyDTO company)
         {
             if (!uow.GetRepository<Company>().GetAll().Any(z => z.CompanyName == company.CompanyName))

@@ -12,6 +12,7 @@ namespace OOPS.BLL.Abstract.CompanyAbstract
         CompanyDTO updateCompany(CompanyDTO company);
         bool deleteCompany(int companyId);
         CompanyDTO getCompany(int Id);
+        CompanyDTO getCompanyInfo(int Id);
         List<CompanyDTO> getAll(int companyId);
 
     }
