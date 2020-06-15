@@ -16,11 +16,11 @@ namespace OOPS.WebUI.Components
             permitService = _permitService;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int companyId)
         {
             //var companyId = CurrentUser.companyId;
             //var companyId = 1;
-            return View(permitService.getAllEmployeePermits());
+            return View(permitService.getAllEmployeePermitsByCompanyId(companyId));
         }
     }
 }

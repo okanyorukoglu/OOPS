@@ -673,6 +673,7 @@
                                                                 <th> İzin Türü </th>
                                                                 <th> Oluşturma Tarihi </th>
                                                                 <th> Açıklama </th>
+                                                                <th> Göreve Başlama Tarihi </th>
                                                                 <th> Durum </th>
                                                                 <th> Etiketler </th>
                                                             </tr>
@@ -686,8 +687,9 @@
                                                                     <td>@Model.Employee.EmployeePermits[i].Permit.EndDate.ToString("dd.MM.yyyy") - @Model.Employee.EmployeePermits[i].Permit.EndHour</td>
                                                                     <td>@(Model.Employee.EmployeePermits[i].Permit.EndDate-Model.Employee.EmployeePermits[i].Permit.StartDate) </td>
                                                                     <td>@Model.Employee.EmployeePermits[i].Permit.PermitType.PermitTypeName</td>
-                                                                    <td>-</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.CreateDate.ToString("dd.MM.yyyy")</td>
                                                                     <td>@Model.Employee.EmployeePermits[i].Permit.Description</td>
+                                                                    <td>@Model.Employee.EmployeePermits[i].Permit.StartWorkDate.ToString("dd.MM.yyyy")</td>
                                                                     <td>
                                                                         <span class="label label-sm label-warning">  </span>
                                                                     </td>

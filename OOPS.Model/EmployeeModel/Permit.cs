@@ -25,6 +25,9 @@ namespace OOPS.Model.EmployeeModel
         public virtual PermitType PermitType { get; set; }
 
         public string Description { get; set; }
+        public DateTime StartWorkDate { get; set; }
+        public DateTime CreateDate { get; set; }
+        public TimeSpan CreateHour { get; set; }
         public string Status { get; set; }
         public string Signed { get; set; }
         public virtual ICollection<EmployeePermit> EmployeePermits { get; set; }

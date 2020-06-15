@@ -12,7 +12,7 @@ using OOPS.WebUI.Models;
 
 namespace OOPS.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IPermitService _permitService;
         //private readonly IVisaDocumentRequestsService _visaDocumentRequestsService;
@@ -27,7 +27,7 @@ namespace OOPS.WebUI.Controllers
         {
             var permits = _permitService.getAllEmployeePermits();
             //var visas = _visaDocumentRequestsService.getAllEmployeeVisaDocumentRequests();
-            return View();
+            return View(CurrentUser);
         }
     }
 }

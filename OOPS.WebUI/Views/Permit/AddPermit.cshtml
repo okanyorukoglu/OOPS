@@ -93,7 +93,20 @@
                                     <div class="form-group">
                                         <label>Göreve Başlama Tarihi </label>
                                         <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
-                                            <input type="text" class="form-control" readonly>
+                                            <input type="text" name="@Html.NameFor(m=>m.StartWorkDate)" class="form-control" readonly>
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Oluşturma Tarihi </label>
+                                        <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                            <input type="text" name="@Html.NameFor(m=>m.CreateDate)"  class="form-control">
                                             <span class="input-group-btn">
                                                 <button class="btn default" type="button">
                                                     <i class="fa fa-calendar"></i>
@@ -106,7 +119,7 @@
                                     <div class="form-group">
                                         <label>Saat</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control timepicker timepicker-24">
+                                            <input type="text" name="@Html.NameFor(m=>m.CreateHour)"  class="form-control timepicker timepicker-24">
                                             <span class="input-group-btn">
                                                 <button class="btn default" type="button">
                                                     <i class="fa fa-clock-o"></i>

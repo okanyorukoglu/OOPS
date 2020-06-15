@@ -17,6 +17,9 @@ namespace OOPS.DTO.Employee
         public Nullable<int> PermitTypeID { get; set; }
         public virtual PermitTypeDTO PermitType { get; set; }
         public string Description { get; set; }
+        public DateTime StartWorkDate { get; set; }
+        public DateTime CreateDate { get; set; }
+        public TimeSpan CreateHour { get; set; }
         public string Status { get; set; }
         public string Signed { get; set; }
     }
