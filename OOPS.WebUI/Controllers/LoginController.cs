@@ -57,7 +57,7 @@ namespace OOPS.WebUI.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return View(user);
+            return View("UserLogin", userModel);
         }
 
         [HttpGet]

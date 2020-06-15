@@ -89,6 +89,10 @@
                 </div>
                 <span asp-validation-for="@Model.Password"></span>
             </div>
+            @if (Model != null && Model.Email != null)
+            { 
+                <div>Kullanıcı Adı yada Şifre Yanlış</div>
+            }
             <div class="form-actions">
                 <label class="rememberme mt-checkbox mt-checkbox-outline">
                     <input type="checkbox" name="remember" value="1" /> Remember?
@@ -163,7 +167,7 @@
     <!-- BEGIN THEME LAYOUT SCRIPTS -->
     <!-- END THEME LAYOUT SCRIPTS -->
     @*<script src="~/Scripts/Angular1_1_7.js"></script>*@
-
+    
     <script>
         $(document).ready(function () {
             $('#clickmewow').click(function () {
