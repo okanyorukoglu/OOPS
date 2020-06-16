@@ -117,6 +117,8 @@ namespace OOPS.WebUI
             services.AddSingleton<IEmployeePositionService, EmployeePositionService>();
             services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
             services.AddSingleton<IVisaTypeService, VisaTypeService>();
+            services.AddSingleton<IAdvanceService, AdvanceService>();
+            
 
 
             services.AddControllersWithViews().AddFluentValidation();

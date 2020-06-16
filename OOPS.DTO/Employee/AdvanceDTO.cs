@@ -6,6 +6,7 @@ namespace OOPS.DTO.Employee
 {
     public class AdvanceDTO
     {
+        public int Id { get; set; }
         public int Sum { get; set; }
         public DateTime Date { get; set; }
         public string Installment { get; set; }

@@ -8,6 +8,7 @@ namespace OOPS.BLL.Abstract.Employee
 {
     public interface IAdvanceService : IServiceBase
     {
+        List<AdvanceDTO> getAll();
         AdvanceDTO getAdvance(int Id);
         AdvanceDTO newAdvance(AdvanceDTO advance);
         AdvanceDTO updateAdvance(AdvanceDTO advance);
