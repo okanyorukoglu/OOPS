@@ -39,6 +39,18 @@ namespace OOPS.WebUI.Controllers
             return RedirectToAction("Index", "Settings");
         }
 
+        public IActionResult DeleteBranch(int Id)
+        {
+            companyBranchService.deleteCompanyBranch(Id);
+            return RedirectToAction("Index", "Settings");
+        }
+        
+        public IActionResult DeleteDepartment(int Id)
+        {
+            companyDepartmentService.deleteDepartmant(Id);
+            return RedirectToAction("Index", "Settings");
+        }
+
 
     }
 }
