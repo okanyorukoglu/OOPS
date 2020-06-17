@@ -15,18 +15,16 @@ namespace OOPS.WebUI.Controllers
     public class HomeController : BaseController
     {
         private readonly IPermitService _permitService;
-        //private readonly IVisaDocumentRequestsService _visaDocumentRequestsService;
+
         
-        public HomeController(IPermitService permitService/*, IVisaDocumentRequestsService visaDocumentRequestsService*/)
+        public HomeController(IPermitService permitService)
         {
             _permitService = permitService;
-            //_visaDocumentRequestsService = visaDocumentRequestsService;
+
         }
 
         public IActionResult Index()
         {
-            var permits = _permitService.getAllEmployeePermits();
-            //var visas = _visaDocumentRequestsService.getAllEmployeeVisaDocumentRequests();
             return View(CurrentUser);
         }
     }

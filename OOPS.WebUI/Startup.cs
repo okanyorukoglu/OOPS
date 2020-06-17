@@ -109,7 +109,6 @@ namespace OOPS.WebUI
             services.AddSingleton<ISystemEducationService, SystemEducationService>();
             services.AddSingleton<IEmployeeOtherInfoService, EmployeeOtherInfoService>();
             services.AddSingleton<IActivityCalenderService, ActivityCalenderService>();
-            services.AddSingleton<IPaymentRequestsService, PaymentRequestsService>();
             services.AddSingleton<IOvertimeRequestsService, OvertimeRequestsService>();
             services.AddSingleton<IPositionService, PositionService>();
             services.AddSingleton<ICompanyBranchService, CompanyBranchService>();
@@ -118,6 +117,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
             services.AddSingleton<IVisaTypeService, VisaTypeService>();
             services.AddSingleton<IAdvanceService, AdvanceService>();
+            services.AddSingleton<IPaymentsService, PaymentsService>();
             
 
 
