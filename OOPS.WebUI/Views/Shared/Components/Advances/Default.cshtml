@@ -9,9 +9,10 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
 
             <div class="row">
-                <div class="col-md-3">@item.Sum</div>
-                <div class="col-md-3">@item.Date</div>
-                <div class="col-md-6">@item.Description</div>
+
+                <div class="col-md-4">@item.EmployeeFullName</div>
+                <div class="col-md-4">@item.Sum</div>
+                <div class="col-md-4">@item.Date.ToShortDateString()</div>
             </div>
         </li>
     }
