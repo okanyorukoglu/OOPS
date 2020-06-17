@@ -119,6 +119,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
             services.AddSingleton<IVisaTypeService, VisaTypeService>();
             services.AddSingleton<IAdvanceService, AdvanceService>();
+            services.AddSingleton<IPaymentsService, PaymentsService>();
             services.AddSingleton<IOvertimeService, OvertimeService>();
             
 

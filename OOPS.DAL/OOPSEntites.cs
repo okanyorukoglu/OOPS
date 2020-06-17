@@ -36,6 +36,8 @@ namespace OOPS.DAL
         public DbSet<EmployeeOverTime> EmployeeOverTimes { get; set; }
         public DbSet<EmployeePermit> EmployeePermits { get; set; }
         public DbSet<EmployeePosition> EmployeePositions { get; set; }
+        public DbSet<EmployeePayment> EmployeePayments { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         public DbSet<Debit> Debits { get; set; }
         public DbSet<Demand> Demands { get; set; }
         public DbSet<Education> Educations { get; set; }
