@@ -18,7 +18,8 @@ namespace OOPS.WebUI.Components
 
         public IViewComponentResult Invoke()
         {
-            return View(overtimeRequestsService.getAll());
+            //return View(overtimeRequestsService.getAll());
+            return View();
         }
     }
 }

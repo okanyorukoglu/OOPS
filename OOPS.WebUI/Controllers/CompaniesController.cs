@@ -9,7 +9,7 @@ using OOPS.WebUI.Models;
 
 namespace OOPS.WebUI.Controllers
 {
-    public class CompaniesController : Controller
+    public class CompaniesController : BaseController
     {
         private ICompanyBranchService companyBranchService;
         private ICompanyDepartmentService companyDepartmentService;

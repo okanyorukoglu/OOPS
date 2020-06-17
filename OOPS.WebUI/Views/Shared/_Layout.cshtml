@@ -84,17 +84,17 @@
                                 <i class="icon-share"></i> Harcama
                             </a>
                         </li>
-                        <li class="divider"> </li>
+                        @*<li class="divider"> </li>*@
                         <li>
                             <a href="#fazlaMesaiModal" data-toggle="modal">
                                 <i class="icon-flag"></i> Fazla Mesai
-                                <span class="badge badge-success">3</span>
+                                @*<span class="badge badge-success">3</span>*@
                             </a>
                         </li>
                         <li>
                             <a href="#vizeBelgeModal" data-toggle="modal">
                                 <i class="icon-users"></i> Vize Belgesi
-                                <span class="badge badge-danger">2</span>
+                                @*<span class="badge badge-danger">2</span>*@
                             </a>
                         </li>
                     </ul>
@@ -596,13 +596,16 @@
         <div class="page-footer-inner">
             2020 &copy; Made by Yms9102
             <a target="_blank" href="#">Keenthemes</a> &nbsp;|&nbsp;
-            <a href="#" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
+            <a href="#" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a> &nbsp;|&nbsp;
+            <a href="#" title="Do you wanna raid" target="_blank">RUST</a>
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>
             </div>
         </div>
         <!-- END FOOTER -->
     </div>
+
+    <!-- #region izinModal -->
     @*<div class="modal fade" id="izinModal" tabindex="-1" role="basic" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -759,6 +762,7 @@
             </div>
             <!-- /.modal-dialog -->
         </div>*@
+    <!-- #endregion -->
 
     <partial name="../Permit/AddPermit" model="new PermitDTO()" />
 
@@ -840,87 +844,94 @@
         <!-- /.modal-dialog -->
     </div>
 
-    <div class="modal fade" id="fazlaMesaiModal" tabindex="-1" role="basic" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">Fazla Mesai Talep Et</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="form-body">
-                            <div class="col-md-12">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Başlangıç Tarihi</label>
-                                        <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
-                                            <input type="text" class="form-control" readonly>
+
+    <!-- #region fazlaMesaiModal -->
+    @*<div class="modal fade" id="fazlaMesaiModal" tabindex="-1" role="basic" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Fazla Mesai Talep Et</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-body">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Başlangıç Tarihi</label>
+                                            <div class="input-group input-small date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                <input type="text" class="form-control" readonly>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Saat</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control timepicker timepicker-24">
                                             <span class="input-group-btn">
                                                 <button class="btn default" type="button">
-                                                    <i class="fa fa-calendar"></i>
+                                                    <i class="fa fa-clock-o"></i>
                                                 </button>
                                             </span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <label>Saat</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control timepicker timepicker-24">
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fa fa-clock-o"></i>
-                                            </button>
-                                        </span>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label>Saat(Süre)</label>
+                                            <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                                <option>11</option>
+                                                <option>12</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label>Saat(Süre)</label>
-                                        <select class="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                            <option>8</option>
-                                            <option>9</option>
-                                            <option>10</option>
-                                            <option>11</option>
-                                            <option>12</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Açıklama</label>
-                                        <input type="text" class="form-control">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Açıklama</label>
+                                            <input type="text" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
+
+
+
                             </div>
-
-
 
                         </div>
 
                     </div>
-
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                        <button type="button" class="btn green">Kaydet</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
-                    <button type="button" class="btn green">Kaydet</button>
-                </div>
+                 /.modal-content
             </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
+             /.modal-dialog
+        </div>*@
+    <!-- #endregion -->
 
+    <partial name="../Overtime/AddOvertime" model="new OvertimeDTO()" />
+
+
+    <!-- #region vizeBelgeModal -->
     @*<div class="modal fade" id="vizeBelgeModal" tabindex="-1" role="basic" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -1052,6 +1063,7 @@
             </div>
              /.modal-dialog
         </div>*@
+    <!-- #endregion -->
 
     <partial name="../Visa/AddVisa" model="new OOPS.DTO.Static.VisaDocumentRequestDTO()" />
 

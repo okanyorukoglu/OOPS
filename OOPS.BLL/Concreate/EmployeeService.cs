@@ -48,7 +48,8 @@ namespace OOPS.BLL.Concreate
                      b => b.EmployeePermits,
                      c => c.EmployeePositions,
                      d => d.Company,
-                     e => e.EmployeeVisas
+                     e => e.EmployeeVisas,
+                     f => f.EmployeeOverTimes
                      );
             return MapperFactory.CurrentMapper.Map<EmployeeDTO>(getEmployee);
             //var emp = uow.GetRepository<Employee>().Get(z=>z.Id==Id);

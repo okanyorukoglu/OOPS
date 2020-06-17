@@ -30,6 +30,7 @@ using OOPS.WebUI.Validators;
 using OOPS.BLL.Abstract.Employee;
 using OOPS.BLL.Concreate.EmployeeConcreate;
 using OOPS.BLL.Concreate.CompanyConcrete;
+using OOPS.Model.EmployeeModel;
 
 namespace OOPS.WebUI
 {
@@ -118,6 +119,7 @@ namespace OOPS.WebUI
             services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
             services.AddSingleton<IVisaTypeService, VisaTypeService>();
             services.AddSingleton<IAdvanceService, AdvanceService>();
+            services.AddSingleton<IOvertimeService, OvertimeService>();
             
 
 

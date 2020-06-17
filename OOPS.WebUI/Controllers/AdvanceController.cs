@@ -9,7 +9,7 @@ using OOPS.DTO.Employee;
 
 namespace OOPS.WebUI.Controllers
 {
-    public class AdvanceController : Controller
+    public class AdvanceController : BaseController
     {
         private IAdvanceService advanceService;
 

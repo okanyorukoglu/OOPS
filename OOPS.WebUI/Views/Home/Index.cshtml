@@ -18,7 +18,7 @@
                 <!------------------------>
                 <!--Fazla Mesai Talepleri-->
                 <div class="col-md-4">
-                    @await Component.InvokeAsync("OvertimeRequests")
+                    @await Component.InvokeAsync("Overtimes" , new { companyId = Model.CompanyID })
                 </div>
                 <!------------------------>
             </div>

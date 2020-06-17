@@ -8,6 +8,6 @@ namespace OOPS.BLL.Abstract.StaticAbstract
 {
    public interface IOvertimeRequestsService : IServiceBase
     {
-        List<OvertimeRequestsDTO> getAll();
+        //List<OvertimeRequestsDTO> getAll();
     }
 }

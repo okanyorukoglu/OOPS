@@ -99,6 +99,8 @@ namespace OOPS.DAL
             modelBuilder.Entity<EmployeeVisa>()
             .HasKey(hk => new { hk.Id });
 
+            modelBuilder.Entity<EmployeeOverTime>()
+            .HasKey(hk => new { hk.Id });
 
         }
 

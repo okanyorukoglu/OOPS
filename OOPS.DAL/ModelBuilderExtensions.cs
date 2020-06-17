@@ -321,11 +321,11 @@ namespace OOPS.DAL
                 new PaymentRequests { Id = 2, Name = "Muharrem Kirkit", DateTime = "18.04.2020" },
                 new PaymentRequests { Id = 3, Name = "Okan Ozaman", DateTime = "08.06.2020" }
                 );
-            modelBuilder.Entity<OvertimeRequests>().HasData(
-                new OvertimeRequests { Id = 1, Name = "Emre Çakmak", DateTime = "23.12.2020" },
-                new OvertimeRequests { Id = 2, Name = "Can Tektaş", DateTime = "18.08.2020" },
-                new OvertimeRequests { Id = 3, Name = "Semih Dinçay", DateTime = "22.07.2020" }
-                );
+            //modelBuilder.Entity<OvertimeRequests>().HasData(
+            //    new OvertimeRequests { Id = 1, Name = "Emre Çakmak", DateTime = "23.12.2020" },
+            //    new OvertimeRequests { Id = 2, Name = "Can Tektaş", DateTime = "18.08.2020" },
+            //    new OvertimeRequests { Id = 3, Name = "Semih Dinçay", DateTime = "22.07.2020" }
+            //    );
             //modelBuilder.Entity<VisaDocumentRequests>().HasData(
             //    new VisaDocumentRequests { Id = 1, Name = "Aslı", DateTime = "01.01.2020" },
             //    new VisaDocumentRequests { Id = 2, Name = "Ahmet Taş", DateTime = "17.03.2020" },
