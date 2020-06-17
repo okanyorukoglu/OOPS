@@ -27,7 +27,6 @@ namespace OOPS.WebUI.Controllers
             {
                 emp = employeeService.getEmployeeUser(CurrentUser.Id);
                 payment.EmployeeId = emp.Id;
-
             }
             else
             {
@@ -41,8 +40,5 @@ namespace OOPS.WebUI.Controllers
             paymentsService.newPayment(payment);
             return RedirectToAction("Index", "Home");
         }
-
-
-
     }
 }

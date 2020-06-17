@@ -11,6 +11,8 @@ namespace OOPS.DTO.Employee
         public DateTime Date { get; set; }
         public string Installment { get; set; }
         public string Description { get; set; }
+        public int EmployeeId { get; set; }
+        public string EmployeeFullName { get; set; }
         public virtual List<EmployeeAdvanceDTO> EmployeeAdvances { get; set; }
     }
 }

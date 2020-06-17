@@ -49,10 +49,17 @@ namespace OOPS.BLL.Concreate.EmployeConcreate
 
         public AdvanceDTO newAdvance(AdvanceDTO advance)
         {
-            var adedAdvance = MapperFactory.CurrentMapper.Map<Advance>(advance);
-            adedAdvance = uow.GetRepository<Advance>().Add(adedAdvance);
+            var addedAdvance = MapperFactory.CurrentMapper.Map<Advance>(advance);
+            uow.GetRepository<Advance>().Add(addedAdvance);
             uow.SaveChanges();
-            return MapperFactory.CurrentMapper.Map<AdvanceDTO>(adedAdvance);
+            var addedEmployeeAdvance = new EmployeeAdvance()
+            {
+                EmployeeId = advance.EmployeeId,
+                AdvanceId = addedAdvance.Id
+            };
+            uow.GetRepository<EmployeeAdvance>().Add(addedEmployeeAdvance);
+            uow.SaveChanges();
+            return MapperFactory.CurrentMapper.Map<AdvanceDTO>(addedAdvance);
         }
 
         public AdvanceDTO updateAdvance(AdvanceDTO advance)
