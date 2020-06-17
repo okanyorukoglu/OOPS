@@ -24,9 +24,7 @@ namespace OOPS.WebUI.Controllers
         {
             var emp = employeeService.getEmployeeUser(CurrentUser.Id);
             payment.EmployeeId = emp.Id;
-            string Name = emp.Name;
-            string LastName = emp.Surname;
-            payment.EmployeeFullName= String.Concat(Name, LastName);
+            payment.EmployeeFullName= $"{emp.Name} {emp.Surname}";
             paymentsService.newPayment(payment);
             return RedirectToAction("Index", "Home");
         }
