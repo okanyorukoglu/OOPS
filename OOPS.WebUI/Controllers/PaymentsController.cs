@@ -22,9 +22,22 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public IActionResult PaymentAdd(PaymentDTO payment)
         {
-            var emp = employeeService.getEmployeeUser(CurrentUser.Id);
-            payment.EmployeeId = emp.Id;
-            payment.EmployeeFullName= $"{emp.Name} {emp.Surname}";
+            EmployeeDTO emp;
+            if (payment.EmployeeId == 0)
+            {
+                emp = employeeService.getEmployeeUser(CurrentUser.Id);
+                payment.EmployeeId = emp.Id;
+
+            }
+            else
+            {
+                emp = employeeService.getEmployeeInfo(payment.EmployeeId);
+            }
+       
+            string Name = emp.Name;
+            Name += " ";
+            string LastName = emp.Surname;
+            payment.EmployeeFullName= String.Concat(Name, LastName);
             paymentsService.newPayment(payment);
             return RedirectToAction("Index", "Home");
         }

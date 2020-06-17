@@ -631,12 +631,12 @@
                                                         <div class="col-md-6">
                                                             <div class="btn-group">
                                                                 <button class="btn btn-circle sbold green" data-toggle="modal" href="#izinModal">
-                                                                    Yeni İzin Ekle
+                                                                    İzin Ekle
                                                                     <i class="fa fa-plus"></i>
                                                                 </button>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        @*<div class="col-md-6">
                                                             <div class="btn-group pull-right">
                                                                 <button class="btn green btn-circle btn-outline dropdown-toggle" data-toggle="dropdown">
                                                                     İşlemler
@@ -656,7 +656,7 @@
 
                                                                 </ul>
                                                             </div>
-                                                        </div>
+                                                        </div>*@
 
                                                     </div>
                                                 </div>
@@ -721,47 +721,10 @@
                                                     <div class="btn-group btn-group-devided" data-toggle="buttons">
                                                         <div class="col-md-12">
                                                             <div class="btn-group pull-right">
-                                                                <button class="btn green btn-circle btn-outline dropdown-toggle" data-toggle="dropdown">
+                                                                <button class="btn green btn-circle btn-outline dropdown-toggle" data-toggle="modal" href="#harcamaModal">
                                                                     Ödeme Ekle
                                                                     <i class="fa fa-angle-down"></i>
                                                                 </button>
-                                                                <ul class="dropdown-menu pull-right">
-                                                                    <li>
-                                                                        <a href="javascript:;">
-                                                                            <i class="fa fa-try"></i> Avans
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">
-                                                                            <i class="fa fa-try"></i> Harcama
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">
-                                                                            <i class="fa fa-try"></i> Prim
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">
-                                                                            <i class="fa fa-try"></i> Fazla Mesai
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">
-                                                                            <i class="fa fa-try"></i> Askerlik Yardımı
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">
-                                                                            <i class="fa fa-try"></i> Bayram Yardımı
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">
-                                                                            <i class="fa fa-try"></i> Yakaca Yardımı
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
                                                             </div>
                                                         </div>
 
@@ -779,38 +742,40 @@
                                                                 <th> Tutar </th>
                                                                 <th> Açıklama </th>
                                                                 <th> Durum </th>
-                                                                <th> Oluşturulma Tarihi </th>
                                                                 <th> Ödendi </th>
-                                                                <th> Etiketler </th>
+                                                                @*<th> Etiketler </th>*@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td> 1 </td>
-                                                                <td>
-                                                                    20/01/2020
-                                                                </td>
-                                                                <td>
-                                                                    Prim
-                                                                </td>
-                                                                <td>
-                                                                    200.00 <i class="fa fa-try"> </i>
-                                                                </td>
-                                                                <td></td>
-                                                                <td>
-                                                                    <i class="fa fa-check" style="color:lightseagreen"></i>
-                                                                    Onay Alındı
-                                                                </td>
-                                                                <td>
-                                                                    18/01/2020
-                                                                </td>
-                                                                <td>
-                                                                    <i class="fa fa-diamond" style="color:lightseagreen"></i>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="label label-sm label-success"> Approved </span>
-                                                                </td>
-                                                            </tr>
+                                                            @for (int i = 0; i < Model.Employee.EmployeePayments.Count; i++)
+                                                            {
+                                                                <tr>
+                                                                    <td> @(i+1) </td>
+                                                                    <td>
+                                                                        @Model.Employee.EmployeePayments[i].Payment.PaymentDate.ToString("dd.MM.yyyy")
+                                                                    </td>
+                                                                    <td>
+                                                                        Prim
+                                                                    </td>
+                                                                    <td>
+                                                                       @Model.Employee.EmployeePayments[i].Payment.Amount <i class="fa fa-try"> </i>
+                                                                    </td>
+                                                                    <td>
+                                                                        @Model.Employee.EmployeePayments[i].Payment.Description
+                                                                    </td>
+                                                                    <td>
+                                                                        <i class="fa fa-check" style="color:lightseagreen"></i>
+                                                                        Onay Alındı
+                                                                    </td>      
+                                                                    <td>
+                                                                        <i class="fa fa-diamond" style="color:lightseagreen"></i>
+                                                                    </td>
+                                                                    @*<td>
+                                                                        <span class="label label-sm label-success"> Approved </span>
+                                                                    </td>*@
+                                                                </tr>
+                                                            }
+
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -1209,6 +1174,7 @@
 <partial name="../Debit/AddDebit" model="new DebitDTO() { EmployeeId = Model.Employee.Id}" />
 <partial name="../Visa/AddVisa" model="new OOPS.DTO.Static.VisaDocumentRequestDTO() { EmployeeId = Model.Employee.Id }" />
 <partial name="../Overtime/AddOvertime" model=" new OvertimeDTO() { EmployeeId = Model.Employee.Id }" />
+<partial name="../Payments/PaymentAdd" model="new PaymentDTO() { EmployeeId = Model.Employee.Id}" />
 
 
 @section pageLeveljs{

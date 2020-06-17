@@ -50,6 +50,7 @@ namespace OOPS.BLL.Concreate
                      d => d.Company,
                      e => e.EmployeeVisas,
                      f => f.EmployeeOverTimes
+                     g=>g.EmployeePayments
                      );
             return MapperFactory.CurrentMapper.Map<EmployeeDTO>(getEmployee);
             //var emp = uow.GetRepository<Employee>().Get(z=>z.Id==Id);

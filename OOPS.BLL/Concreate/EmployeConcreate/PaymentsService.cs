@@ -20,10 +20,8 @@ namespace OOPS.BLL.Concreate.EmployeConcreate
 
         public List<PaymentDTO> getAllEmployeePaymentsByCompanyId(int companyId)
         {
-            var emp = uow.GetRepository<EmployeePayment>().GetAll().Where(z => z.Employee.CompanyID == companyId).Select(x => x.Payment).ToList();
+            var emp = uow.GetRepository<EmployeePayment>().GetAll().Where(z => z.Employee.CompanyID == companyId).Select(x => x.Payment).OrderByDescending(x => x.PaymentDate).ToList();
             return MapperFactory.CurrentMapper.Map<List<PaymentDTO>>(emp);
-            //var emp = uow.GetRepository<EmployeePayment>().GetAll().Where(x => x.Employee.CompanyID == companyId).ToList();
-            //return MapperFactory.CurrentMapper.Map<List<PaymentDTO>>(emp);
         }
 
         public PaymentDTO getPayment(int Id)
