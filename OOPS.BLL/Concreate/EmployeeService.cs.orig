@@ -49,7 +49,7 @@ namespace OOPS.BLL.Concreate
                      c => c.EmployeePositions,
                      d => d.Company,
                      e => e.EmployeeVisas,
-                     f => f.EmployeeOverTimes,
+                     f => f.EmployeeOverTimes
                      g=>g.EmployeePayments
                      );
             return MapperFactory.CurrentMapper.Map<EmployeeDTO>(getEmployee);
