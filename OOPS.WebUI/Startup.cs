@@ -3,19 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OOPS.BLL.Abstract;
+using OOPS.BLL.Abstract.EmployeeAbstract;
+using OOPS.BLL.Abstract.CompanyAbstract;
+using OOPS.BLL.Abstract.StaticAbstract;
 using OOPS.BLL.Concreate;
+using OOPS.BLL.Concreate.CompanyConcreate;
+using OOPS.BLL.Concreate.EmployeConcreate;
+using OOPS.BLL.Concreate.StaticConcreate;
 using OOPS.Core.Data.UnitOfWork;
 using OOPS.DAL;
 using OOPS.MapConfig.ConfigProfile;
 using OOPS.WebUI.CustomHandler;
+using OOPS.WebUI.Models;
+using OOPS.WebUI.Validators;
+using OOPS.BLL.Abstract.Employee;
+using OOPS.BLL.Concreate.EmployeeConcreate;
+using OOPS.BLL.Concreate.CompanyConcrete;
+using OOPS.Model.EmployeeModel;
 
 namespace OOPS.WebUI
 {
@@ -32,6 +47,7 @@ namespace OOPS.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             var optionsBuilder = new DbContextOptionsBuilder<OOPSEntites>();
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("OOPSEntites"));
@@ -71,6 +87,46 @@ namespace OOPS.WebUI
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IRoleService, RoleService>();
             services.AddSingleton<IEmployeeService, EmployeeService>();
+            services.AddSingleton<IAccessTypeService, AccessTypeService>();
+            services.AddSingleton<IBankAccountTypeService, BankAccountTypeService>();
+            services.AddSingleton<IBloodGroupService, BloodGroupService>();
+            services.AddSingleton<ICityService, CityService>();
+            services.AddSingleton<IContractTypeService, ContractTypeService>();
+            services.AddSingleton<ICountryService, CountryService>();
+            services.AddSingleton<IDebitService, DebitService>();
+            services.AddSingleton<IDebitCategoryService, DebitCategoryService>();
+            services.AddSingleton<IDisabilitySituationService, DisabilitySituationService>();
+            services.AddSingleton<IDistrictService, DistrictService>();
+            services.AddSingleton<IEducationLevelService, EducationLevelService>();
+            services.AddSingleton<IEducationStatusService, EducationStatusService>();
+            services.AddSingleton<IEmploymentTypeService, EmploymentTypeService>();
+            services.AddSingleton<IGenderService, GenderService>();
+            services.AddSingleton<IMaritalStatusService, MaritalStatusService>();
+            services.AddSingleton<IPermitTypeService, PermitTypeService>();
+            services.AddSingleton<IPermitService, PermitService>();
+            services.AddSingleton<IPublicHolidaysService, PublicHolidaysService>();
+            services.AddSingleton<IEmployeeDetailService, EmployeDetailService>();
+            services.AddSingleton<ICompanyService, CompanyService>();
+            services.AddSingleton<ISystemEducationService, SystemEducationService>();
+            services.AddSingleton<IEmployeeOtherInfoService, EmployeeOtherInfoService>();
+            services.AddSingleton<IActivityCalenderService, ActivityCalenderService>();
+            services.AddSingleton<IOvertimeRequestsService, OvertimeRequestsService>();
+            services.AddSingleton<IPositionService, PositionService>();
+            services.AddSingleton<ICompanyBranchService, CompanyBranchService>();
+            services.AddSingleton<ICompanyDepartmentService, CompanyDepartmentService>();
+            services.AddSingleton<IEmployeePositionService, EmployeePositionService>();
+            services.AddSingleton<IVisaDocumentRequestsService, VisaDocumentRequestsService>();
+            services.AddSingleton<IVisaTypeService, VisaTypeService>();
+            services.AddSingleton<IAdvanceService, AdvanceService>();
+            services.AddSingleton<IPaymentsService, PaymentsService>();
+            services.AddSingleton<IOvertimeService, OvertimeService>();
+            
+
+
+            services.AddControllersWithViews().AddFluentValidation();
+            services.AddTransient<IValidator<RegisterViewModel>, RegisterValidator>();
+            services.AddTransient<IValidator<UserLoginViewModel>, UserLoginValidator>();
+            //services.AddTransient<IValidator<EmployeeModel>, EmployeeValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,6 +4,7 @@ using OOPS.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace OOPS.Core.Data.UnitOfWork
 {
@@ -51,6 +52,10 @@ namespace OOPS.Core.Data.UnitOfWork
             return context.SaveChanges();
         }
 
+        public DbContext GetDbContext()
+        {
+            return context;
+        }
 
     }
 }

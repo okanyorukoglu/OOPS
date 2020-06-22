@@ -67,9 +67,10 @@
                     <i class="fa fa-font"></i>
                     <input class="form-control placeholder-no-fix"
                            type="text"
-                           asp-for="@Model.Employee.Name"
+                           asp-for="@Model.Name"
                            placeholder="Ad" />
                 </div>
+                <span asp-validation-for="@Model.Name"></span>
             </div>
 
             <div class="form-group">
@@ -78,9 +79,10 @@
                     <i class="fa fa-font"></i>
                     <input class="form-control placeholder-no-fix"
                            type="text"
-                           asp-for="@Model.Employee.Surname"
+                           asp-for="@Model.Surname"
                            placeholder="Soyad" />
                 </div>
+                <span asp-validation-for="@Model.Surname"></span>
             </div>
 
             <div class="form-group">
@@ -89,9 +91,10 @@
                     <i class="fa fa-phone"></i>
                     <input class="form-control placeholder-no-fix"
                            type="tel"
-                           asp-for="@Model.Employee.PhoneBusiness"
-                           required placeholder="Telefon Girin" />
+                           asp-for="@Model.PhoneBusiness"
+                           placeholder="Telefon Girin" />
                 </div>
+                <span asp-validation-for="@Model.PhoneBusiness"></span>
             </div>
 
             <div class="form-group">
@@ -101,9 +104,10 @@
                     <i class="fa fa-envelope"></i>
                     <input class="form-control placeholder-no-fix"
                            type="text"
-                           asp-for="@Model.User.EMail"
+                           asp-for="@Model.Email"
                            placeholder="E-Mail" />
                 </div>
+                <span asp-validation-for="@Model.Email"></span>
             </div>
 
             <div class="form-group">
@@ -113,9 +117,10 @@
                     <i class="fa fa-envelope"></i>
                     <input class="form-control placeholder-no-fix"
                            type="text"
-                           asp-for="@Model.Employee.Title"
+                           asp-for="@Model.Title"
                            placeholder="Ünvan" />
                 </div>
+                <span asp-validation-for="@Model.Title"></span>
             </div>
 
             <div class="form-group">
@@ -125,9 +130,10 @@
                     <i class="fa fa-envelope"></i>
                     <input class="form-control placeholder-no-fix"
                            type="text"
-                           asp-for="@Model.Company.CompanyName"
+                           asp-for="@Model.CompanyName"
                            placeholder="Firma Adı" />
                 </div>
+                <span asp-validation-for="@Model.CompanyName"></span>
             </div>
 
             <p> Enter your account details below: </p>
@@ -138,18 +144,20 @@
                     <input class="form-control placeholder-no-fix" type="text"
                            autocomplete="off"
                            placeholder="Kullanıcı Adı"
-                           asp-for="@Model.User.UserName" />
+                           asp-for="@Model.Username" />
                 </div>
+                <span asp-validation-for="@Model.Username"></span>
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_password*@ </label>
                 <div class="input-icon">
                     <i class="fa fa-lock"></i>
                     <input class="form-control placeholder-no-fix"
-                           asp-for="@Model.User.Password"
-                           type="password" autocomplete="off"  
+                           asp-for="@Model.Password"
+                           type="password" autocomplete="off"
                            placeholder="Şifre" />
                 </div>
+                <span asp-validation-for="@Model.Password"></span>
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_retypeyourpassword*@ </label>
@@ -157,13 +165,14 @@
                     <div class="input-icon">
                         <i class="fa fa-check"></i>
                         <input class="form-control placeholder-no-fix"
+                               asp-for="@Model.RePassword"
                                type="password" autocomplete="off"
-                               @*Şifre Tekrar doğrulaması view da validation yapılacak*@
                                placeholder="Şifreyi Tekrar Giriniz" />
                     </div>
+                    <span asp-validation-for="@Model.RePassword"></span>
                 </div>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label class="mt-checkbox mt-checkbox-outline">
                     <input type="checkbox" name="tnc" /> I agree to the
                     <a href="javascript:;">Terms of Service </a> &
@@ -171,9 +180,9 @@
                     <span></span>
                 </label>
                 <div id="register_tnc_error"> </div>
-            </div>
+            </div>*@
             <div class="form-actions">
-                <button id="register-back-btn" type="button" class="btn red btn-outline">Geri </button>
+                <button id="register-back-btn" type="button" class="btn red btn-outline"onclick="location.href='/Login'" > Geri </button>
                 <button type="submit"
                         id="register-submit-btn"
                         class="btn green pull-right"

@@ -20,7 +20,7 @@ namespace OOPS.WebUI.Controllers
         private readonly IUserService userService;
         private readonly IRoleService roleService;
         private readonly IEmployeeService employeeService;
-        public LoginController(IUserService _userService, IRoleService _roleService , IEmployeeService _employeeService)
+        public LoginController(IUserService _userService, IRoleService _roleService, IEmployeeService _employeeService)
         {
             userService = _userService;
             roleService = _roleService;
@@ -33,9 +33,13 @@ namespace OOPS.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult UserLogin(UserDTO userModel)
+        public ActionResult Login(UserLoginViewModel userModel)
         {
-            var user = userService.LoginUser(userModel);
+            if (!ModelState.IsValid)
+            { // re-render the view when validation failed.
+                return View("UserLogin", userModel);
+            }
+            var user = userService.LoginUser(new UserDTO() { EMail = userModel.Email, Password = userModel.Password });
 
             if (user != null)
             {
@@ -53,7 +57,7 @@ namespace OOPS.WebUI.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return View(user);
+            return View("UserLogin", userModel);
         }
 
         [HttpGet]
@@ -76,18 +80,22 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewModel RegisterUser)
         {
-            var CheckUser = userService.CheckRegistration(RegisterUser.User.UserName, RegisterUser.User.EMail);
+            if (!ModelState.IsValid)
+            { // re-render the view when validation failed.
+                return View("Register", RegisterUser);
+            }
+            var CheckUser = userService.CheckRegistration(RegisterUser.Username, RegisterUser.Email);
             if (CheckUser == null)
             {
-                 userService.newUser(RegisterUser.User, RegisterUser.Company, RegisterUser.Employee);
-
-                 return RedirectToAction("UserLogin");  
+                //userService.newUser(new UserDTO() { }, RegisterUser.Company, RegisterUser.Employee);
+                return RedirectToAction("UserLogin");
             }
             else
             {
                 throw new InvalidOperationException(" Kullanıcı adı veya Email Kullanılmaktadır.");
             }
-            
+
         }
+
     }
 }

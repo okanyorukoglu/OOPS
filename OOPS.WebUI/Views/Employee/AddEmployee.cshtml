@@ -114,18 +114,15 @@
                                 <li class="active">
                                     <a href="#tab_1" data-toggle="tab">Genel</a>
                                 </li>
-                                <li>
-                                    <a href="#tab_2" data-toggle="tab">Kariyer</a>
+                                <li class="disabled">
+                                    <a>Kariyer</a>
                                 </li>
-                                <li>
-                                    <a href="#tab_3" data-toggle="tab">Kişisel Bilgiler</a>
+                                <li class="disabled">
+                                    <a >Kişisel Bilgiler</a>
                                 </li>
-                                <li>
-                                    <a href="#tab_4" data-toggle="tab">Diğer Bilgiler</a>
+                                <li class="disabled">
+                                    <a >Diğer Bilgiler</a>
                                 </li>
-
-
-
                             </ul>
                         </div>
                         <div class="portlet-body">
@@ -144,6 +141,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Ad</label>
                                                         <input type="text" asp-for="Name" class="form-control">
+                                                        <span asp-validation-for="@Model.Name"></span>
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -156,61 +154,76 @@
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">E-Posta (İş)</label>
-                                                        <input type="text" class="form-control">
+                                                        <label class="control-label">E-Posta</label>
+                                                        <input type="text" asp-for="EmailBusiness" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">E-Posta (Kişisel)</label>
-                                                        <input type="text" class="form-control">
+                                                        <label class="control-label">Ünvan</label>
+                                                        <input type="text" asp-for="Title" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Telefon (İş)</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" asp-for="PhoneBusiness" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Telefon (Kişisel)</label>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <!--/span-->
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">İşe Başlama Tarihi</label>
-                                                        <input class="form-control form-control-inline date-picker" size="16" type="text" value="" />
-                                                    </div>
-                                                </div>
-                                                <!--/span-->
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Erişim Türü</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
-                                                        </select>
+                                                        <input type="text" asp-for="PhonePersonal" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Sözleşme Türü</label>
-                                                        <select class="form-control">
-                                                            <option value=""></option>
+                                                        <select class="form-control" asp-for="ContractTypeID" asp-items="ViewBag.ContractType">
+                                                            <option>Seçiniz</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
+                                                        <label class="control-label">Erişim Türü</label>
+                                                        <select class="form-control" asp-for="AccessTypeID" asp-items="ViewBag.AccessType">
+                                                            <option>Seçiniz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">İşe Başlama Tarihi</label>
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                            <input type="text" class="form-control" asp-for="StartDate" readonly>
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label class="control-label">Sözleşme Bitiş Tarihi</label>
-                                                        <input type="text" class="form-control">
+                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                            <input type="text" class="form-control" asp-for="ContractEndDate" readonly>
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!--/span-->
@@ -220,13 +233,11 @@
                                         </div>
                                         <div class="margiv-top-10">
                                             <button type="submit" class="btn green btn-circle"> Kaydet </button>
-                                            <button class="btn default btn-circle"> İptal </button>
+                                            <button  href="javascript:;" class="btn default btn-circle"> İptal </button>
                                         </div>
                                     </form>
                                 </div>
-                                <!-- SON GENEL INFO TAB -->
-                                <!-- BAŞ KARIYER INFO TAB -->
-                                <div class="tab-pane" id="tab_2">
+                                <div class="tab-pane fade" id="tab_2">
                                     <div action="#" class="horizontal-form">
                                         <div class="portlet light ">
                                             <div class="portlet-title">
@@ -316,8 +327,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- BAŞ KISISEL BILGILER INFO TAB -->
-                                <div class="tab-pane" id="tab_3">
+                                <div class="tab-pane fade" id="tab_3">
                                     <form action="#" class="horizontal-form">
                                         <div class="form-body">
                                             <h3 class="form-section">Kişisel Bilgiler</h3>
@@ -425,7 +435,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="tab-pane" id="tab_4">
+                                <div class="tab-pane fade" id="tab_4">
                                     <form action="#" class="horizontal-form">
                                         <div class="form-body">
 
@@ -568,23 +578,6 @@
                                         </div>
                                     </form>
                                 </div>
-                                <!-- SON KARIYER INFO TAB -->
-                                <!-- BAŞ KISISEL BILGILER INFO TAB -->
-                                <!-- SON KISISEL BILGILER INFO TAB -->
-                                <!-- BAŞ DIGER BILGILER INFO TAB -->
-                                <!-- SON DIGER BILGILER INFO TAB -->
-                                <!-- BAŞ IZINLER INFO TAB -->
-                                <!-- SON IZINLER INFO TAB -->
-                                <!-- BAŞ ODEMELER INFO TAB -->
-                                <!-- SON ODEMELER INFO TAB -->
-                                <!-- BAŞ ZIMMETLER INFO TAB -->
-                                <!-- SON ZIMMETLER INFO TAB -->
-                                <!-- BAŞ EGITIMLER INFO TAB -->
-                                <!-- SON EGITIMLER INFO TAB -->
-                                <!-- BAŞ DOSYALAR INFO TAB -->
-                                <!-- SON DOSYALAR INFO TAB -->
-                                <!-- BAŞ VIZE BELGESI TALEPLERI INFO TAB -->
-                                <!-- SON VIZE BELGESI TALEPLERI INFO TAB -->
                             </div>
                         </div>
                         <!-- END PROFILE CONTENT -->

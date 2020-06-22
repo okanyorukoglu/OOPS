@@ -1,4 +1,5 @@
-﻿using OOPS.Core.Data.Repository;
+﻿using Microsoft.EntityFrameworkCore;
+using OOPS.Core.Data.Repository;
 using OOPS.Core.Entities;
 using System;
 using System.Collections.Generic;

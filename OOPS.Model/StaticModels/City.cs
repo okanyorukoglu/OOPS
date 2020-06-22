@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OOPS.Core.Entities;
+using OOPS.Model.EmployeeModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,15 +8,14 @@ using System.Text;
 
 namespace OOPS.Model.StaticModels
 {
-    public class City
+    public class City : Entity<int>
     {
         public City()
         {
             Districts = new HashSet<District>();
+            EmployeeOtherInfos = new HashSet<EmployeeOtherInfo>();
         }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+
         public string Name { get; set; }
         public string Code { get; set; }
 
@@ -23,5 +24,6 @@ namespace OOPS.Model.StaticModels
         public virtual Country Country { get; set; }
 
         public virtual ICollection<District> Districts { get; set; }
+        public virtual ICollection<EmployeeOtherInfo> EmployeeOtherInfos { get; set; }
     }
 }

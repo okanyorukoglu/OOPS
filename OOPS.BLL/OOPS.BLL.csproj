@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Concreate\StaticConcreate\EmployeDetailService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\OOPS.Core\OOPS.Core.csproj" />
     <ProjectReference Include="..\OOPS.DTO\OOPS.DTO.csproj" />
     <ProjectReference Include="..\OOPS.MapConfig\OOPS.MapConfig.csproj" />

@@ -1,4 +1,4 @@
-﻿@model RegisterViewModel
+﻿@model UserLoginViewModel
 
 
 @{
@@ -8,7 +8,7 @@
 
 <html lang="en">
 <!--<![endif]-->
-<!-- BEGIN HEAD -->
+<!-- BEGIN HEADd -->
 <head>
     <meta charset="utf-8" />
     <title>Metronic Admin Theme #2 | User Login 4</title>
@@ -50,16 +50,16 @@
 <body class="login">
     <!-- BEGIN LOGO -->
     <div class="logo">
-        <a href="/Login/Index" style="text-decoration:none">
-            <h1>OopsHR</h1>
-        </a>
+ 
+            <h1>OOPSHR</h1>
+
     </div>
     <!-- END LOGO -->
     <!-- BEGIN LOGIN -->
     <div class="content">
         <!-- BEGIN LOGIN FORM -->
-        <form asp-action="UserLogin" asp-controller="Login" class="login-form" method="post">
-            <h3 class="form-title">OOPS Title @*@sysLanguage.LoginStrings.lbl_ContentTitle*@</h3>
+        <form asp-action="Login" asp-controller="Login" class="login-form" method="post">
+            <h3 class="form-title">OOPS GİRİŞ</h3>
             <div class="alert alert-danger display-hide">
                 <button class="close" data-close="alert"></button>
                 <span> @*@sysLanguage.LoginStrings.plc_enteranyusernameandpassword*@ </span>
@@ -70,25 +70,29 @@
                 <div class="input-icon">
                     <i class="fa fa-user"></i>
                     <input class="form-control placeholder-no-fix"
-                           asp-for="@Model.User.EMail"
+                           asp-for="Email"
                            type="text" autocomplete="off"
                            placeholder="E-Mail Address"
-                           required
                            name="EMail" />
                 </div>
+                <span asp-validation-for="@Model.Email"></span>
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9"> Password</label>
                 <div class="input-icon">
                     <i class="fa fa-lock"></i>
                     <input class="form-control placeholder-no-fix"
-                           asp-for="@Model.User.Password"
+                           asp-for="@Model.Password"
                            type="password" autocomplete="off"
                            placeholder="Password"
-                           required
                            name="Password" />
                 </div>
+                <span asp-validation-for="@Model.Password"></span>
             </div>
+            @if (Model != null && Model.Email != null)
+            { 
+                <div>Kullanıcı Adı yada Şifre Yanlış</div>
+            }
             <div class="form-actions">
                 <label class="rememberme mt-checkbox mt-checkbox-outline">
                     <input type="checkbox" name="remember" value="1" /> Remember?
@@ -100,7 +104,7 @@
                 <h4> @*@sysLanguage.LoginStrings.plc_forgetPassword*@ </h4>
                 <p>
                     @*@sysLanguage.LoginStrings.plc_noworries*@
-                    <a>şifremi unuttum @*@sysLanguage.LoginStrings.btn_here*@ </a> @*@sysLanguage.LoginStrings.plc_toresetyourpassword*@
+                    <a id="forget-password" class="forget-password" href="javascript:;">şifremi unuttum @*@sysLanguage.LoginStrings.btn_here*@ </a> @*@sysLanguage.LoginStrings.plc_toresetyourpassword*@
                 </p>
             </div>
         </form>
@@ -114,18 +118,18 @@
         </div>
 
         <form class="forget-form" method="post">
-            <h3> @*@sysLanguage.LoginStrings.plc_forgetpasswordQ*@ </h3>
-            <p> @*@sysLanguage.LoginStrings.plc_emailforresetpassword*@ </p>
+            <h3> Şifremi Unuttum @*@sysLanguage.LoginStrings.plc_forgetpasswordQ*@ </h3>
+            <p>  @*@sysLanguage.LoginStrings.plc_emailforresetpassword*@ </p>
             <div class="form-group">
                 <div class="input-icon">
                     <i class="fa fa-envelope"></i>
                     <input class="form-control placeholder-no-fix"
-                           type="text" autocomplete="off" @*placeholder="@sysLanguage.LoginStrings.plc_Email"*@ name="email" />
+                           type="text" autocomplete="off" placeholder=" Enter Your E-Mail " name="email" />
                 </div>
             </div>
             <div class="form-actions">
-                <button type="button" id="back-btn" class="btn red btn-outline"> @*@sysLanguage.LoginStrings.btn_Back*@ </button>
-                <button type="submit" class="btn green pull-right"> @*@sysLanguage.LoginStrings.btn_Submit*@ </button>
+                <button type="button" id="back-btn" class="btn red btn-outline"> Back </button>
+                <button type="submit" class="btn green pull-right"> Send </button>
             </div>
         </form>
         <!-- END FORGOT PASSWORD FORM -->
@@ -163,7 +167,7 @@
     <!-- BEGIN THEME LAYOUT SCRIPTS -->
     <!-- END THEME LAYOUT SCRIPTS -->
     @*<script src="~/Scripts/Angular1_1_7.js"></script>*@
-
+    
     <script>
         $(document).ready(function () {
             $('#clickmewow').click(function () {

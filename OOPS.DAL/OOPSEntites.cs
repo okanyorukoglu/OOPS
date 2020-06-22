@@ -13,13 +13,46 @@ namespace OOPS.DAL
     {
         public OOPSEntites(DbContextOptions<OOPSEntites> options) : base(options)
         {
-
+            
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
+
+        #region companyEntity
+        public DbSet<CompanyBranch> CompanyBranches { get; set; }
+        public DbSet<CompanyDepartment> CompanyDepartments { get; set; }
+        #endregion
+
+        #region employeeEntity
+        public DbSet<Advance> Advances { get; set; }
+        public DbSet<BankInformation> BankInformations { get; set; }
+        public DbSet<EmployeeBankInfo> EmployeeBankInfos { get; set; }
+        public DbSet<EmployeeAdvance> EmployeeAdvances { get; set; }
+        public DbSet<EmployeeDebit> EmployeeDebits { get; set; }
+        public DbSet<EmployeeExpense> EmployeeExpenses { get; set; }
+        public DbSet<EmployeeOverTime> EmployeeOverTimes { get; set; }
+        public DbSet<EmployeePermit> EmployeePermits { get; set; }
+        public DbSet<EmployeePosition> EmployeePositions { get; set; }
+        public DbSet<EmployeePayment> EmployeePayments { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Debit> Debits { get; set; }
+        public DbSet<Demand> Demands { get; set; }
+        public DbSet<Education> Educations { get; set; }
+        public DbSet<EducationsType> EducationsTypes { get; set; }
+        public DbSet<EmployeeDetail> EmployeeDetails { get; set; }
+        public DbSet<EmployeeOtherInfo> EmployeeOtherInfos { get; set; }
+        public DbSet<EmployeeSalary> EmployeeSalaries { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
+        public DbSet<Overtime> Overtimes { get; set; }
+        public DbSet<Permit> Permits { get; set; }
+        public DbSet<Position> Positions { get; set; }
+        public DbSet<RequestForVisa> RequestForVisas { get; set; }
+        public DbSet<EmployeeVisa> EmployeeVisas { get; set; }
+        public DbSet<SystemEducation> SystemEducations { get; set; }
+        #endregion
 
         #region StaticEntities
         public DbSet<AccessType> AccessTypes { get; set; }
@@ -42,7 +75,35 @@ namespace OOPS.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Seed();
+
+            
+
+            modelBuilder.Entity<EmployeeAdvance>()
+            .HasKey(hk => new { hk.EmployeeId, hk.AdvanceId });
+
+            modelBuilder.Entity<EmployeeBankInfo>()
+            .HasKey(hk => new { hk.EmployeeId, hk.BankInformationId });
+
+            modelBuilder.Entity<EmployeeDebit>()
+            .HasKey(hk => new { hk.Id });
+
+            modelBuilder.Entity<EmployeeExpense>()
+            .HasKey(hk => new { hk.EmployeeId, hk.ExpenseId });
+
+            modelBuilder.Entity<EmployeeOverTime>()
+            .HasKey(hk => new { hk.EmployeeId, hk.OvertimeId });
+
+            modelBuilder.Entity<EmployeePermit>()
+            .HasKey(hk => new { hk.Id });
+
+            modelBuilder.Entity<EmployeeVisa>()
+            .HasKey(hk => new { hk.Id });
+
+            modelBuilder.Entity<EmployeeOverTime>()
+            .HasKey(hk => new { hk.Id });
+
         }
 
     }

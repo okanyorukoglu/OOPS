@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOPS.DTO.Employee;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,5 +13,6 @@ namespace OOPS.DTO.Static
 
         public Nullable<int> CityId { get; set; }
         public virtual CityDTO City { get; set; }
+        public virtual List<EmployeeOtherInfoDTO> EmployeeOtherInfos { get; set; }
     }
 }
