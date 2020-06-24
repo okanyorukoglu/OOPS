@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OOPS.WebUI.Controllers
 {
-    public class PermitLayoutController : Controller
+    public class PermitLayoutController : BaseController
     {
         public IActionResult Index()
         {
-            return View();
+            return View(CurrentUser);
         }
     }
 }

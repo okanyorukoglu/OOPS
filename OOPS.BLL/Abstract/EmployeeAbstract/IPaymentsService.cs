@@ -12,6 +12,7 @@ namespace OOPS.BLL.Abstract.EmployeeAbstract
         List<PaymentDTO> getAllEmployeePaymentsByCompanyId(int companyId);
         PaymentDTO newPayment(PaymentDTO Payment);
         PaymentDTO updatePayment(PaymentDTO Payment);
+        List<PaymentDTO> getEmployeePayments(int employeeId);
 
     }
 }

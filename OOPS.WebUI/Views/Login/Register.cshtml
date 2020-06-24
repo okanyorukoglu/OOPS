@@ -136,7 +136,7 @@
                 <span asp-validation-for="@Model.CompanyName"></span>
             </div>
 
-            <p> Enter your account details below: </p>
+            <p> Hesap Detaylarınızı Giriniz: </p>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9"> @*@sysLanguage.LoginStrings.plc_username*@ </label>
                 <div class="input-icon">
@@ -173,16 +173,16 @@
                 </div>
             </div>
             @*<div class="form-group">
-                <label class="mt-checkbox mt-checkbox-outline">
-                    <input type="checkbox" name="tnc" /> I agree to the
-                    <a href="javascript:;">Terms of Service </a> &
-                    <a href="javascript:;">Privacy Policy </a>
-                    <span></span>
-                </label>
-                <div id="register_tnc_error"> </div>
-            </div>*@
+                    <label class="mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox" name="tnc" /> I agree to the
+                        <a href="javascript:;">Terms of Service </a> &
+                        <a href="javascript:;">Privacy Policy </a>
+                        <span></span>
+                    </label>
+                    <div id="register_tnc_error"> </div>
+                </div>*@
             <div class="form-actions">
-                <button id="register-back-btn" type="button" class="btn red btn-outline"onclick="location.href='/Login'" > Geri </button>
+                <button id="register-back-btn" type="button" class="btn red btn-outline" onclick="location.href='/Login'"> Geri </button>
                 <button type="submit"
                         id="register-submit-btn"
                         class="btn green pull-right"
@@ -197,7 +197,9 @@
     </div>
     <!-- END LOGIN -->
     <!-- BEGIN COPYRIGHT -->
-    <div class="copyright"> 2014 &copy; Metronic - Admin Dashboard Template. </div>
+    @*<div class="copyright"> 2014 &copy; Metronic - Admin Dashboard Template. </div>*@
+    <br />
+    <br />
     <!-- END COPYRIGHT -->
     <!--[if lt IE 9]>
     <script src="../assets/global/plugins/respond.min.js"></script>

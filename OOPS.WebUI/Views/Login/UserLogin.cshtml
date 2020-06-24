@@ -59,7 +59,7 @@
     <div class="content">
         <!-- BEGIN LOGIN FORM -->
         <form asp-action="Login" asp-controller="Login" class="login-form" method="post">
-            <h3 class="form-title">OOPS GİRİŞ</h3>
+            <h3 class="form-title">OOPS Giriş</h3>
             <div class="alert alert-danger display-hide">
                 <button class="close" data-close="alert"></button>
                 <span> @*@sysLanguage.LoginStrings.plc_enteranyusernameandpassword*@ </span>
@@ -72,7 +72,7 @@
                     <input class="form-control placeholder-no-fix"
                            asp-for="Email"
                            type="text" autocomplete="off"
-                           placeholder="E-Mail Address"
+                           placeholder="E-Mail Adresi"
                            name="EMail" />
                 </div>
                 <span asp-validation-for="@Model.Email"></span>
@@ -84,7 +84,7 @@
                     <input class="form-control placeholder-no-fix"
                            asp-for="@Model.Password"
                            type="password" autocomplete="off"
-                           placeholder="Password"
+                           placeholder="Şifre"
                            name="Password" />
                 </div>
                 <span asp-validation-for="@Model.Password"></span>
@@ -95,10 +95,10 @@
             }
             <div class="form-actions">
                 <label class="rememberme mt-checkbox mt-checkbox-outline">
-                    <input type="checkbox" name="remember" value="1" /> Remember?
+                    <input type="checkbox" name="remember" value="1" /> Beni Hatırla
                     <span></span>
                 </label>
-                <button type="submit" class="btn green pull-right"> SignIn</button>
+                <button type="submit" class="btn green pull-right"> Giriş </button>
             </div>
             <div class="forget-password">
                 <h4> @*@sysLanguage.LoginStrings.plc_forgetPassword*@ </h4>

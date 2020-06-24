@@ -1,9 +1,7 @@
-﻿
+﻿@model UserDTO
 @{
     ViewData["Title"] = "Index";
 }
-
-
 
     <div class="profile-content">
         <div class="row">
@@ -33,87 +31,91 @@
                             <li>
                                 <a href="#tab_6" data-toggle="tab">Vize Belgesi Talebi</a>
                             </li>
-
-
-
                         </ul>
                     </div>
                     <div class="portlet-body">
                         <div class="tab-content">
                             <!-- BAŞ GENEL INFO TAB -->
-                            <div class="tab-pane active" id="tab_1">
-                                <form action="#" class="horizontal-form">
-                                    <div class="form-body">
-                                        <!--Genel Bilgiler-->
-                                        <h3 class="form-section">Genel Bilgiler</h3>
-                                        
-                                        <div class="row">
-                                            <div class="btn-toolbar">
-                                                <button type="button" class="btn btn-circle btn-success btn pull-right">Kaydet</button>
-                                                <button type="button" class="btn btn-circle btn-success btn pull-right">Parola Değiştir</button>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <img src="../assets/pages/media/profile/profile_user.jpg" class="img-circle" alt="" height="125px;">
-                                            </div>
+                            <!-- #region MyProfileHesabım -->
+                            @*<div class="tab-pane active" id="tab_1">
+            <form action="#" class="horizontal-form">
+                <div class="form-body">
+                    Genel Bilgiler
+                    <h3 class="form-section">Genel Bilgiler</h3>
 
-                                            <div class="col-md-12">
-                                                <h3 class="text-md-right">Hakan Mert</h3>
-                                                <h5 class="text-md-right">İnsan Kaynakları-İzmir Karşıyaka</h5>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Ad</label>
-                                                    <input type="text" class="form-control" readonly>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Soyad</label>
-                                                    <input type="text" class="form-control" readonly>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Pozisyon </label>
-                                                    <input type="text" class="form-control" readonly>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">İl </label>
-                                                    <input type="text" class="form-control" readonly>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Şube</label>
-                                                    <input type="text" class="form-control" readonly />
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <!--/span-->
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Departman</label>
-                                                    <input type="text" class="form-control" readonly />
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                        </div>
-                                        <!--/row-üstüne yaz-->
+                    <div class="row">
+                        <div class="btn-toolbar">
+                            <button type="button" class="btn btn-circle btn-success btn pull-right">Kaydet</button>
+                            <button type="button" class="btn btn-circle btn-success btn pull-right">Parola Değiştir</button>
+                        </div>
+                        <div class="col-md-12">
+                            <img src="../assets/pages/media/profile/profile_user.jpg" class="img-circle" alt="" height="125px;">
+                        </div>
 
-                                    </div>
-
-                                </form>
+                        <div class="col-md-12">
+                            <h3 class="text-md-right">Hakan Mert</h3>
+                            <h5 class="text-md-right">İnsan Kaynakları-İzmir Karşıyaka</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Ad</label>
+                                <input type="text" class="form-control" readonly>
                             </div>
+                        </div>
+                        /span
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Soyad</label>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+                        /span
+                        /span
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Pozisyon </label>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+                        /span
+                        /span
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">İl </label>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+                        /span
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Şube</label>
+                                <input type="text" class="form-control" readonly />
+                            </div>
+                        </div>
+                        /span
+                        /span
+                        /span
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Departman</label>
+                                <input type="text" class="form-control" readonly />
+                            </div>
+                        </div>
+                        /span
+                    </div>
+                    /row-üstüne yaz
+
+                </div>
+
+            </form>
+        </div>*@
+                            <!-- #endregion -->
+
+                            @await Component.InvokeAsync("Account", new { id = Model.Id })
+
                             <!-- SON GENEL INFO TAB -->
+                            <!-- #region MyProfileHesabım -->
+                            <!-- #endregion -->
                             <!-- BAŞ KARIYER INFO TAB -->
                             <div class="tab-pane" id="tab_2">
                                 <div action="#" class="horizontal-form">
@@ -126,12 +128,12 @@
                                                 </span>
                                             </div>
                                             @*<div class="actions">
-                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                                        <label class="btn sbold green btn-outline btn-circle btn-sm">
-                                                            <input type="radio" name="options" class="toggle">Pozisyon Ekle
-                                                        </label>
-                                                    </div>
-                                                </div>*@
+                            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                    <input type="radio" name="options" class="toggle">Pozisyon Ekle
+                                </label>
+                            </div>
+                        </div>*@
                                         </div>
                                         <div class="portlet-body">
                                             <div class="table-scrollable">
@@ -173,12 +175,12 @@
                                                 </span>
                                             </div>
                                             @*<div class="actions">
-                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                                        <label class="btn sbold green btn-outline btn-circle btn-sm">
-                                                            <input type="radio" name="options" class="toggle">Maaş Ekle
-                                                        </label>
-                                                    </div>
-                                                </div>*@
+                            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                <label class="btn sbold green btn-outline btn-circle btn-sm">
+                                    <input type="radio" name="options" class="toggle">Maaş Ekle
+                                </label>
+                            </div>
+                        </div>*@
                                         </div>
                                         <div class="portlet-body">
                                             <div class="table-scrollable">
@@ -207,114 +209,105 @@
                             </div>
                             <!-- SON KARIYER INFO TAB -->
                             <!-- BAŞ KISISEL BILGILER INFO TAB -->
-                            <div class="tab-pane" id="tab_3">
-                                <form action="#" class="horizontal-form">
-                                    <div class="form-body">
-                                        <div class="caption">
-                                            <span class="caption-subject font-blue-madison bold ">
-                                                İzin Geçmişim
-                                            </span>
-                                        </div>
-                                        <div class="portlet-body">
-                                            <div class="table-scrollable">
-                                                <table class="table table-hover table-light">
-                                                    <thead>
-                                                        <tr>
-                                                            <th> # </th>
-                                                            <th> Başlangıç </th>
-                                                            <th> Bitiş </th>
-                                                            <th> Mesai Başlangıç </th>
-                                                            <th> Süre </th>
-                                                            <th> Türü</th>
-                                                            <th> Açıklama </th>
-                                                            <th> Oluşturulma Tarihi </th>
-                                                            <th> Durum </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                1
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                                @*TODO: permit tablosuna oluşturma tarihi ekle*@
+                            <!-- #region MyProfileİzinGeçmişim -->
+                            @*<div class="tab-pane" id="tab_3">
+            <form action="#" class="horizontal-form">
+                <div class="form-body">
+                    <div class="caption">
+                        <span class="caption-subject font-blue-madison bold ">
+                            İzin Geçmişim
+                        </span>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="table-scrollable">
+                            <table class="table table-hover table-light">
+                                <thead>
+                                    <tr>
+                                        <th> # </th>
+                                        <th> Başlangıç </th>
+                                        <th> Bitiş </th>
+                                        <th> Mesai Başlangıç </th>
+                                        <th> Süre </th>
+                                        <th> Türü</th>
+                                        <th> Açıklama </th>
+                                        <th> Oluşturulma Tarihi </th>
+                                        <th> Durum </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            TODO: permit tablosuna oluşturma tarihi ekle
 
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <!--/row-üsttekinin içine yaz-->
-                                    </div>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    /row-üsttekinin içine yaz
+                </div>
 
-                                </form>
-                            </div>
+            </form>
+        </div>*@
+                            <!-- #endregion -->
+
+                            @await Component.InvokeAsync("MyPermits", new { id = Model.Id })
+
                             <!-- SON KISISEL BILGILER INFO TAB -->
                             <!-- BAŞ DIGER BILGILER INFO TAB -->
-                            <div class="tab-pane" id="tab_4">
-                                <div class="caption">
-                                    <span class="caption-subject font-blue-madison bold ">
-                                        Ödemeler
-                                    </span>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="table-scrollable">
-                                        <table class="table table-hover table-light">
-                                            <thead>
-                                                <tr>
-                                                    <th> # </th>
-                                                    <th> Tarih </th>
-                                                    <th> İşlem </th>
-                                                    <th> Açıklama </th>
-                                                    <th> Tutar </th>
-                                                    <th> Durum </th>
-                                                    <th> Oluşturulma Tarihi </th>
-                                                    <th> Ödendi </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                    </td>
-                                                    <td>
-                                                    </td>
-                                                    <td>
-                                                    </td>
-                                                    <td>
-                                                    </td>
-                                                    <td>
-                                                    </td>
-                                                    <td>
-                                                        @*TODO: permit tablosuna oluşturma tarihi ekle*@
+                            <!-- #region MyProfileÖdemeler -->
+                            @*<div class="tab-pane" id="tab_4">
+            <div class="caption">
+                <span class="caption-subject font-blue-madison bold ">
+                    Ödemeler
+                </span>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Tarih </th>
+                                <th> İşlem </th>
+                                <th> Tutar </th>
+                                <th> Açıklama </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>*@
+                            <!-- #endregion -->
 
-                                                    </td>
-                                                    <td>
-                                                    </td>
-                                                    <td>
-                                                    </td>
-                                                    <td>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                            @await Component.InvokeAsync("MyPayments", new { id = Model.Id })
+
                             <!-- SON DIGER BILGILER INFO TAB -->
                             <!-- BAŞ IZINLER INFO TAB -->
                             <div class="tab-pane" id="tab_5">
@@ -327,39 +320,39 @@
                                                 </span>
                                             </div>
                                             @*<div class="actions">
-                                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                                        <div class="col-md-6">
-                                                            <div class="btn-group">
-                                                                <button class="btn btn-circle sbold green">
-                                                                    Yeni İzin Ekle
-                                                                    <i class="fa fa-plus"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="btn-group pull-right">
-                                                                <button class="btn green btn-circle btn-outline dropdown-toggle" data-toggle="dropdown">
-                                                                    İşlemler
-                                                                    <i class="fa fa-angle-down"></i>
-                                                                </button>
-                                                                <ul class="dropdown-menu pull-right">
-                                                                    <li>
-                                                                        <a href="javascript:;">
-                                                                            <i class="fa fa-bolt"></i> Ekstra İzin Günü Ekle
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">
-                                                                            <i class="fa fa-paper-plane-o"></i> Yıllık İzin Mütabakat Formu İndir
-                                                                        </a>
-                                                                    </li>
+                            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <button class="btn btn-circle sbold green">
+                                            Yeni İzin Ekle
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="btn-group pull-right">
+                                        <button class="btn green btn-circle btn-outline dropdown-toggle" data-toggle="dropdown">
+                                            İşlemler
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="fa fa-bolt"></i> Ekstra İzin Günü Ekle
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="fa fa-paper-plane-o"></i> Yıllık İzin Mütabakat Formu İndir
+                                                </a>
+                                            </li>
 
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                                                    </div>
-                                                </div>*@
+                            </div>
+                        </div>*@
                                         </div>
                                         <div class="portlet-body">
                                             <div class="table-scrollable">
@@ -412,58 +405,63 @@
                             </div>
                             <!-- SON IZINLER INFO TAB -->
                             <!-- BAŞ ODEMELER INFO TAB -->
-                            <div class="tab-pane" id="tab_6">
-                                <div action="#" class="horizontal-form">
+                            <!-- #region MyProfileVizeBelgesi -->
+                            @*<div class="tab-pane" id="tab_6">
+            <div action="#" class="horizontal-form">
 
-                                    <div class="portlet light ">
-                                        <div class="portlet-title">
-                                            <div class="caption">
-                                                <span class="caption-subject font-blue-madison bold ">
-                                                    Vize Belgesi
-                                                </span>
-                                            </div>
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject font-blue-madison bold ">
+                                Vize Belgesi
+                            </span>
+                        </div>
 
 
-                                        </div>
-                                        <button type="button" class="btn btn-circle btn-success btn pull-right" >Vize Ekle</button>
-                                        <div class="portlet-body">
-                                            <div class="table-scrollable">
-                                                <table class="table table-hover table-light">
-                                                    <thead>
-                                                        <tr>
-                                                            <th> # </th>
-                                                            <th> Dosya Adı </th>
-                                                            <th> Dosya Açıklaması </th>
-                                                            <th> Kayıtlı Dosya </th>
-                                                            <th> Durum </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td> 1 </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td></td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                    <button type="button" class="btn btn-circle btn-success btn pull-right">Vize Ekle</button>
+                    <div class="portlet-body">
+                        <div class="table-scrollable">
+                            <table class="table table-hover table-light">
+                                <thead>
+                                    <tr>
+                                        <th> # </th>
+                                        <th> Dosya Adı </th>
+                                        <th> Dosya Açıklaması </th>
+                                        <th> Kayıtlı Dosya </th>
+                                        <th> Durum </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> 1 </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+                            <!-- #endregion -->
+
+                            @await Component.InvokeAsync("MyVisas", new { id = Model.Id })
+
                             <!-- SON ODEMELER INFO TAB -->
                             <!-- BAŞ ZIMMETLER INFO TAB -->
                             <div class="tab-pane" id="tab_1_1">

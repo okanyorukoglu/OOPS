@@ -12,19 +12,19 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="form-body">
-                                <div class="col-md-12">
+                                @*<div class="col-md-12">
                                     <div class="col-md-12">
                                         <button class="btn blue btn-block btn-outline ">Fiş Ekle</button>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="col-md-12">
-                                        @*<form action="~/assets/global/plugins/dropzone/upload.php" class="dropzone dropzone-file-area" id="my-dropzone" style="width: 535px; margin-top: 4px;">
+                                        <form action="~/assets/global/plugins/dropzone/upload.php" class="dropzone dropzone-file-area" id="my-dropzone" style="width: 535px; margin-top: 4px;">
                                             <h6 class="sbold">Fişleri Sürükleyin Buraya Bırakın veya Seçin</h6>
 
-                                        </form>*@
+                                        </form>
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="col-md-12">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -50,7 +50,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Açıklama</label>
-                                            <input type="text" class="form-control" name="@Html.NameFor(m=>m.Description)">
+                                            <textarea name="@Html.NameFor(m=>m.Description)" class="form-control" style="resize:vertical" rows="1"></textarea>
                                         </div>
                                     </div>
                                 </div>

@@ -107,7 +107,7 @@
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
+                                <span class="caption-subject font-blue-madison bold uppercase"> Hesap Bilgileri </span>
                             </div>
                             <ul class="nav nav-tabs">
                                 <li class="active">
@@ -674,8 +674,6 @@
                                                                 <th> Oluşturma Tarihi </th>
                                                                 <th> Açıklama </th>
                                                                 <th> Göreve Başlama Tarihi </th>
-                                                                <th> Durum </th>
-                                                                <th> Etiketler </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -690,12 +688,6 @@
                                                                     <td>@Model.Employee.EmployeePermits[i].Permit.CreateDate.ToString("dd.MM.yyyy")</td>
                                                                     <td>@Model.Employee.EmployeePermits[i].Permit.Description</td>
                                                                     <td>@Model.Employee.EmployeePermits[i].Permit.StartWorkDate.ToString("dd.MM.yyyy")</td>
-                                                                    <td>
-                                                                        <span class="label label-sm label-warning">  </span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="label label-sm label-success">  </span>
-                                                                    </td>
                                                                 </tr>
                                                             }
                                                         </tbody>
@@ -741,8 +733,8 @@
                                                                 <th> İşlem </th>
                                                                 <th> Tutar </th>
                                                                 <th> Açıklama </th>
-                                                                <th> Durum </th>
-                                                                <th> Ödendi </th>
+                                                                @*<th> Durum </th>
+                                                                <th> Ödendi </th>*@
                                                                 @*<th> Etiketler </th>*@
                                                             </tr>
                                                         </thead>
@@ -763,13 +755,13 @@
                                                                     <td>
                                                                         @Model.Employee.EmployeePayments[i].Payment.Description
                                                                     </td>
-                                                                    <td>
+                                                                    @*<td>
                                                                         <i class="fa fa-check" style="color:lightseagreen"></i>
                                                                         Onay Alındı
                                                                     </td>      
                                                                     <td>
                                                                         <i class="fa fa-diamond" style="color:lightseagreen"></i>
-                                                                    </td>
+                                                                    </td>*@
                                                                     @*<td>
                                                                         <span class="label label-sm label-success"> Approved </span>
                                                                     </td>*@
@@ -822,17 +814,11 @@
                                                             {
                                                                 <tr>
                                                                     <td>@(i + 1)</td>
-                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.DebitCategory</td>
+                                                                    <td>@Model.Employee.EmployeeDebits[i].Debit.DebitCategory.Name</td>
                                                                     <td>@Model.Employee.EmployeeDebits[i].Debit.SerialNumber</td>
                                                                     <td>@Model.Employee.EmployeeDebits[i].Debit.DateOfIssue</td>
                                                                     <td>@Model.Employee.EmployeeDebits[i].Debit.ReturnDate</td>
                                                                     <td>@Model.Employee.EmployeeDebits[i].Debit.Description</td>
-                                                                    <td>
-                                                                        <span class="label label-sm label-warning">  </span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="label label-sm label-success">  </span>
-                                                                    </td>
                                                                 </tr>
                                                             }
 
@@ -1015,7 +1001,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">İzin Talep Et</h4>
+                    <h4 class="modal-title">Pozisyon Ekle</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">

@@ -58,8 +58,7 @@ namespace OOPS.DAL
                 Title = "Yönetici",
                 UserID = 2,
                 PhoneBusiness = "05346663322",
-                EmailBusiness = "hakanmert@gmail.com",
-
+                EmailBusiness = "hakanmert@gmail.com"
             },
             new Employee
             {

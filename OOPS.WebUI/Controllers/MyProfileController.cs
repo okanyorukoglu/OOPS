@@ -10,11 +10,14 @@ namespace OOPS.WebUI.Controllers
 {
     public class MyProfileController : BaseController
     {
+        public MyProfileController()
+        {
+           
+        }
         public IActionResult Index()
         {
-            return View();
+            return View(CurrentUser);
         }
-
     }
 
 

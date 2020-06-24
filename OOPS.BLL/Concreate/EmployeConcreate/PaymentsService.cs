@@ -28,7 +28,11 @@ namespace OOPS.BLL.Concreate.EmployeConcreate
         {
             throw new NotImplementedException();
         }
-
+        public List<PaymentDTO> getEmployeePayments(int employeeId)
+        {
+            var emp = uow.GetRepository<EmployeePayment>().GetAll().Where(z => z.EmployeeId == employeeId).Select(x => x.Payment).ToList();
+            return MapperFactory.CurrentMapper.Map<List<PaymentDTO>>(emp);
+        }
         public PaymentDTO newPayment(PaymentDTO Payment)
         {
             var addedPayment = MapperFactory.CurrentMapper.Map<Payment>(Payment);

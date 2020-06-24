@@ -6,41 +6,41 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <!--Etkinlik Takvimi-->
+                <!--Avans Talepleri-->
                 <div class="col-md-4">
-                    @await Component.InvokeAsync("ActivityCalenders")
+                    @await Component.InvokeAsync("Advances")
                 </div>
                 <!------------------------>
                 <!--Ödeme Talepleri-->
                 <div class="col-md-4">
                     @*<div class="list-group-item  align-items-center">
-            <span class="caption-subject font-dark bold "><i class="icon-umbrella"></i> Ödeme Talepleri </span>
-        </div>
-        <div class="table-scrollable">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th> İsim </th>
-                        <th> Tutar </th>
-                        <th> Tarih </th>
-                    </tr>
-                </thead>
-                <tbody>
+                            <span class="caption-subject font-dark bold "><i class="icon-umbrella"></i> Ödeme Talepleri </span>
+                        </div>
+                        <div class="table-scrollable">
+                            <table class="table table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th> İsim </th>
+                                        <th> Tutar </th>
+                                        <th> Tarih </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                </tbody>
-            </table>
-        </div>*@
+                                </tbody>
+                            </table>
+                        </div>*@
                     @await Component.InvokeAsync("Payments", new { companyId = Model.CompanyID })
                 </div>
                 <!------------------------>
                 <!--Fazla Mesai Talepleri-->
                 <div class="col-md-4">
-                    @await Component.InvokeAsync("Overtimes" , new { companyId = Model.CompanyID })
+                    @await Component.InvokeAsync("Overtimes", new { companyId = Model.CompanyID })
                 </div>
                 <!------------------------>
             </div>
             <div class="row">
-                
+
                 <!--Vize Belgesi Talepleri-->
                 <div class="col-md-4">
                     @await Component.InvokeAsync("VisaDocumentRequests")
@@ -48,7 +48,7 @@
                 <!------------------------>
                 <!--İzin Talepleri-->
                 <div class="col-md-4">
-                    @await Component.InvokeAsync("Permits", new { companyId = Model.CompanyID})
+                    @await Component.InvokeAsync("Permits", new { companyId = Model.CompanyID })
 
                 </div>
                 <!------------------------>
@@ -64,9 +64,9 @@
                     @await Component.InvokeAsync("PublicHolidays")
                 </div>
                 <!------------------------>
-                <!--Avans Talepleri-->
+                <!--Etkinlik Takvimi-->
                 <div class="col-md-4">
-                    @await Component.InvokeAsync("Advances")
+                    @await Component.InvokeAsync("ActivityCalenders")
                 </div>
                 <!------------------------>
                 <!--Yaklaşan Doğum Günleri-->

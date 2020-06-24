@@ -1,0 +1,74 @@
+﻿@model EmployeeDTO
+
+<div class="tab-pane active" id="tab_1">
+    <form action="#" class="horizontal-form">
+        <div class="form-body">
+            <!--Genel Bilgiler-->
+            <h3 class="form-section">Genel Bilgiler</h3>
+
+            <div class="row">
+                <div class="btn-toolbar">
+                    <button type="button" class="btn btn-circle btn-success btn pull-right">Kaydet</button>
+                    <button type="button" class="btn btn-circle btn-success btn pull-right">Parola Değiştir</button>
+                </div>
+                <div class="col-md-12">
+                    <img src="../assets/pages/media/profile/profile_user.jpg" class="img-circle" alt="" height="125px;">
+                </div>
+
+                <div class="col-md-12">
+                    <h3 class="text-md-right">@Model.Name @Model.Surname</h3>
+                    <h5 class="text-md-right">@Model.Title</h5>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Ad</label>
+                        <input type="text" class="form-control" value="@Model.Name" readonly>
+                    </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Soyad</label>
+                        <input type="text" class="form-control" value="@Model.Surname" readonly>
+                    </div>
+                </div>
+                <!--/span-->
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Pozisyon </label>
+                        <input type="text" class="form-control" value="@Model.Title" readonly>
+                    </div>
+                </div>
+                <!--/span-->
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">İş Telefonu </label>
+                        <input type="text" class="form-control" value="@Model.PhoneBusiness" readonly>
+                    </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">E-mail(iş)</label>
+                        <input type="text" class="form-control" value="@Model.EmailBusiness" readonly />
+                    </div>
+                </div>
+                <!--/span-->
+                <!--/span-->
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">İşe Başlama Tarihi</label>
+                        <input type="text" class="form-control" value="@Model.StartDate" readonly />
+                    </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-üstüne yaz-->
+
+        </div>
+
+    </form>
+</div>
