@@ -11,6 +11,7 @@ using OOPS.BLL.Abstract.StaticAbstract;
 using OOPS.DTO.Employee;
 using OOPS.DTO.ProjectBase;
 using OOPS.WebUI.Models;
+using OOPS.WebUI.Utils;
 
 namespace OOPS.WebUI.Controllers
 {
@@ -222,10 +223,20 @@ namespace OOPS.WebUI.Controllers
             return RedirectToAction("List");
         }
 
-        public IActionResult DeleteEmployee(int Id)
+        public ActionResult<WebResponse> DeleteEmployee(int Id)
         {
-            service.deleteEmployee(Id);
-            return RedirectToAction("List");
+            if (service.getEmployee(Id).User != null && CurrentUser.Id == service.getEmployee(Id).User.Id)
+            {
+
+                return new WebResponse() { Status = -1001, Message = "Giriş yapan kullanıcı kendini silemez" }; ;
+            }
+            var result = service.deleteEmployee(Id);
+            if (result)
+            {
+                return RedirectToAction("List");
+            }
+           
+            return new WebResponse() { Status = -9999, Message = "Beklenmeyen bir hata oluştu" }; ;
         }
     }
 }
