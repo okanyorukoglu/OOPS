@@ -13,7 +13,7 @@ namespace OOPS.DAL.MappingConfiguration
         {
             builder.Property(z => z.Name).IsRequired();
             builder.Property(z => z.Surname).IsRequired();
-            builder.Property(z => z.EmailBusiness).IsRequired();
+           
        
 
         }

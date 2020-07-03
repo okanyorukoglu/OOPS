@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Castle.Core.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OOPS.BLL.Abstract;
@@ -217,10 +218,20 @@ namespace OOPS.WebUI.Controllers
         [HttpPost]
         public IActionResult AddEmployee(EmployeeDTO employee)
         {
-            employee.CompanyID = (int)CurrentUser.CompanyID;
-            service.newEmployee(employee);
+            if (ModelState.IsValid)
+            {
+                employee.CompanyID = (int)CurrentUser.CompanyID;
+                service.newEmployee(employee);
 
-            return RedirectToAction("List");
+                return RedirectToAction("List");
+            }
+            else
+            {
+                ModelState.AddModelError("Name", "Lütfen tüm alanları doldurunuz");
+                return View();
+            }
+
+            
         }
 
         public ActionResult<WebResponse> DeleteEmployee(int Id)

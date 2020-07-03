@@ -26,14 +26,14 @@ namespace OOPS.Model.EmployeeModel
             EmployeePayments = new HashSet<EmployeePayment>();
 
         }
-       
+        [Required(ErrorMessage = "İsim Alanı boş geçilemez!!!")]
         public string Name { get; set; }
-       
+        [Required(ErrorMessage = "Soyadı Alanı boş geçilemez!!!")]
         public string Surname { get; set; }
         public string Title { get; set; }
 
         public string PhonePersonal { get; set; }
-        public string  PhoneBusiness { get; set; }
+        public string PhoneBusiness { get; set; }
         public string EmailBusiness { get; set; }
 
         public DateTime? StartDate { get; set; }

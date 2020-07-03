@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OOPS.DAL.MappingConfiguration;
 using OOPS.Model.CompanyModels;
 using OOPS.Model.EmployeeModel;
 using OOPS.Model.ProjectBaseModel;
@@ -72,13 +73,14 @@ namespace OOPS.DAL
 
 
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
             modelBuilder.Seed();
 
-            
+            modelBuilder.ApplyConfiguration(new EmployeeMap());
+
+            //modelBuilder.Entity<Employee>().Property(z => z.Name).IsRequired();
 
             modelBuilder.Entity<EmployeeAdvance>()
             .HasKey(hk => new { hk.EmployeeId, hk.AdvanceId });
