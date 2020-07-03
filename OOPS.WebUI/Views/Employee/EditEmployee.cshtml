@@ -891,12 +891,33 @@
                                                 </div>
                                                 <div class="actions">
                                                     <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                                        <label class="btn sbold green btn-outline btn-circle btn-sm active">
-                                                            <input type="radio" name="options" class="toggle" id="option2">Klasör Oluştur
-                                                        </label>
+                                                        <button type="button" class="btn green  btn-circle btn pull-right"
+                                                                data-toggle="modal" data-target="#klasorModal">
+                                                            Klasör Oluştur
+                                                        </button>
                                                         <label class="btn sbold green btn-outline btn-circle btn-sm">
                                                             <input type="radio" name="options" class="toggle" id="option2">Dosya Yükle
                                                         </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="klasorModal" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                            <h4>Klasör Oluştur</h4>
+
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label>Klasör Adı</label>
+                                                            <input type="text" class="form-control">
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+                                                            <button type="button" class="btn green">Kaydet</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

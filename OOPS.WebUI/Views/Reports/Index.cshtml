@@ -21,12 +21,109 @@
                             <h3 class="mt-username">Çalışan</h3>
                             <p class="mt-user-title"> Yaş, cinsiyet, eğitim durumu gibi dağılım bilgilerini kullanarak raporlar oluşturun. </p>
                             <div class="mt-stats">
-                                <div class="btn-group btn-group btn-group-justified">
-                                    <a href="/ReportsEmployee/Index" class="btn font-blue">
+                                <div typeof="button" data-toggle="modal" data-target="#orModal" class="btn-group btn-group btn-group-justified">
+                                    <a class="btn font-blue">
                                         Ekle
                                     </a>
-
                                 </div>
+                                <div class="modal fade" id="orModal" tabindex="1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                <h4 class="modal-title">Rapor Oluşturun</h4>
+                                            </div>
+
+
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="form-body">
+                                                        <div class="col-md-12">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Rapor Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">Rapor Seçiniz</option>
+                                                                        <option value="2">Yaş Dağılımı</option>
+                                                                        <option value="3">Cinsiyet Dağılımı</option>
+                                                                        <option value="4">Askerlik Durumu Dağılımı</option>
+                                                                        <option value="5">Eğitim Durumları</option>
+                                                                        <option value="6">Engelli Çalışan Listesi</option>
+                                                                        <option value="7">Çalışan Listesi</option>
+                                                                        <option value="8">Doğum Günü Raporu</option>
+                                                                        <option value="9">Eğitim Bilgileri</option>
+                                                                        <option value="10">Birim Dağılımı</option>
+                                                                        <option value="11">Kan Grubu Dağılımı</option>
+                                                                        <option value="12">Özel Alanlar</option>
+                                                                        <option value="13">Çalışma Takvimi Raporu</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Filtreler</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Ay Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">Ocak</option>
+                                                                        <option value="2">Şubat</option>
+                                                                        <option value="3">Mart</option>
+                                                                        <option value="4">Nisan</option>
+                                                                        <option value="5">Mayıs</option>
+                                                                        <option value="6">Haziran</option>
+                                                                        <option value="7">Temmuz</option>
+                                                                        <option value="8">Ağustos</option>
+                                                                        <option value="9">Eylül</option>
+                                                                        <option value="10">Ekim</option>
+                                                                        <option value="11">Kasım</option>
+                                                                        <option value="12">Aralık</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Yıl Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">2020</option>
+                                                                        <option value="2">2019</option>
+                                                                        <option value="3">2018</option>
+                                                                        <option value="4">2017</option>
+                                                                        <option value="5">2016</option>
+                                                                        <option value="6">2015</option>
+                                                                        <option value="7">2014</option>
+                                                                        <option value="8">2013</option>
+                                                                        <option value="9">2012</option>
+                                                                        <option value="10">2011</option>
+                                                                        <option value="11">2010</option>
+                                                                        <option value="12">2009</option>
+                                                                        <option value="13">2008</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                                                <button type="submit" class="btn green">Kaydet</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -41,10 +138,107 @@
                             <h3 class="mt-username">Finans</h3>
                             <p class="mt-user-title"> Aylık maliyet, maaş, diğer ödeme bilgileriyle ilgili raporlar oluşturun. </p>
                             <div class="mt-stats">
-                                <div class="btn-group btn-group btn-group-justified">
+                                <div typeof="button" data-toggle="modal" data-target="#orModal" class="btn-group btn-group btn-group-justified">
                                     <a class="btn font-blue">
                                         Ekle
                                     </a>
+                                </div>
+                                <div class="modal fade" id="orModal" tabindex="1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                <h4 class="modal-title">Rapor Oluşturun</h4>
+                                            </div>
+
+
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="form-body">
+                                                        <div class="col-md-12">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Rapor Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">Rapor Seçiniz</option>
+                                                                        <option value="2">Yaş Dağılımı</option>
+                                                                        <option value="3">Cinsiyet Dağılımı</option>
+                                                                        <option value="4">Askerlik Durumu Dağılımı</option>
+                                                                        <option value="5">Eğitim Durumları</option>
+                                                                        <option value="6">Engelli Çalışan Listesi</option>
+                                                                        <option value="7">Çalışan Listesi</option>
+                                                                        <option value="8">Doğum Günü Raporu</option>
+                                                                        <option value="9">Eğitim Bilgileri</option>
+                                                                        <option value="10">Birim Dağılımı</option>
+                                                                        <option value="11">Kan Grubu Dağılımı</option>
+                                                                        <option value="12">Özel Alanlar</option>
+                                                                        <option value="13">Çalışma Takvimi Raporu</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Filtreler</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Ay Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">Ocak</option>
+                                                                        <option value="2">Şubat</option>
+                                                                        <option value="3">Mart</option>
+                                                                        <option value="4">Nisan</option>
+                                                                        <option value="5">Mayıs</option>
+                                                                        <option value="6">Haziran</option>
+                                                                        <option value="7">Temmuz</option>
+                                                                        <option value="8">Ağustos</option>
+                                                                        <option value="9">Eylül</option>
+                                                                        <option value="10">Ekim</option>
+                                                                        <option value="11">Kasım</option>
+                                                                        <option value="12">Aralık</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Yıl Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">2020</option>
+                                                                        <option value="2">2019</option>
+                                                                        <option value="3">2018</option>
+                                                                        <option value="4">2017</option>
+                                                                        <option value="5">2016</option>
+                                                                        <option value="6">2015</option>
+                                                                        <option value="7">2014</option>
+                                                                        <option value="8">2013</option>
+                                                                        <option value="9">2012</option>
+                                                                        <option value="10">2011</option>
+                                                                        <option value="11">2010</option>
+                                                                        <option value="12">2009</option>
+                                                                        <option value="13">2008</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                                                <button type="submit" class="btn green">Kaydet</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -60,10 +254,107 @@
                             <h3 class="mt-username">İdari</h3>
                             <p class="mt-user-title"> Çalışan izin, zimmet, turnover gibi bilgileri kullanarak raporlar oluşturun. </p>
                             <div class="mt-stats">
-                                <div class="btn-group btn-group btn-group-justified">
+                                <div typeof="button" data-toggle="modal" data-target="#orModal" class="btn-group btn-group btn-group-justified">
                                     <a class="btn font-blue">
                                         Ekle
                                     </a>
+                                </div>
+                                <div class="modal fade" id="orModal" tabindex="1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                <h4 class="modal-title">Rapor Oluşturun</h4>
+                                            </div>
+
+
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="form-body">
+                                                        <div class="col-md-12">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Rapor Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">Rapor Seçiniz</option>
+                                                                        <option value="2">Yaş Dağılımı</option>
+                                                                        <option value="3">Cinsiyet Dağılımı</option>
+                                                                        <option value="4">Askerlik Durumu Dağılımı</option>
+                                                                        <option value="5">Eğitim Durumları</option>
+                                                                        <option value="6">Engelli Çalışan Listesi</option>
+                                                                        <option value="7">Çalışan Listesi</option>
+                                                                        <option value="8">Doğum Günü Raporu</option>
+                                                                        <option value="9">Eğitim Bilgileri</option>
+                                                                        <option value="10">Birim Dağılımı</option>
+                                                                        <option value="11">Kan Grubu Dağılımı</option>
+                                                                        <option value="12">Özel Alanlar</option>
+                                                                        <option value="13">Çalışma Takvimi Raporu</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Filtreler</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Ay Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">Ocak</option>
+                                                                        <option value="2">Şubat</option>
+                                                                        <option value="3">Mart</option>
+                                                                        <option value="4">Nisan</option>
+                                                                        <option value="5">Mayıs</option>
+                                                                        <option value="6">Haziran</option>
+                                                                        <option value="7">Temmuz</option>
+                                                                        <option value="8">Ağustos</option>
+                                                                        <option value="9">Eylül</option>
+                                                                        <option value="10">Ekim</option>
+                                                                        <option value="11">Kasım</option>
+                                                                        <option value="12">Aralık</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Yıl Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">2020</option>
+                                                                        <option value="2">2019</option>
+                                                                        <option value="3">2018</option>
+                                                                        <option value="4">2017</option>
+                                                                        <option value="5">2016</option>
+                                                                        <option value="6">2015</option>
+                                                                        <option value="7">2014</option>
+                                                                        <option value="8">2013</option>
+                                                                        <option value="9">2012</option>
+                                                                        <option value="10">2011</option>
+                                                                        <option value="11">2010</option>
+                                                                        <option value="12">2009</option>
+                                                                        <option value="13">2008</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                                                <button type="submit" class="btn green">Kaydet</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -79,10 +370,107 @@
                             <h3 class="mt-username">Kendin Oluştur</h3>
                             <p class="mt-user-title"> İstediğiniz alanları seçerek kendinize özel rapor oluşturun. </p>
                             <div class="mt-stats">
-                                <div class="btn-group btn-group btn-group-justified">
+                                <div typeof="button" data-toggle="modal" data-target="#orModal" class="btn-group btn-group btn-group-justified">
                                     <a class="btn font-blue">
                                         Ekle
                                     </a>
+                                </div>
+                                <div class="modal fade" id="orModal" tabindex="1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                <h4 class="modal-title">Rapor Oluşturun</h4>
+                                            </div>
+
+
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="form-body">
+                                                        <div class="col-md-12">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Rapor Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">Rapor Seçiniz</option>
+                                                                        <option value="2">Yaş Dağılımı</option>
+                                                                        <option value="3">Cinsiyet Dağılımı</option>
+                                                                        <option value="4">Askerlik Durumu Dağılımı</option>
+                                                                        <option value="5">Eğitim Durumları</option>
+                                                                        <option value="6">Engelli Çalışan Listesi</option>
+                                                                        <option value="7">Çalışan Listesi</option>
+                                                                        <option value="8">Doğum Günü Raporu</option>
+                                                                        <option value="9">Eğitim Bilgileri</option>
+                                                                        <option value="10">Birim Dağılımı</option>
+                                                                        <option value="11">Kan Grubu Dağılımı</option>
+                                                                        <option value="12">Özel Alanlar</option>
+                                                                        <option value="13">Çalışma Takvimi Raporu</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Filtreler</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Ay Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">Ocak</option>
+                                                                        <option value="2">Şubat</option>
+                                                                        <option value="3">Mart</option>
+                                                                        <option value="4">Nisan</option>
+                                                                        <option value="5">Mayıs</option>
+                                                                        <option value="6">Haziran</option>
+                                                                        <option value="7">Temmuz</option>
+                                                                        <option value="8">Ağustos</option>
+                                                                        <option value="9">Eylül</option>
+                                                                        <option value="10">Ekim</option>
+                                                                        <option value="11">Kasım</option>
+                                                                        <option value="12">Aralık</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Yıl Seçiniz</label>
+                                                                    <select name="DebitCategoryID" class="form-control">
+                                                                        <option value="1">2020</option>
+                                                                        <option value="2">2019</option>
+                                                                        <option value="3">2018</option>
+                                                                        <option value="4">2017</option>
+                                                                        <option value="5">2016</option>
+                                                                        <option value="6">2015</option>
+                                                                        <option value="7">2014</option>
+                                                                        <option value="8">2013</option>
+                                                                        <option value="9">2012</option>
+                                                                        <option value="10">2011</option>
+                                                                        <option value="11">2010</option>
+                                                                        <option value="12">2009</option>
+                                                                        <option value="13">2008</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn dark btn-outline" data-dismiss="modal">İptal</button>
+                                                <button type="submit" class="btn green">Kaydet</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
