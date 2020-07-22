@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OOPS.BLL.Abstract;
 using OOPS.BLL.Abstract.CompanyAbstract;
@@ -12,6 +13,7 @@ using OOPS.WebUI.Models;
 
 namespace OOPS.WebUI.Controllers
 {
+    //[Authorize(Roles = "Admin")]
     public class SettingsController : BaseController
     {
 
