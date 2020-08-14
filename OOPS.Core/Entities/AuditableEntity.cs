@@ -9,5 +9,7 @@ namespace OOPS.Core.Entities
         public DateTime CreatedDate { get; set; }
         public T? UpdatedBy { get; set; }
         public DateTime? UpdateDate { get; set; }
+
+            
     }
 }
