@@ -10,6 +10,7 @@ namespace OOPS.Core.Entities
         public T? UpdatedBy { get; set; }
         public DateTime? UpdateDate { get; set; }
 
-            
+
+
     }
 }
